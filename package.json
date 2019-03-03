@@ -1,0 +1,25 @@
+{
+  "name": "nathanbuchar.com",
+  "private": true,
+  "scripts": {
+    "build": "webpack"
+  },
+  "dependencies": {
+    "css-loader": "^2.1.0",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0",
+    "koa": "^2.7.0",
+    "koa-static": "^5.0.0",
+    "node-sass": "^4.11.0",
+    "nunjucks-html-loader": "^1.1.0",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.2.3"
+  },
+  "devDependencies": {
+    "eslint": "^5.15.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.16.0"
+  }
+}
