@@ -6,20 +6,16 @@
     <meta name="description" content="{% block description %}Nathan Buchar is a San Francisco-based software engineer.{% endblock %}"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-    {% include "common/njk/includes/bootstrap.njk" %}
-    {% include "common/njk/includes/fonts.njk" %}
-    {% include "common/njk/includes/ga.njk" %}
+    {% include "common/html/includes/bootstrap.njk" %}
+    {% include "common/html/includes/fonts.njk" %}
+    {% include "common/html/includes/ga.njk" %}
   </head>
   <body>
     <div role="main">
       <div class="container">
         <div class="row py-4 py-sm-5">
           <div class="col col-sm-6">
-            <div class="row">
-              <div class="col">
-                <p class="d-inline-block mb-0"><b><a href="/">Nathan Buchar</a></b></p>
-              </div>
-            </div>
+            {% include "common/html/includes/header.njk" %}
             <div class="row pt-4 pt-sm-5">
               <div class="col">
                 {% block content %}
@@ -27,13 +23,7 @@
                 {% endblock %}
               </div>
             </div>
-            <div class="row pt-4 pt-sm-5">
-              <div class="col">
-                <p class="mb-0">&mdash;</p>
-                <p class="mb-0"><a href="//github.com/nathanbuchar">GitHub</a></p>
-                <p class="mb-0"><a href="mailto:hello@nathanbuchar.com">hello@nathanbuchar.com</a></p>
-              </div>
-            </div>
+            {% include "common/html/includes/footer.njk" %}
           </div>
         </div>
       </div>

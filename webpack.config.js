@@ -1,3 +1,4 @@
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 
 const path = require('path');
@@ -31,9 +32,9 @@ const baseConfig = {
   },
   resolve: {
     alias: {
-      common: path.resolve(__dirname, 'src/common/'),
-      global: path.resolve(__dirname, 'src/global/'),
-      pages: path.resolve(__dirname, 'src/pages/'),
+      common: path.resolve('src/common/'),
+      global: path.resolve('src/global/'),
+      pages: path.resolve('src/pages/'),
     },
   },
 };
@@ -43,6 +44,9 @@ module.exports = [
     ...baseConfig,
     entry: path.resolve('src/pages/home'),
     plugins: [
+      new CopyWebpackPlugin([
+        { from: 'src/static' },
+      ]),
       new HTMLWebpackPlugin({
         template: path.resolve('src/pages/home/index.njk'),
         filename: path.resolve('dist/index.html'),
