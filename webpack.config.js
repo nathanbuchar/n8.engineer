@@ -45,7 +45,9 @@ module.exports = [
     entry: path.resolve('src/pages/home'),
     plugins: [
       new CopyWebpackPlugin([
-        { from: 'src/static' },
+        {
+          from: path.resolve('src/static'),
+        },
       ]),
       new HTMLWebpackPlugin({
         template: path.resolve('src/pages/home/index.njk'),

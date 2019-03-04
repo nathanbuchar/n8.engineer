@@ -2,7 +2,7 @@
 
 This project uses third party material from the projects listed below.
 
-**CSS Loader, HTML Loader, HTML Webpack Plugin, SASS Loader, Style Loader, Webpack, Webpack CLI**
+**Copy Webpack Plugin, CSS Loader, HTML Loader, HTML Webpack Plugin, SASS Loader, Style Loader, Webpack, Webpack CLI**
 ```
 Copyright JS Foundation and other contributors
 
