@@ -1,0 +1,71 @@
+==================================================================
+https://keybase.io/nbuchar
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://nathanbuchar.com
+  * I am nbuchar (https://keybase.io/nbuchar) on keybase.
+  * I have a public key with fingerprint 2F1C 3357 3B3E EA66 D883  5FA2 9450 D9A7 76DA CC2D
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "010199aa21d5e6e36cf12168755642bf16529e8f1107940c92853c10c4ade236405d0a",
+      "fingerprint": "2f1c33573b3eea66d8835fa29450d9a776dacc2d",
+      "host": "keybase.io",
+      "key_id": "9450d9a776dacc2d",
+      "kid": "010199aa21d5e6e36cf12168755642bf16529e8f1107940c92853c10c4ade236405d0a",
+      "uid": "e4d5764e97468f2800c4369c58f85419",
+      "username": "nbuchar"
+    },
+    "service": {
+      "hostname": "nathanbuchar.com",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 1
+  },
+  "ctime": 1551660376,
+  "expire_in": 157680000,
+  "prev": "defef29cc1b56a9c09eba03b1814b830a35fd5fa9d25fd7c2b276c0a2dd5d0b8",
+  "seqno": 9,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.1.0
+Comment: https://keybase.io/crypto
+
+yMK/AnicrZJtbBRFHMbvLC30xdLEF7SK4IpKjhZmZ3dnd641ICiipilvkRok5+7O
+7N3Su91z9/YQa2mrpxFrOBMg0npaSaQahaAfCNBAWmsrpmrQStFSSDXFfoDTYEB8
+wYizDXzzo5/m7fc88/z/MwM3FgRKgjtWjr6XPvVldfCLTzq9wFPPew1NnGaTzVy4
+iWukUwONE+qmIo0m4cIc4AGPsapCnkgUUQHpBg95pMiShESoGTySIKaKwfNAxiLQ
+MVQkQeeBLqqEQgGJQCJA5ao4w7Si1Ek6ppVittDgdUGQZEETKFURIooiSIYKsSgB
+glVZRkTVdUiYMGa7voKF01SXLjRttscWkal4/8H/z7m9KTsqEklGIsWyiBQDKoCB
+AsK6pBiKJPLYB13qWGqCMtrSPD2mOlxzFcc206ZO/b76hVwH1FRMvUYt1O0Ekycd
+O2XrdpydxlKppBv21anNSR/fRLXINaOIZlqEtZIp0tRxTdviwjwj9ZTpO/OSxCME
+BBlVcfTZpOnQiOkTLDzLDIB/D00zS0INakCs67wmIRXrAFNNBYLGK7yoKQJQ2XMQ
+9iKYQDaRdahBGelAhYSwxmgK55f2jGVzYcxiqlFm6ZpRVpfnUK65v+/0tECwJFBU
+eIP/xQIlxRXXP16mufRqQ6wve/rxXx4ARaO7O+Zvor2ZRz9CsxeveGh8w4bKnh8r
+m1HXy5NDMDTZsvGF0EjTAG55eKwM/3oiWpa71FLeUTBh3SnV3Jw4+bVXUeYddPc9
+Vvrn0Y5DqyaHz323a6x695rcu5/XxPL5i+vvvXJwRuHK0TY4ubrbidy1auL97Jvj
+w/WLuxc0nt+Gb2q/MPj94S3xt47vv+B8fLgmMfiPES764/fOIa2m+shEVvY+XDH7
+2Lp9f58aeHvwKyv9YG+1t2XGyeV7yucviefteaShsG56f3x916zyS4teGcqB8p83
+olfH2nbW3vfSSGL/0tbPtknB8Lczr4SOtp2d1tou3hpcXnvHga4fjoNo/7q5a8pC
+tRU9+Q9C+Njttzz34pM7Ds2sfXq1syCaES/3HHntke0Foycqc3uLl9w/vvbuPenY
+9ILs8Dd1n9b3PJEvnVu47Oza385k3MbsT30XG7bW/XXm8rl7ksnS9nxbbln90kAg
+guGs2K55c0b2dmYWDb3eWtnd+8Y7xQfOX/Vum/Mvv0F87A==
+=VcXR
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/nbuchar
+
+==================================================================

@@ -1,0 +1,19 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+p {
+  font-family: "Inconsolata", sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 21px;
+
+  a {
+    color: get-color("blue");
+    text-decoration: underline;
+  }
+}

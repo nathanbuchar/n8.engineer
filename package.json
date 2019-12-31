@@ -1,0 +1,25 @@
+{
+  "name": "nathanbuchar.com",
+  "private": true,
+  "scripts": {
+    "build": "parcel build src/pages/*/index.pug",
+    "compile": "parcel src/pages/*/index.pug --log-level 4 --no-hmr",
+    "start": "forever server.js"
+  },
+  "dependencies": {
+    "babel-eslint": "^10.0.3",
+    "common-tags": "^1.8.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-plugin-import": "^2.19.1",
+    "express": "^4.17.1",
+    "forever": "^1.0.0",
+    "lodash.throttle": "^4.1.1",
+    "parcel": "^1.12.4",
+    "parcel-bundler": "^1.12.4",
+    "parcel-plugin-eslint": "^1.0.8-2",
+    "parcel-plugin-svg-sprite": "^1.4.1",
+    "pug": "^2.0.4",
+    "sass": "^1.24.0"
+  }
+}

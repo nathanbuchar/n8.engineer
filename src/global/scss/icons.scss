@@ -1,0 +1,11 @@
+.icon {
+  fill: currentColor;
+  vertical-align: sub;
+
+  @each $key, $value in $icon-sizes {
+    &--#{$key} {
+      width: $value;
+      height: $value;
+    }
+  }
+}

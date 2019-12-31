@@ -1,0 +1,16 @@
+/**
+ * Returns a color from $colors.
+ *
+ * Example:
+ *
+ *   get-color("white");
+ *   // => #ffffff
+ *
+ */
+@function get-color($key) {
+  @if map-has-key($colors, $key) {
+    @return map-get($colors, $key);
+  } @else {
+    @error "Color \"#{$key}\" does not exist";
+  }
+}

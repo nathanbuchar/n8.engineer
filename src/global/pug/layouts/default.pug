@@ -1,0 +1,25 @@
+include ../includes/variables
+include ../includes/mixins
+
+doctype html
+html(lang='en' dir='ltr')
+  head
+    block head
+      meta(charset='utf-8')
+      title=title
+      meta(name='description' content=description)
+      link(rel='stylesheet' href=`../../global/scss/main.scss`)
+
+      include ../includes/bootstrap
+      include ../includes/ga
+  body
+    block body
+      .container
+        .row.py-4.py-sm-5
+          .col.col-md-6
+            main
+              .row
+                .col
+                  block content
+                    //- Page content goes here.
+    block scripts

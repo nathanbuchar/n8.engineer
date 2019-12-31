@@ -1,0 +1,11 @@
+# See https://github.com/EdOverflow/security-txt for more documentation on how to use the security.txt file
+
+# In scope targets
+In-scope: www.nathanbuchar.com
+In-scope: github.com/nathanbuchar/nathanbuchar.com
+
+# PGP key location
+PGP-key: https://nathanbuchar.com/pgp-key.txt
+
+# Our security address
+Contact: hello@nathanbuchar.com
