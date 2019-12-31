@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "build": "parcel build src/pages/*/index.pug",
-    "compile": "parcel src/pages/*/index.pug --log-level 4 --no-hmr",
+    "watch": "parcel src/pages/*/index.pug --log-level 4 --no-hmr",
     "start": "forever server.js"
   },
   "dependencies": {

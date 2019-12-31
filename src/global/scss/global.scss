@@ -7,10 +7,9 @@ body {
 }
 
 p {
-  font-family: "Inconsolata", sans-serif;
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 21px;
+  font-family: "Inconsolata", monospace;
+  font-size: 13px;
+  line-height: 23px;
 
   a {
     color: get-color("blue");
