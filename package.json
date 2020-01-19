@@ -14,7 +14,6 @@
     "eslint-plugin-import": "^2.19.1",
     "express": "^4.17.1",
     "forever": "^1.0.0",
-    "highlight.js": "^9.17.1",
     "jstransformer-markdown-it": "^2.1.0",
     "lodash.throttle": "^4.1.1",
     "parcel": "^1.12.4",

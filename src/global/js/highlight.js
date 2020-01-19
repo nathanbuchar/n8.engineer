@@ -1,7 +1,5 @@
-import hljs from 'highlight.js';
-
-hljs.configure({
+window.hljs.configure({
   languages: [], // No language auto-detection.
 });
 
-hljs.initHighlightingOnLoad();
+window.hljs.initHighlightingOnLoad();
