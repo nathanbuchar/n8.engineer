@@ -84,6 +84,12 @@ code {
   border-radius: 2px;
   padding: 2px 4px;
   color: #d73a49;
+
+  pre &:not(.hljs) {
+    // Hide code blocks until highlight.js has had a chance
+    // to highlight them.
+    display: none;
+  }
 }
 
 blockquote {
