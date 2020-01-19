@@ -6,13 +6,6 @@ body {
   margin: 0;
 }
 
-p {
-  font-family: "Inconsolata", monospace;
-  font-size: 13px;
-  line-height: 23px;
-
-  a {
-    color: get-color("blue");
-    text-decoration: underline;
-  }
+.pigeon-logo {
+  margin-left: -4px;
 }

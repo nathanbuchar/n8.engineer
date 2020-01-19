@@ -1,0 +1,16 @@
+extends ../../global/pug/layouts/default
+
+block append variables
+  - var title = 'PGP Key | Nathan Buchar - Software Engineer';
+  - var includeFooter = false;
+  
+block append head
+  meta(name='date' content='Oct. 30, 2018')
+
+block append scripts
+  script(src='index.js')
+
+block content
+  pre
+    code
+      include ../../../static/pgp-key.txt

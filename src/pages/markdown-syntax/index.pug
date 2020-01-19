@@ -1,0 +1,10 @@
+extends ../../global/pug/layouts/default
+
+block append variables
+  - var title = 'Markdown Syntax | Nathan Buchar - Software Engineer';
+
+block append scripts
+  script(src='index.js')
+
+block content
+  include:markdown-it(linkify breaks html typographer) index.md

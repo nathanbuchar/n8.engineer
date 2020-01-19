@@ -1,0 +1,13 @@
+extends ../../global/pug/layouts/default
+
+block append variables
+  - var title = 'Thunk Support in React | Nathan Buchar - Software Engineer';
+  
+block append head
+  meta(name='date' content='Mar. 9, 2019')
+
+block append scripts
+  script(src='index.js')
+
+block content
+  include:markdown-it(linkify breaks html typographer) index.md

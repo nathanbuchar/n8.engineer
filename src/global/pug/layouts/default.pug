@@ -7,20 +7,46 @@ html(lang='en' dir='ltr')
     block head
       meta(charset='utf-8')
       title=title
+      meta(name='author' content='Nathan Buchar')
       meta(name='description' content=description)
       meta(name='viewport' content='width=device-width, initial-scale=1')
+        
+      include ../includes/bootstrap
       link(rel='stylesheet' href=`../../global/scss/main.scss`)
 
-      include ../includes/bootstrap
       include ../includes/ga
   body
     block body
       .container
-        .row.py-4.py-sm-5
-          .col.col-md-6
-            main
-              .row
-                .col
+        .row.py-sm-5
+          .col.col-sm-10.col-md-8.col-lg-6
+            .row.py-4
+              .col
+                nav
+                  h4.my-0
+                    a(href='/' aria-label='Pigeon logo. Click to go to the homepage')
+                      +icon('pigeon', 'small', 'pigeon-logo')
+            .row
+              .col
+                main
                   block content
                     //- Page content goes here.
+            if includeFooter
+              .row.py-4
+                .col
+                  footer
+                    .row.mt-3
+                      .col
+                        p.my-0.aria-hidden &ndash;
+                        p.my-0
+                          a(href='https://github.com/nathanbuchar')
+                            | GitHub
+                        p.my-0
+                          a(href='mailto:hello@nathanbuchar.com')
+                            | hello@nathanbuchar.com
+                    if includeCopyright
+                      .row.mt-3
+                        .col
+                          p.my-0.color-gray20
+                            | Copyright &copy; 2020 Nathan Buchar. All rights reserved.
     block scripts

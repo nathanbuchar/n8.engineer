@@ -23,3 +23,18 @@ export function ensureArray(thing) {
 export function isHTMLElement(thing) {
   return thing instanceof Element;
 }
+
+/**
+ * Slugifies a string.
+ *
+ * @param {string} str
+ * @returns {string}
+ */
+export function slugify(str) {
+  return str.toLowerCase()
+    .replace(/\s+/g, '-')
+    .replace(/[^\w-]+/g, '')
+    .replace(/--+/g, '-')
+    .replace(/^-+/, '')
+    .replace(/-+$/, '');
+}

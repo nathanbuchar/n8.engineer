@@ -1,28 +1,10 @@
 extends ../../global/pug/layouts/default
 
+block append variables
+  - var includeCopyright = false;
+  
 block append scripts
   script(src='index.js')
 
 block append content
-  .row.pt-sm-4
-    .col
-      p.my-0
-        strong
-          a(href='/') Nathan Buchar
-  .row.pt-4.pt-sm-5
-    .col
-      p.mt-0
-        | Nathan is a San Francisco-based software engineer at #[a(href='https://hellosign.com/') HelloSign, a Dropbox Company].
-        | His best work explores JavaScript and best practices, open source, and Node.js. He’s most passionate about solving
-        | puzzles and making things that other developers use to make things.
-      p.my-0
-        | He also volunteers with a #[a(href='http://pigeonrescue.org') pigeon and dove rescue].
-  .row.pt-4.pt-sm-5
-    .col
-      p.my-0(aria-hidden) —
-      p.my-0
-        a(href='https://github.com/nathanbuchar')
-          | GitHub
-      p.my-0
-        a(href='mailto:hello@nathanbuchar.com')
-          | hello@nathanbuchar.com
+  include:markdown-it(linkify breaks html typographer) index.md

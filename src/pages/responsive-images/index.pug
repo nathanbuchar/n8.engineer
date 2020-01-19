@@ -1,0 +1,13 @@
+extends ../../global/pug/layouts/default
+
+block append variables
+  - var title = 'Responsive Images | Nathan Buchar - Software Engineer';
+  
+block append head
+  meta(name='date' content='Jan. 18, 2020')
+
+block append scripts
+  script(src='index.js')
+
+block content
+  include:markdown-it(linkify breaks html typographer) index.md

@@ -1,0 +1,13 @@
+extends ../../global/pug/layouts/default
+
+block append variables
+  - var title = 'Weighted Random | Nathan Buchar - Software Engineer';
+  
+block append head
+  meta(name='date' content='Oct. 25, 2016')
+
+block append scripts
+  script(src='index.js')
+
+block content
+  include:markdown-it(linkify breaks html typographer) index.md
