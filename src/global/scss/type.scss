@@ -14,7 +14,7 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
   font-size: 42px;
   padding-bottom: 6px;
-  border-bottom: 3px solid get-color('gray50');
+  border-bottom: 4px solid get-color('gray50');
   line-height: 48px;
 
   * + & {
@@ -23,7 +23,7 @@ h1 {
 }
 
 h2 {
-  font-size: 24px;
+  font-size: 28px;
   padding-bottom: 4px;
   border-bottom: 1px solid get-color('gray50');
 
@@ -33,17 +33,32 @@ h2 {
 }
 
 h3 {
-  font-size: 20px;
+  font-size: 22px;
 
   * + & {
     margin-top: 32px;
   }
 }
 
-h4, h5, h6 {
+h4 {
+  font-size: 18px;
+
+  * + & {
+    margin-top: 24px;
+  }
+}
+
+h5, h6 {
   font-size: 15px;
-  line-height: 20px;
   color: get-color('gray10');
+
+  * + & {
+    margin-top: 18px;
+  }
+}
+
+h6 {
+  color: get-color('gray20');
 }
 
 ul {

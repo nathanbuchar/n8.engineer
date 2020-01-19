@@ -1,7 +1,7 @@
 import { ensureArray, slugify } from './utils';
 
 (function anchors() {
-  const headings = document.querySelectorAll('h1, h2, h3, h4');
+  const headings = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
 
   ensureArray(headings).forEach((elem) => {
     if (!elem.hasAttribute('id')) {

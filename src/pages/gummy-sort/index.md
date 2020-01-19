@@ -1,8 +1,8 @@
 # Gummy Sort
-#### May 3, 2018
+###### May 3, 2018
 
-## Background 
-Ever since I was a kid, I would always eat a packet of [Welch's fruit snacks](https://welchsfruitsnacks.com/) by first pouring all the gummies out onto the table and ordering them such that they were arranged in what I believed to be the "most distributed" way possible.
+## Background
+Ever since I was a kid, I would always begin eating a packet of [Welch's fruit snacks](https://welchsfruitsnacks.com/) by first emptying all the gummies out onto the table and ordering them such that they were arranged in what I believed to be the "most distributed" way possible.
 
 It's a bit hard to explain, but say I have three strawberry gummies 🍓 and two peach gummies 🍑, the "most distributed" way to eat them would be 🍓🍑🍓🍑🍓, instead of, for example, 🍓🍓🍓🍑🍑. Every packet of Welch's fruit snacks has a variable number of strawberries, oranges, peaches, raspberries, and grapes, so there's no one-size-fits-all solution.
 
