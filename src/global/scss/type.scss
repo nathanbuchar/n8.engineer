@@ -29,7 +29,7 @@ h2 {
   border-bottom: 1px solid get-color('gray50');
 
   * + & {
-    margin-top: 32px;
+    margin-top: 36px;
   }
 }
 
@@ -37,13 +37,13 @@ h3 {
   font-size: 18px;
 
   * + & {
-    margin-top: 28px;
+    margin-top: 32px;
   }
 }
 
 h4 {
-  font-size: 13px;
-  line-height: 16px;
+  font-size: 15px;
+  line-height: 20px;
   color: get-color('gray10');
 }
 
@@ -57,8 +57,8 @@ ul {
 
 p, li {
   font-family: 'Open Sans', sans-serif;
-  font-size: 12px;
-  line-height: 21px;
+  font-size: 14px;
+  line-height: 24px;
   margin-bottom: 16px;
   color: get-color('gray10');
 }
