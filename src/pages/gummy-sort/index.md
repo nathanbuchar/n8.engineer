@@ -1,7 +1,10 @@
 # Gummy Sort
 #### May 3, 2018
 
-Ever since I was a kid, I would always eat a packet of [Welch's fruit snacks](https://welchsfruitsnacks.com/) by first pouring all the gummies out onto the table and ordering them such that they were arranged in what I believed to be the "most distributed" way possible. It's a bit hard to explain as it's done solely by intuition, but say I have three strawberry gummies 🍓 and two peach gummies 🍑, the "most distributed" way to eat them would be 🍓🍑🍓🍑🍓, not, say, 🍓🍓🍓🍑🍑 or any other combination. Every packet of Welch's fruit snacks has a variable number of strawberries, oranges, peaches, raspberries, and grapes, so there's no one-size-fits-all solution.
+## Background 
+Ever since I was a kid, I would always eat a packet of [Welch's fruit snacks](https://welchsfruitsnacks.com/) by first pouring all the gummies out onto the table and ordering them such that they were arranged in what I believed to be the "most distributed" way possible.
+
+It's a bit hard to explain, but say I have three strawberry gummies 🍓 and two peach gummies 🍑, the "most distributed" way to eat them would be 🍓🍑🍓🍑🍓, instead of, for example, 🍓🍓🍓🍑🍑. Every packet of Welch's fruit snacks has a variable number of strawberries, oranges, peaches, raspberries, and grapes, so there's no one-size-fits-all solution.
 
 We have Welch's fruit snacks in stock at my office and I still practice this idiosyncratic ritual, but lately I've wondered if my arrangements are the "best"—analytically speaking. So I attempted to write an algorithm to sort my gummies for me.
 
@@ -23,7 +26,10 @@ gummySort({ '🍓': 6, '🍑': 2, '🍇': 4, '🍊': 1 });
 
 Fuckin' sweet. I should note that `solutions` is an array, because, in many cases, there is more than one ideal solution (i.e., they all have the same entropy).
 
-I won't even attempt to explain the code below—but it works! Introducing `gummy-sort.js`:
+
+## Implementation
+
+I won't even attempt to explain the code below—but it does work!
 
 ```js
 /**
