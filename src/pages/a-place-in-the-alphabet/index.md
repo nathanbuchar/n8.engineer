@@ -3,7 +3,7 @@
 
 ## Background
 
-For the holidays in 2018, Will Shortz, crossword editor at the New York Times, [challenged readers](https://www.nytimes.com/crosswords/alphabet2018) to be part of the NYT's special "Puzzle Mania!" section.
+For the holidays in 2018, Will Shortz, crossword editor at The New York Times, [challenged readers](https://www.nytimes.com/crosswords/alphabet2018) to be part of the NYT's special "Puzzle Mania!" section.
 
 > Dear Puzzler,
 >
@@ -25,7 +25,7 @@ Examples:
 
 ## Implementation
 
-I'm a software engineer. I figured it couldn't be too hard to determine if a word is valid. This is what I came up with:
+I'm a software engineer. I figured it couldn't be too hard to write some code to check if a word is valid. This is what I came up with:
 
 ```js
 /**

@@ -1,12 +1,12 @@
 # Iterate
 #### Feb 10, 2016
 
-`iterate` is a utility function that allows for execution of asynchronous code in the iteratee, waiting for each iteration to finish before moving on. This was inspired by the _plugin_ interface of the Node.js server framework Hapi. Hapi plugins had the following structure:
+`iterate` is a utility function that allows for execution of asynchronous code in the iteratee, waiting for each iteration to finish before moving on. This was inspired by the _plugin_ interface of the Node.js server framework Hapi. Hapi plugins historically had the following structure:
 
 ```js
 function myPlugin(server, options, next) {
-  doSomethingAsynchronous((err) => {
-    next(err);
+  doSomethingAsynchronous(() => {
+    next();
   });
 }
 ```
