@@ -1,4 +1,4 @@
-extends ../../global/pug/layouts/default
+extends /common/pug/layouts/default
 
 block append variables
   - var title = 'K-Combinations | Nathan Buchar - Software Engineer';
@@ -6,8 +6,5 @@ block append variables
 block append head
   meta(name='date' content='May 10, 2016')
 
-block append scripts
-  script(src='index.js')
-
 block content
-  include:markdown-it(linkify breaks html typographer) index.md
+  include:md index.md

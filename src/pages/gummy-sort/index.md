@@ -168,7 +168,7 @@ function calculateRoundedValue(val, numDecimalPlaces = 2) {
  * @returns {number}
  */
 function calculateSum(set) {
-  return set.reduce((total, val) => total + val, 0);
+  return set.reduce((acc, val) => acc + val, 0);
 }
 
 /**

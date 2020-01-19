@@ -1,5 +1,5 @@
-include ../includes/variables
-include ../includes/mixins
+include /common/pug/includes/variables
+include /common/pug/includes/mixins
 
 doctype html
 html(lang='en' dir='ltr')
@@ -11,10 +11,8 @@ html(lang='en' dir='ltr')
       meta(name='description' content=description)
       meta(name='viewport' content='width=device-width, initial-scale=1')
         
-      include ../includes/bootstrap
-      link(rel='stylesheet' href=`../../global/scss/main.scss`)
-
-      include ../includes/ga
+      include /common/pug/includes/bootstrap
+      include /common/pug/includes/ga
   body
     block body
       .container
@@ -50,4 +48,3 @@ html(lang='en' dir='ltr')
                           p.my-0.color-gray20
                             | Copyright &copy; 2020 Nathan Buchar. All rights reserved.
     block scripts
-      script(src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js")

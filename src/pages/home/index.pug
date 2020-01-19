@@ -1,10 +1,7 @@
-extends ../../global/pug/layouts/default
+extends /common/pug/layouts/default
 
 block append variables
   - var includeCopyright = false;
-  
-block append scripts
-  script(src='index.js')
 
 block append content
-  include:markdown-it(linkify breaks html typographer) index.md
+  include:md index.md

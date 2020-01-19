@@ -1,5 +1,5 @@
-import { ensureArray } from './utils';
-import { sendEvent } from './track';
+import { ensureArray } from 'common/js/utils';
+import { sendEvent } from 'common/js/track';
 
 (function trackLinks() {
   const links = document.getElementsByTagName('a');

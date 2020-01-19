@@ -1,4 +1,4 @@
-extends ../../global/pug/layouts/default
+extends /common/pug/layouts/default
 
 block append variables
   - var title = 'Good Design | Nathan Buchar - Software Engineer';
@@ -7,8 +7,5 @@ block append variables
 block append head
   meta(name='date' content='Oct. 14, 2019')
 
-block append scripts
-  script(src='index.js')
-
 block content
-  include:markdown-it(linkify breaks html typographer) index.md
+  include:md index.md

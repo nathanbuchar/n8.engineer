@@ -61,13 +61,13 @@ generator.next().value;
 
 Implementing the generator is one thing; what about testing it? How does one even test for randomness? Enter: [chi-squared test](https://en.wikipedia.org/wiki/Chi-squared_test).
 
-> The **Chi-Squared Test** (also written as **χ<sup>2</sup> test**) is the widely used non-parametric statistical test that describes the magnitude of discrepancy between the *observed data* and the *data expected* to be obtained with a specific hypothesis.
+> The **Chi-Squared Test** (also written as **χ^2^ test**) is the widely used non-parametric statistical test that describes the magnitude of discrepancy between the *observed data* and the *data expected* to be obtained with a specific hypothesis.^[https://businessjargons.com/chi-square-test.html]
 
 First we need to determine how confident we want to be with our result. If we shoot too low, then we can't be reasonably confident that our observed data is accurate. However, if we shoot too high—say 99%—there is a good chance that our observed data will fail our hypothesis, even if our implementation is correct. Typically, 95% (`0.05`) is a pretty standard confidence level in statistics, so that's what we'll go with.
 
 With a confidence level chosen, we need to determine the critical value.
 
-> For hypothesis tests, a critical value tells us the boundary of how extreme a test statistic we need to reject the null hypothesis.
+> For hypothesis tests, a critical value tells us the boundary of how extreme a test statistic we need to reject the null hypothesis.^[https://www.thoughtco.com/critical-values-with-a-chi-square-table-3126426]
 
 In order to determine the critical value, we also need to determine the degrees of freedom of our test. The number of degrees of freedom is simply the number of values in the final calculation of a statistic that are free to vary. In our case (chi-squared goodness of fit test), this is simply _n - 1_ where _n_ is the number of levels we are testing for.
 

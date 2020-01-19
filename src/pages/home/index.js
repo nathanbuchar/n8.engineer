@@ -1,1 +1,1 @@
-import '../../global/js/page';
+import 'common/js/page';

@@ -1,0 +1,17 @@
+@font-face {
+  font-family: 'Inconsolata';
+  src: url('/common/fonts/inconsolata-regular-webfont.woff2') format('woff2'),
+       url('/common/fonts/inconsolata-regular-webfont.woff') format('woff'),
+       url('/common/fonts/inconsolata-regular-webfont.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('/common/fonts/opensans-regular-webfont.woff2') format('woff2'),
+       url('/common/fonts/opensans-regular-webfont.woff') format('woff'),
+       url('/common/fonts/opensans-regular-webfont.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
