@@ -1,7 +1,7 @@
 # Responsive Images
 #### Jan 18, 2020
 
-I started working with [responsive images](https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images) since 2015, but haven't messed with them much lately. This is an re-exploration into responsive images using `picture` and `srcset` with some photos of mine from Pt. Cabrillo, California from 2018.
+I started working with [responsive images](https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images) in 2015, but haven't messed with them much lately. This is an re-exploration into responsive images using `picture` and `srcset` with some photos of mine from Pt. Cabrillo, California from 2018.
 
 <picture>
   <img
