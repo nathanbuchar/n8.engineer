@@ -49,6 +49,7 @@ Now I just need words to test. Turns out that a list of most (?) words in the En
 The following will pipe `words.txt` as chunks into a custom stream transformer I wrote, validate each word, and then write all valid words to `words_valid.txt`:
 
 ```js
+const fs = require('fs');
 const { Transform } = require('stream');
 
 const filterWords = new Transform({
@@ -86,10 +87,10 @@ And here's the best sentence I came up with:
 
 * Intricate flames glowing magnificently.
 
-It's not bad! Then I thought about taking this one step further: what if I only limited myself to words tweeted by [@realDonaldTrump](https://twitter.com/realdonaldtrump)?
+It's not bad! I never did end up submitting it, but I did take this one step further: what if I only limited myself to words tweeted by [@realDonaldTrump](https://twitter.com/realdonaldtrump)?
 
 
-### Trump Tweets
+## Trump Tweets
 
 ![](./img/trump-best-words.gif)
 
@@ -99,5 +100,3 @@ I found a website which compiled all of Mr. Trump's tweets in a consumable forma
 * Fueled by ignorance: #MeetTheTrumps
 * DACA favors immigrant interests
 * A genuine future every family can enjoy #hardwork
-
-I never did end up submitting any of the sentences I found. But, damn, I sure had a good time finding them!
