@@ -91,6 +91,8 @@ It's not bad! Then I thought about taking this one step further: what if I only 
 
 ### Trump Tweets
 
+![](./img/trump-best-words.gif)
+
 I found a website which compiled all of Mr. Trump's tweets in a consumable format, so I downloaded them and parsed through the file using a similar algorithm to the one above. I also allowed for at-mentions (@) and hashtags (#), because why not? I found 2,006 valid "words" (misspellings, abbreviations, hyperbole, mentions, hashtags, etc), and managed to come up with the following, arguably amazing, sentences:
 
 * hahahaha goodbye @SenatorJeffSessions! #PlayTheTrumpCard
