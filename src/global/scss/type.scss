@@ -1,4 +1,4 @@
-h1, h2, h3, h4, p, li, blockquote, code {
+h1, h2, h3, h4, h5, h6, p, li, td, th, blockquote, code, table {
   margin: 0;
 
   * + & {
@@ -6,7 +6,7 @@ h1, h2, h3, h4, p, li, blockquote, code {
   }
 }
 
-h1, h2, h3, h4 {
+h1, h2, h3, h4, h5, h6 {
   font-family: 'Inconsolata', monospace;
   font-weight: normal;
 }
@@ -40,7 +40,7 @@ h3 {
   }
 }
 
-h4 {
+h4, h5, h6 {
   font-size: 15px;
   line-height: 20px;
   color: get-color('gray10');
@@ -54,7 +54,7 @@ ul {
   }
 }
 
-p, li {
+p, li, td, th {
   font-family: 'Open Sans', sans-serif;
   font-size: 14px;
   line-height: 24px;
@@ -88,6 +88,24 @@ code {
     // Hide code blocks until highlight.js has had a chance
     // to highlight them.
     display: none;
+  }
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+
+  tr {
+    border-top: 1px solid get-color('gray50');
+
+    &:nth-child(2n) {
+      background-color: get-color('gray70');
+    }
+  }
+
+  th, td {
+    padding: 6px 13px;
+    border: 1px solid get-color('gray50');
   }
 }
 
