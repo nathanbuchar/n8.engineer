@@ -6,7 +6,7 @@ Ever since I was a kid, I would always begin eating a packet of [Welch's fruit s
 
 It's a bit hard to explain, but say I have three strawberry gummies 🍓 and two peach gummies 🍑, the "most distributed" way to eat them would be 🍓🍑🍓🍑🍓, instead of, for example, 🍓🍓🍓🍑🍑. Every packet of Welch's fruit snacks has a variable number of strawberries, oranges, peaches, raspberries, and grapes, so there's no one-size-fits-all solution.
 
-We have Welch's fruit snacks in stock at my office and I still practice this idiosyncratic ritual, but lately I've wondered if my arrangements are the "best"—analytically speaking. So I attempted to write an algorithm to sort my gummies for me.
+We have Welch's fruit snacks in stock at my office and I still practice this idiosyncratic ritual, but lately I've wondered if my arrangements are the "best"—analytically speaking. So I attempted to write an algorithm to sort my gummies for me. Life hackin', baby.
 
 Turns out this is an NP-hard problem: as the number of gummies increases, the computation time increases exponentially, but for small sample sizes (_n < 15_), it's OK. Here's an example:
 
