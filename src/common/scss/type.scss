@@ -7,15 +7,16 @@ h1, h2, h3, h4, h5, h6, p, dt, dd, li, td, th, blockquote, code, table {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Inconsolata', monospace;
+  font-family: 'Roboto Slab', monospace;
   font-weight: normal;
+  color: get-color('black');
 }
 
 h1 {
-  font-size: 42px;
-  padding-bottom: 6px;
-  border-bottom: 4px solid get-color('gray50');
-  line-height: 48px;
+  font-size: 48px;
+  padding-bottom: 14px;
+  border-bottom: 4px solid get-color('black');
+  line-height: 52px;
 
   * + & {
     margin-top: 40px;
@@ -49,7 +50,7 @@ h4 {
 }
 
 h5, h6 {
-  font-size: 13px;
+  font-size: 15px;
   line-height: 24px;
   color: get-color('gray10');
 
@@ -71,7 +72,7 @@ ul {
 }
 
 p, li, td, th, dt, dd {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 14px;
   line-height: 24px;
   margin-bottom: 18px;
@@ -104,7 +105,7 @@ hr {
 }
 
 code {
-  font-family: 'Inconsolata', monospace;
+  font-family: 'Roboto Mono', monospace;
   background-color: get-color('gray70');
   border-radius: 2px;
   padding: 2px 4px;

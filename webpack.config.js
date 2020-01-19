@@ -32,13 +32,13 @@ module.exports = [
     module: {
       rules: [
         {
-          test: /\.(png|jpe?g|gif|txt)$/i,
-          use: {
+          test: /\.(woff(2)?|ttf|eot|svg|png|jpe?g|gif|txt)$/i,
+          use: [{
             loader: 'file-loader',
             options: {
               esModule: false,
             },
-          },
+          }],
         },
         {
           test: /\.js$/,
