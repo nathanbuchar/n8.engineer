@@ -23,8 +23,6 @@ Follow these basic rules:
 
 If played properly, it is impossible to lose. The worst you can do is tie with your opponent. When playing first, play aggresively. When playing second, play defensively. The player that goes first has all the power!
 
-***
-
 
 ## Notable Cases and Exceptions
 
