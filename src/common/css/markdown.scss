@@ -1,4 +1,4 @@
-h1, h2, h3, h4, h5, h6, p, li, td, th, blockquote, pre, code, table {
+h1, h2, h3, h4, h5, h6, p, li, td, th, blockquote, pre, code, table, details {
   margin: 0;
   margin-bottom: 16px;
 }
@@ -59,7 +59,7 @@ h5, h6 {
   }
 }
 
-h5, h6, p, li, td, th {
+h5, h6, p, li, td, th, details, summary {
   font-size: 14px;
   line-height: 24px;
   color: get-color("gray10");
@@ -69,7 +69,7 @@ h6 {
   color: get-color("gray20");
 }
 
-p, li, td, th {
+p, li, td, th, details {
   font-family: get-font("sans");
   margin-bottom: 18px;
 }
@@ -115,13 +115,26 @@ table {
   }
 }
 
+details {
+  summary {
+    cursor: pointer;
+    font-weight: bold;
+  }
+
+  &[open] {
+    summary {
+      margin-bottom: 8px;
+    }
+  }
+}
+
 pre, code {
   font-family: get-font("mono");
   background-color: get-color("gray70");
 }
 
 pre {
-  padding: 12px;
+  padding: 12px 16px;
   font-size: 13px;
   line-height: 20px;
   overflow-x: auto;

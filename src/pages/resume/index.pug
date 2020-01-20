@@ -1,0 +1,8 @@
+extends /common/html/layouts/default
+
+block append variables
+  - var title = 'Resume | Nathan Buchar - Software Engineer';
+  - var includeFooter = false;
+
+block content
+  include:md index.md
