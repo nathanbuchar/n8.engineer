@@ -1,5 +1,6 @@
-# Interview Questions
-###### Revised Jan, 2020
+# Frontend Interview Questions
+###### Revised Dec, 2019
+
 
 ## Vanilla JavaScript
 
@@ -9,17 +10,19 @@
 
   * (In the browser) What does it refer to outside of a Function or Class?
 
-  * What about in Node.js?
+    * What about in Node.js?
 
-    * Do you have any experience with Node.js?
+      * How much experience do you have with Node.js?
 
-* Can you describe for me the difference between `bind` and `call`?
+* What does the `bind` function prototype method do?
 
-  * And how does `call` differ from `apply`?
+  * Can you describe a common situation when you might use `bind`?
 
-* Can you describe a situation when you might use `bind`?
+  * Can you explain to me the difference between an arrow function and an anonymous function?
 
-* Can you explain to me the difference between an arrow function and an anonymous function?
+  * Can you describe for me the difference between `bind` and `call`?
+
+    * And how does `call` differ from `apply`?
 
 ### Event Handling and Callbacks
 
@@ -33,17 +36,19 @@
 
 * `let` was introduced in ES6. Are there actually any differences between `var` and `let`?
 
-* If I declare an array as a `const`, will JavaScript throw an error if I push to it? Why or why not?
+* Can you describe for me the difference between `let` and `const`?
+
+  * If I declare an array as a `const`, will JavaScript throw an error if I push to it? Why or why not?
 
 * Can you describe for me one way to clone an Object?
 
-* What is the difference between a shallow clone and a deep clone?
+  * What is the difference between a shallow clone and a deep clone?
 
 * Are you familiar with the term "array-like"? Can you describe it for me?
 
   * What is an example of an array-like Object?
 
-  * What is one way to transform an array-like object into a true array?
+    * What are a few ways to transform an array-like object into a true array?
 
 ### Debouncing, Throttling, and Performance
 
@@ -65,8 +70,10 @@
 
 * Have you heard of V8? What is it?
 
+  * Can you name any other JavaScript engines?
 
-## React
+
+## Classical React
 
 ### Lifecycle
 
@@ -78,25 +85,23 @@
 
   * What does it return by default?
 
-### Component State
+  * What is a "pure component"?
+
+### State
 
 * In React, how do I update a component's state?
 
-* Will a property be deleted if I don't specify it in the Object I pass to `setState()`?
+  * Will a property be deleted if I don't specify it in the Object I pass to `setState()`?
 
-* What happens if I pass in a Function instead of an Object as the first argument to `setState()`?
+  * What happens if I pass in a Function instead of an Object as the first argument to `setState()` ††
 
-* What does the second parameter of `setState()` do?
+  * What does the second argument of `setState()` do?
 
-* Is `setState()` synchronous?
+  * Is `setState()` synchronous?
 
-  * What can I do to guarantee that when I access a component's state using `this.state` it is up-to-date?
-
-    * Can you think of any lifecycle methods?
+    * What can I do to guarantee that when I access a component's state using `this.state` it is up-to-date?
 
 ### Performance
-
-* What is a `React.PureComponent`?
 
 * Can you think of any performance problems that may be caused by using `bind` or arrow functions in a React Component's `render` method?
 
@@ -105,10 +110,43 @@
 * Can you think of any performance problems that may be caused by passing an arrow function as a prop to a child component?
 
 
+## Functional React
+
+### Hooks
+
+* In your own words, describe what React hooks do.
+
+* What does the `useCallback` hook do?
+
+* What does the `useEffect` hook do?
+
+  * What does the second argument do?
+
+  * How should I define a `useEffect` hook so that it acts the same as `componentDidMount`?
+
+  * What happens if you return a function in a `useEffect` hook?
+
+### State
+
+* What happens if I pass in a Function as the first argument to a `useState` hook’s setter?
+
+* What does the second argument of a `useState` hook’s setter do?
+
+### Performance
+
+* Can you think of any issues with inlining arrow functions within JSX markup?
+
+  * What should you do instead?
+
+* Have you heard of memoization before?
+
+  * What does the `useMemo()` hook allow you to do?
+
+
 ## Problem Solving
 
 * Let's say you come across an array method called `Array.squeeze()` that you've never heard of before. Which resources would you consult to familiarize yourself with it?
 
-* What if it doesn't exist on MDN?
+  * What if it doesn't exist on MDN?
 
 * Can you tell me about a project you've worked on where you learned a lot about something you weren't initially very familiar with?
