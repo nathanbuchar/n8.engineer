@@ -104,26 +104,6 @@ hr {
   margin: 24px 0;
 }
 
-code {
-  font-family: 'Roboto Mono', monospace;
-  background-color: get-color('gray70');
-  border-radius: 2px;
-  padding: 2px 4px;
-}
-
-pre {
-  background-color: get-color('gray70');
-  padding: 1em;
-  border-radius: 2px;
-  font-size: 13px;
-  line-height: 20px;
-  overflow-x: auto;
-
-  blockquote & {
-    color: get-color('gray20');
-  }
-}
-
 table {
   border-collapse: collapse;
   border-spacing: 0;
@@ -140,6 +120,30 @@ table {
     padding: 6px 13px;
     border: 1px solid get-color('gray50');
   }
+}
+
+pre {
+  background-color: get-color('gray70');
+  padding: 1em;
+  border-radius: 2px;
+  font-size: 13px;
+  line-height: 20px;
+  overflow-x: auto;
+
+  blockquote & {
+    color: get-color('gray20');
+  }
+
+  code:not(.hljs) {
+    display: none; // Do not show code blocks until highlighted.
+  }
+}
+
+code {
+  font-family: 'Roboto Mono', monospace;
+  background-color: get-color('gray70');
+  border-radius: 2px;
+  padding: 2px 4px;
 }
 
 blockquote {
