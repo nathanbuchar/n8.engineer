@@ -93,7 +93,7 @@
 
   * Will a property be deleted if I don't specify it in the Object I pass to `setState()`?
 
-  * What happens if I pass in a Function instead of an Object as the first argument to `setState()` ††
+  * What happens if I pass in a Function instead of an Object as the first argument to `setState()`
 
   * What does the second argument of `setState()` do?
 
