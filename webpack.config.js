@@ -6,7 +6,6 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const { DefinePlugin } = require('webpack');
 
 const fs = require('fs');
-const hljs = require('highlight.js');
 const mdIt = require('markdown-it');
 const mdItAnchor = require('markdown-it-anchor');
 const mdItSub = require('markdown-it-sub');
