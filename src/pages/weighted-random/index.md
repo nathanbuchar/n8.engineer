@@ -1,4 +1,4 @@
-# Weighted Random Generator
+# Weighted Random
 ###### Oct 25, 2016
 
 <br/>

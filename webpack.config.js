@@ -2,6 +2,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const SvgSpriteHtmlWebpackPlugin = require('svg-sprite-html-webpack');
 const MiniCSSExtractPlugin = require('mini-css-extract-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const { DefinePlugin } = require('webpack');
 
 const fs = require('fs');
@@ -18,22 +19,21 @@ const path = require('path');
 const nodeEnv = process.env.NODE_ENV || 'development';
 const isDebug = nodeEnv === 'development';
 
-const pages = fs.readdirSync('src/pages').reduce((acc, page) => {
-  const pathToPage = path.join(__dirname, 'src/pages', page);
+const entries = fs.readdirSync('src/pages').reduce((acc, name) => {
+  const pathToEntry = path.join(__dirname, 'src/pages', name);
 
-  return {
-    ...acc,
-    [page]: [
-      path.join(pathToPage, 'index.js'),
-      path.join(pathToPage, 'index.scss'),
-    ],
-  };
+  acc[name] = [
+    path.join(pathToEntry, 'index.js'),
+    path.join(pathToEntry, 'index.scss'),
+  ];
+
+  return acc;
 }, {});
 
 module.exports = {
   mode: nodeEnv,
   devtool: isDebug ? 'inline-source-map' : false,
-  entry: pages,
+  entry: entries,
   output: {
     path: path.resolve('dist'),
     publicPath: '/',
@@ -95,8 +95,7 @@ module.exports = {
                         // Do nothing.
                       }
                     }
-
-                    return ''; // use external default escaping
+                    return '';
                   },
                   ...options,
                 });
@@ -125,6 +124,11 @@ module.exports = {
     ],
   },
   plugins: [
+    new CleanWebpackPlugin({
+      // resolve conflict with `CopyWebpackPlugin`
+      // via https://github.com/webpack-contrib/copy-webpack-plugin/issues/261#issuecomment-490334233
+      cleanStaleWebpackAssets: false,
+    }),
     new DefinePlugin({
       __IS_DEBUG: JSON.stringify(isDebug),
     }),
@@ -137,11 +141,11 @@ module.exports = {
         to: path.resolve('dist'),
       },
     ]),
-    ...Object.keys(pages).map((page) => {
+    ...Object.keys(entries).map((name) => {
       return new HTMLWebpackPlugin({
-        template: path.resolve(`src/pages/${page}/index.pug`),
-        filename: path.resolve(`dist/${page}/index.html`),
-        chunks: [page],
+        template: path.resolve(`src/pages/${name}/index.pug`),
+        filename: path.resolve(`dist/${name}/index.html`),
+        chunks: [name],
       });
     }),
     // Must come after HTMLWebpackPlugin definition.
