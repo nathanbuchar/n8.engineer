@@ -77,18 +77,6 @@ a {
   color: get-color("blue");
 }
 
-sub, sup {
-  font-size: smaller;
-}
-
-sub {
-  vertical-align: sub;
-}
-
-sup {
-  vertical-align: super;
-}
-
 ol, ul {
   list-style: revert;
   padding-left: 30px;
