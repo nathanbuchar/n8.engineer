@@ -59,7 +59,7 @@ h5, h6 {
 }
 
 h5, h6, p, li, td, th {
-  font-size: 15px;
+  font-size: 14px;
   line-height: 24px;
   color: get-color("gray10");
 }
@@ -134,9 +134,15 @@ pre {
   font-size: 13px;
   line-height: 20px;
   overflow-x: auto;
+
+  code {
+    color: get-color("gray10");
+    padding: 0;
+  }
 }
 
 code {
+  color: get-color("red");
   padding: 2px 4px;
 }
 
