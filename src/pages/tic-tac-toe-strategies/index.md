@@ -30,67 +30,67 @@ If played properly, it is impossible to lose. The worst you can do is tie with y
 
 Assuming you follow the basic rules outlined above, there are a few special cases to be aware of which may indirectly allow your opponent to have an opportunity to win later in the game.
 
-1. **The Diagonal**
+### The Diagonal
 
-    ⚠️ This is the most dangerous case! ⚠️
+⚠️ This is the most dangerous case! ⚠️
 
-    Following the basic rules, if your opponent (⭕️) plays first and plays two opposite corners (this will form a long diagonal line), you **MUST BREAK THE RULES AND PLAY ANY EDGE**, otherwise your opponent will win.
+Following the basic rules, if your opponent (⭕️) plays first and plays two opposite corners (this will form a long diagonal line), you **MUST BREAK THE RULES AND PLAY ANY EDGE**, otherwise your opponent will win.
 
-    ```
-    ⭕️|❔|❔      ⭕️|❔|🛑 <-- do not play either corner!
-    ❔|❌|❔  ->  ❔|❌|❔
-    ❔|❔|⭕️      🛑|❔|⭕️
-    ```
+```
+⭕️|❔|❔      ⭕️|❔|🛑 <-- do not play either corner!
+❔|❌|❔  ->  ❔|❌|❔
+❔|❔|⭕️      🛑|❔|⭕️
+```
 
-    If you play **second** and your opponent creates a diagonal, play an edge!
+If you play **second** and your opponent creates a diagonal, play an edge!
 
-    ```
-    ⭕️|❔|❔      ⭕️|❔|❔
-    ❔|❌|❔  ->  ❔|❌|❌ <-- play an edge!
-    ❔|❔|⭕️      ❔|❔|⭕️
-    ```
+```
+⭕️|❔|❔      ⭕️|❔|❔
+❔|❌|❔  ->  ❔|❌|❌ <-- play an edge!
+❔|❔|⭕️      ❔|❔|⭕️
+```
 
-1. **The Wedge**
+### The Wedge
 
-    Following the basic rules, if your opponent (⭕️) plays first and plays an edge followed by an adjacent edge (this will form a "wedge shape"), you **MUST NOT** play the corner opposite the wedge, otherwise your opponent has an opportunity win.
+Following the basic rules, if your opponent (⭕️) plays first and plays an edge followed by an adjacent edge (this will form a "wedge shape"), you **MUST NOT** play the corner opposite the wedge, otherwise your opponent has an opportunity win.
 
-    ```
-    ❔|⭕️|❔      ❔|⭕️|❔
-    ⭕️|❌|❔  ->  ⭕️|❌|❔
-    ❔|❔|❔      ❔|❔|🛑 <-- do not play here!
-    ```
+```
+❔|⭕️|❔      ❔|⭕️|❔
+⭕️|❌|❔  ->  ⭕️|❌|❔
+❔|❔|❔      ❔|❔|🛑 <-- do not play here!
+```
 
-    If you see a wedge, fill in the square!
+If you see a wedge, fill in the square!
 
-    ```
-    ❔|⭕️|❔      ❌|⭕️|❔ <<-- fill in the square!
-    ⭕️|❌|❔  ->  ⭕️|❌|❔
-    ❔|❔|❔      ❔|❔|❔
-    ```
+```
+❔|⭕️|❔      ❌|⭕️|❔ <<-- fill in the square!
+⭕️|❌|❔  ->  ⭕️|❌|❔
+❔|❔|❔      ❔|❔|❔
+```
 
-    ```
-    ❔|⭕️|❔      ❔|⭕️|❌ <-- You may also want to play one of the other
-    ⭕️|❌|❔  ->  ⭕️|❌|❔     two remaining corners, as your chance to win
-    ❔|❔|❔      ❔|❔|❔     is less noticeable.
-    ```
+```
+❔|⭕️|❔      ❔|⭕️|❌ <-- You may also want to play one of the other
+⭕️|❌|❔  ->  ⭕️|❌|❔     two remaining corners, as your chance to win
+❔|❔|❔      ❔|❔|❔     is less noticeable.
+```
 
-1. **The L**
+### The L
 
-    Following the basic rules, if your opponent (⭕️) plays first and plays a corner followed by a non-adjacent edge (this will form an "L shape"), you **MUST NOT** play the corner opposite the "L", otherwise your opponent has an opportunity win.
+Following the basic rules, if your opponent (⭕️) plays first and plays a corner followed by a non-adjacent edge (this will form an "L shape"), you **MUST NOT** play the corner opposite the "L", otherwise your opponent has an opportunity win.
 
-    ```
-    ⭕️|❔|❔      ⭕️|❔|🛑 <-- do not play here!
-    ❔|❌|❔  ->  ❔|❌|❔
-    ❔|⭕️|❔      ❔|⭕️|❔
-    ```
+```
+⭕️|❔|❔      ⭕️|❔|🛑 <-- do not play here!
+❔|❌|❔  ->  ❔|❌|❔
+❔|⭕️|❔      ❔|⭕️|❔
+```
 
-    If you see an L, fill in the corner!
+If you see an L, fill in the corner!
 
-    ```
-    ⭕️|❔|❔      ⭕️|❔|❔
-    ❔|❌|❔  ->  ❔|❌|❔
-    ❔|⭕️|❔      ❌|⭕️|❔ <<-- fill in the L!
-    ```
+```
+⭕️|❔|❔      ⭕️|❔|❔
+❔|❌|❔  ->  ❔|❌|❔
+❔|⭕️|❔      ❌|⭕️|❔ <<-- fill in the L!
+```
 
 ## Winning Strategies
 

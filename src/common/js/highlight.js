@@ -3,4 +3,3 @@ window.hljs.configure({
 });
 
 window.hljs.initHighlightingOnLoad();
-window.hljs.initLineNumbersOnLoad();

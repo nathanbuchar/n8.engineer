@@ -2,27 +2,32 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const SvgSpriteHtmlWebpackPlugin = require('svg-sprite-html-webpack');
 const MiniCSSExtractPlugin = require('mini-css-extract-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const { DefinePlugin } = require('webpack');
 
 const fs = require('fs');
 const mdIt = require('markdown-it');
 const mdItAnchor = require('markdown-it-anchor');
+const mdItFootnote = require('markdown-it-footnote');
+const mdItKatex = require('markdown-it-katex');
 const mdItSub = require('markdown-it-sub');
 const mdItSup = require('markdown-it-sup');
-const mdItDeflist = require('markdown-it-deflist');
-const mdItFootnote = require('markdown-it-footnote');
 const mdItToc = require('markdown-it-table-of-contents');
-const mdItKatex = require('markdown-it-katex');
 const path = require('path');
 
 const nodeEnv = process.env.NODE_ENV || 'development';
 const isDebug = nodeEnv === 'development';
 
-const pages = fs.readdirSync('src/pages').reduce((acc, page) => ({
-  ...acc,
-  [page]: path.join(__dirname, 'src/pages', page, 'index.js'),
-}), {});
+const pages = fs.readdirSync('src/pages').reduce((acc, page) => {
+  const pathToPage = path.join(__dirname, 'src/pages', page);
+
+  return {
+    ...acc,
+    [page]: [
+      path.join(pathToPage, 'index.js'),
+      path.join(pathToPage, 'index.scss'),
+    ],
+  };
+}, {});
 
 module.exports = {
   mode: nodeEnv,
@@ -36,13 +41,17 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(woff(2)?|ttf|eot|svg|png|jpe?g|gif|txt)$/i,
-        use: [{
+        test: /\.(png|jpe?g)$/i,
+        use: 'responsive-loader',
+      },
+      {
+        test: /\.(woff2?|ttf|eot|svg|gif|txt)$/i,
+        use: {
           loader: 'file-loader',
           options: {
             esModule: false,
           },
-        }],
+        },
       },
       {
         test: /\.js$/,
@@ -81,12 +90,11 @@ module.exports = {
                 });
 
                 md.use(mdItAnchor);
+                md.use(mdItFootnote);
+                md.use(mdItKatex);
                 md.use(mdItSub);
                 md.use(mdItSup);
-                md.use(mdItDeflist);
-                md.use(mdItFootnote);
                 md.use(mdItToc);
-                md.use(mdItKatex);
 
                 return md.render(text);
               },
@@ -96,7 +104,7 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        use: ['style-loader', MiniCSSExtractPlugin.loader, 'css-loader', 'sass-loader'],
+        use: [MiniCSSExtractPlugin.loader, 'css-loader', 'sass-loader'],
       },
       {
         test: /\.svg$/,
@@ -105,7 +113,6 @@ module.exports = {
     ],
   },
   plugins: [
-    new CleanWebpackPlugin(),
     new DefinePlugin({
       __IS_DEBUG: JSON.stringify(isDebug),
     }),

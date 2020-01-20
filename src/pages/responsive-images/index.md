@@ -7,18 +7,6 @@ I started working with [responsive images](https://developer.mozilla.org/en-US/d
 
 <picture>
   <img
-    sizes="(max-width: 1400px) 100vw, 1400px"
-    srcset="
-      ./img/DSCF6590_200w.jpg 200w,
-      ./img/DSCF6590_481w.jpg 481w,
-      ./img/DSCF6590_668w.jpg 668w,
-      ./img/DSCF6590_839w.jpg 839w,
-      ./img/DSCF6590_971w.jpg 971w,
-      ./img/DSCF6590_1083w.jpg 1083w,
-      ./img/DSCF6590_1192w.jpg 1192w,
-      ./img/DSCF6590_1305w.jpg 1305w,
-      ./img/DSCF6590_1397w.jpg 1397w,
-      ./img/DSCF6590_1400w.jpg 1400w"
     src="./img/DSCF6590_1400w.jpg"
     alt="">
 </picture>

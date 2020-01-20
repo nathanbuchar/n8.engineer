@@ -2,7 +2,7 @@ import { html } from 'common-tags';
 import throttle from 'lodash.throttle';
 
 (function gridOverlay() {
-  if (JSON.parse(process.env.NODE_ENV === 'development')) {
+  if (__IS_DEBUG) {
     window.addEventListener('keypress', throttle((evt) => {
       if (evt.key === '?') {
         const elem = document.getElementById('x-grid-overlay');

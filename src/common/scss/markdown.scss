@@ -1,0 +1,154 @@
+h1, h2, h3, h4, h5, h6, p, li, td, th, blockquote, pre, code, table {
+  margin: 0;
+
+  * + & {
+    margin-top: 16px;
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: get-font("slab");
+  font-weight: normal;
+  color: get-color("black");
+}
+
+h1 {
+  font-size: 32px;
+  line-height: 42px;
+  padding-bottom: 4px;
+  border-bottom: 3px solid get-color("black");
+
+  * + & {
+    margin-top: 40px;
+  }
+}
+
+h2 {
+  font-size: 24px;
+  line-height: 32px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid get-color("gray50");
+
+  * + & {
+    margin-top: 34px;
+  }
+}
+
+h3 {
+  font-size: 20px;
+  line-height: 17px;
+
+  * + & {
+    margin-top: 28px;
+  }
+}
+
+h4 {
+  font-size: 17px;
+  line-height: 24px;
+
+  * + & {
+    margin-top: 20px;
+  }
+}
+
+h5, h6 {
+  * + & {
+    margin-top: 14px;
+  }
+}
+
+h5, h6, p, li, td, th {
+  font-size: 15px;
+  line-height: 24px;
+  color: get-color("gray10");
+}
+
+h6 {
+  color: get-color("gray20");
+}
+
+p, li, td, th {
+  font-family: get-font("sans");
+  margin-bottom: 18px;
+}
+
+a {
+  color: get-color("blue");
+}
+
+sub, sup {
+  font-size: smaller;
+}
+
+sub {
+  vertical-align: sub;
+}
+
+sup {
+  vertical-align: super;
+}
+
+ol, ul {
+  list-style: revert;
+  padding-left: 30px;
+
+  ol, ul {
+    padding-left: 15px;
+  }
+
+  li {
+    margin: 8px 0;
+  }
+}
+
+hr {
+  border: none;
+  border-bottom: 1px solid get-color("gray50");
+  margin: 28px 0;
+}
+
+table {
+  tr {
+    border-top: 1px solid get-color("gray50");
+
+    &:nth-child(2n) {
+      background-color: get-color("gray70");
+    }
+  }
+
+  th, td {
+    border: 1px solid get-color("gray50");
+    padding: 6px 12px;
+  }
+}
+
+pre, code {
+  font-family: get-font("mono");
+  background-color: get-color("gray70");
+  border-radius: 2px;
+}
+
+pre {
+  padding: 12px;
+  font-size: 13px;
+  line-height: 20px;
+  overflow-x: auto;
+}
+
+code {
+  padding: 2px 4px;
+}
+
+blockquote {
+  border-left: 4px solid get-color("gray60");
+  padding-left: 10px;
+
+  *:not(a) {
+    color: get-color("gray20");
+  }
+}
+
+img {
+  max-width: 100%;
+}

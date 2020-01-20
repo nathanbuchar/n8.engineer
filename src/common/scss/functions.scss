@@ -14,3 +14,20 @@
     @error "Color \"#{$key}\" does not exist";
   }
 }
+
+/**
+ * Returns a font from $fonts.
+ *
+ * Example:
+ *
+ *   get-font("sans");
+ *   // => 'Open Sans', sans-serif
+ *
+ */
+@function get-font($key) {
+  @if map-has-key($fonts, $key) {
+    @return map-get($fonts, $key);
+  } @else {
+    @error "Font \"#{$key}\" does not exist";
+  }
+}
