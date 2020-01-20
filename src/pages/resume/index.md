@@ -1,9 +1,9 @@
 # Nathan Buchar
 ###### Revised Jan, 2020
 
-> Nathan is a San Francisco-based frontend software engineer at HelloSign, a Dropbox Company. His best work explores JavaScript performance, best practices, and Node.js. He’s most passionate about solving puzzles and making things that other developers use to make things.
+> I'm a San Francisco-based frontend software engineer at HelloSign, a Dropbox Company. My best work explores JavaScript performance, best practices, and Node.js. I'm most passionate about solving puzzles and making things that other developers use to make things.
 >
-> He also ballroom dances and has a pet pigeon named Sophia.
+> I also ballroom dances and have a pet pigeon named Sophia.
 
 ## Education
 
@@ -17,9 +17,17 @@ New Media Interactive Development, 2014
 Senior Software Engineer
 Oct 2017 – present
 
-In my role as one of only two dedicated frontend engineers in an engineering team of over 30, I help lay the groundwork for all new frontend projects, I mentor junior engineers on a daily basis, I author our frontend interview questions and assess engineering candidates, and I'm personally responsible for maintaining several open source repositories. Recent notable projects:
+In my role as one of only two dedicated frontend engineers in an engineering team of 30, I lay the groundwork for all new frontend projects, setting the standard for all other engineers to follow. Additionally:
 
-* Led the frontend development effort of a new multi-page application for Enterprise customers. This project was built from the ground up using more modern techniques and involved collaboration from more than a dozen peers over the course of a year.
+* I led the frontend development effort of a new single-page application for Enterprise customers. This project was built from the ground up using more modern techniques and involved collaboration from more than a dozen peers over the course of a year.
+
+* I'm personally responsible for owning multiple tools, including Sentry, as well as maintaining several of HelloSign's open source repositories.
+
+* I mentor junior engineers and help troubleshoot frontend issues on a daily basis.
+
+* I author my team's frontend interview questions and challenges, and I help assess engineering candidates during the interview process.
+
+* I lead my office's emergency response team, coordinating with the larger Dropbox physical security effort. Our team is often used as a model by Dropbox when training new floor wardens.
 
 ---
 
@@ -59,19 +67,16 @@ MongoDB, Postgres, MySQL, SQLite.
 The usual. Also: Ubuntu, Sketch, and Vim.
 
 
-## Community
+## Other
 
-**Palomacy**
-Outreach Volunteer
-2016 – present
+* I'm a Notary Public commissioned by the State of California.
 
-Palomacy attends dozens of outreach events throughout the Bay Area and beyond every year, raising awareness for and inspiring adoptions of rescued pigeons and doves.
+* I've done ballroom dance competitively, and I was President of my university's Ballroom Dance Club.
+
+* Since 2016, I've been an outreach volunteer for Palomacy: a nonprofit dedicated to pigeon and dove rescue and adoption. Palomacy attends dozens of outreach events throughout the Bay Area and beyond every year, raising awareness for and inspiring adoptions of rescued pigeons and doves.
 
 
 ## Contact
-
-**Online**
-www.nathanbuchar.com
 
 **Email**
 hello@nathanbuchar.com

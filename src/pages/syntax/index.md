@@ -54,11 +54,17 @@ _This is italic text_
 Unordered
 
 + Create a list by starting a line with `+`, `-`, or `*`
+
 + Sub-lists are made by indenting 2 spaces:
+
   - Marker character change forces new list start:
+
     * Ac tristique libero volutpat at
+
     + Facilisis in pretium nisl aliquet
+
     - Nulla volutpat aliquam velit
+
 + Very easy!
 
 Ordered
@@ -128,7 +134,7 @@ Right aligned columns
 
 [link with title](http://nodeca.github.io/pica/demo/ "title text!")
 
-Autoconverted link https://github.com/nodeca/pica (enable linkify to see)
+Autoconverted link https://github.com/nodeca/pica
 
 
 ## Images

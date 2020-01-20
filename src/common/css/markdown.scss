@@ -1,6 +1,5 @@
-h1, h2, h3, h4, h5, h6, p, li, td, th, blockquote, pre, code, table, details {
-  margin: 0;
-  margin-bottom: 16px;
+h1, h2, h3, h4, h5, h6, p, td, th, li, blockquote, pre, code, table, details {
+  margin: 16px 0;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -36,8 +35,8 @@ h2 {
 }
 
 h3 {
-  font-size: 20px;
-  line-height: 17px;
+  font-size: 18px;
+  line-height: 24px;
 
   * + & {
     margin-top: 30px;
@@ -45,8 +44,8 @@ h3 {
 }
 
 h4 {
-  font-size: 17px;
-  line-height: 24px;
+  font-size: 16px;
+  line-height: 20px;
 
   * + & {
     margin-top: 20px;
@@ -61,7 +60,7 @@ h5, h6 {
 
 h5, h6, p, li, td, th, details, summary {
   font-size: 14px;
-  line-height: 24px;
+  line-height: 23px;
   color: get-color("gray10");
 }
 
@@ -71,7 +70,6 @@ h6 {
 
 p, li, td, th, details {
   font-family: get-font("sans");
-  margin-bottom: 18px;
 }
 
 a {
@@ -81,14 +79,6 @@ a {
 ol, ul {
   list-style: revert;
   padding-left: 30px;
-
-  ol, ul {
-    padding-left: 15px;
-  }
-
-  li {
-    margin: 8px 0;
-  }
 }
 
 hr {
@@ -120,22 +110,16 @@ details {
     cursor: pointer;
     font-weight: bold;
   }
-
-  &[open] {
-    summary {
-      margin-bottom: 8px;
-    }
-  }
 }
 
 pre, code {
   font-family: get-font("mono");
+  font-size: 13px;
   background-color: get-color("gray70");
 }
 
 pre {
   padding: 12px 16px;
-  font-size: 13px;
   line-height: 20px;
   overflow-x: auto;
 
