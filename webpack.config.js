@@ -5,6 +5,7 @@ const MiniCSSExtractPlugin = require('mini-css-extract-plugin');
 const { DefinePlugin } = require('webpack');
 
 const fs = require('fs');
+const hljs = require('highlight.js');
 const mdIt = require('markdown-it');
 const mdItAnchor = require('markdown-it-anchor');
 const mdItFootnote = require('markdown-it-footnote');
@@ -86,6 +87,17 @@ module.exports = {
                   breaks: true,
                   html: true,
                   typographer: true,
+                  highlight(str, lang) {
+                    if (lang && hljs.getLanguage(lang)) {
+                      try {
+                        return hljs.highlight(lang, str, true).value;
+                      } catch (_err) {
+                        // Do nothing.
+                      }
+                    }
+
+                    return ''; // use external default escaping
+                  },
                   ...options,
                 });
 
