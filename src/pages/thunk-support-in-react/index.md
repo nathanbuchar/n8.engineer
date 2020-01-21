@@ -1,8 +1,6 @@
 # Thunk Support in React
 ###### Mar 9, 2019
 
-<br/>
-
 A co-worker and I, familiar with [redux-thunk](https://github.com/reduxjs/redux-thunk), were interested in implementing a redux-like architecture for a project, but unfortunately native react hooks lack thunk support.
 
 Basically, we wanted our actions to support returning functions which will be treated as thunks and have access to the current state. Somehow we needed to create our own reducer which augments the `dispatch` function. After much back and forth and testing, we came up with the following:

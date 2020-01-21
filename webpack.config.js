@@ -146,11 +146,7 @@ module.exports = {
     ],
   },
   plugins: [
-    new CleanWebpackPlugin({
-      // resolve conflict with `CopyWebpackPlugin`
-      // via https://github.com/webpack-contrib/copy-webpack-plugin/issues/261#issuecomment-490334233
-      cleanStaleWebpackAssets: false,
-    }),
+    new CleanWebpackPlugin(),
     new DefinePlugin({
       __IS_DEBUG: JSON.stringify(isDebug),
     }),
@@ -162,17 +158,25 @@ module.exports = {
         from: path.resolve('src/static'),
         to: path.resolve('dist'),
       },
-    ]),
+    ], {
+      // resolve conflict with `CopyWebpackPlugin`
+      // via https://github.com/webpack-contrib/copy-webpack-plugin/issues/261#issuecomment-552550859
+      copyUnmodified: true,
+    }),
     ...Object.keys(entries).map((name) => {
       return new HTMLWebpackPlugin({
         template: path.resolve(`src/pages/${name}/index.pug`),
         filename: path.resolve(`dist/${name}/index.html`),
-        chunks: ['vendor', 'common', name],
+        chunks: [
+          'vendor',
+          'common',
+          name,
+        ],
       });
     }),
     // Must come after HTMLWebpackPlugin definition.
     new SvgSpriteHtmlWebpackPlugin({
-      generateSymbolId(svgFilePath, _svgHash, _svgContent) {
+      generateSymbolId(svgFilePath) {
         return path.parse(svgFilePath).name;
       },
     }),

@@ -1,17 +1,7 @@
 # Weighted Random
 ###### Oct 25, 2016
 
-<br/>
-
 The goal of this task was to design a generator function in JavaScript which yields a random value from a set based on a given probability of being chosen.
-
-The seed data should match the following schema:
-
-```
-Array.<[weight, value]>
-```
-
-Where `weight` is a number defining the chance—relative to the sum of all weights—of the given item being chosen at random, and `value` is the value that is yielded by the generator if the item is chosen.
 
 ## Implementation
 
