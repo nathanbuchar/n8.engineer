@@ -37,14 +37,12 @@ function iterate(arr, iteratee, done) {
   const len = arr.length;
 
   const iterator = (i) => {
-    const next = i + 1 < len ? iterator.bind(null, i + 1) : done;
-
     if (i in arr) {
       iteratee(arr[i], i, arr, () => {
-        next();
+        iterator(i + 1);
       });
     } else {
-      next();
+      done();
     }
   };
 
