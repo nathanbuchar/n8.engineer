@@ -1,3 +1,3 @@
 ### Error 404
 
-Resource not found. Sorry!
+There's nothing here. Sorry!
