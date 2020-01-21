@@ -32,7 +32,7 @@ defmodule WeightedRandom do
 end
 ```
 
-The following example has a 50% chance of returning `"a"`, a 35% chance of returning `"b"`, and a 15% chance of returning `"c"`.
+The `generator` in the following example has a 50% chance of returning `"a"`, a 35% chance of returning `"b"`, and a 15% chance of returning `"c"`.
 
 ```
 iex(1)> data = [{0.50, :foo}, {0.35, :bar}, {0.15, :baz}]
