@@ -35,7 +35,7 @@ I'm a software engineer. I figured it couldn't be too hard to write some code to
  * @param {string} word
  * @returns {boolean}
  */
-function isWordValid(word) {
+function checkWord(word) {
   const charCodeOffset = 97;
   const firstLetterCharCode = word.toLowerCase().charCodeAt(0);
   const firstLetterAlphabetPos = firstLetterCharCode - charCodeOffset + 1;
@@ -61,7 +61,7 @@ const filterWords = new Transform({
       // There are some words in the list that have punctuation.
       // Let's avoid those.
       if (!/!(\w|\.)/.test(word)) {
-        if (isWordValid(word)) {
+        if (checkWord(word)) {
           this.push(word);
           this.push('\n');
         }
@@ -87,20 +87,77 @@ And here's the best sentence I came up with:
 
 * Intricate flames glowing magnificently.
 
-It's not bad! I never did end up submitting it, but I did take this one step further: what if I only limited myself to words tweeted by [@realDonaldTrump](https://twitter.com/realdonaldtrump)?
+It's not bad! I never did end up submitting it, but I did take this one step further: what if I only limited myself to words tweeted by [@realDonaldTrump](https://twitter.com/realdonaldtrump)? He does have the best words after all.
+
+![](./img/trump-best-words.gif)
 
 
 ## Trump Tweets
 
-![](./img/trump-best-words.gif)
+I found a website which compiled all of Mr. Trump's tweets in a consumable format, so I downloaded them and parsed through the file using a similar algorithm to the one above. Since it was in JSON format, however, I didn't need to use stream transforms, just a simple `Array.reduce()`.
 
-I found a website which compiled all of Mr. Trump's tweets in a consumable format, so I downloaded them and parsed through the file using a similar algorithm to the one above.
+```js
+const fs = require('fs');
+const tweets = require('./trump-tweets');
 
-I also allowed for at-mentions (@) and hashtags (#), because why not? I found 2,006 valid "words" (misspellings, abbreviations, hyperbole, mentions, hashtags, etc.), and managed to come up with the following valid sentences:
+// Find all matching words, not including mentions
+// and hashtags.
+const words = tweets.reduce((acc, { text }) => {
+  // Split into words using word boundaries, then filter
+  // out mentions and hashtags.
+  const matches = text.match(/\S+\b/g).filter((m) => /^[^@#]/.test(m));
+
+  if (matches) {
+    matches.forEach((match) => {
+      // Check that the word is valid and has not already
+      // been found.
+      if (checkWord(match) && !acc.includes(match)) {
+        acc.push(match);
+      }
+    });
+  }
+
+  return acc;
+}, []);
+
+// Sort the matching words alphabetically, without
+// sensitivity to case.
+words.sort((a, b) => {
+  return a.toLowerCase() < b.toLowerCase() ? -1 : 1;
+});
+
+fs.writeFileSync('./trump-words.txt', `${words.join('\n')}\n`);
+```
+
+I also found all valid at-mentions (@) and hashtags (#), because why not? Here's the code which extracts all valid mentions:
+
+```js
+const mentions = tweets.reduce((acc, { text }) => {
+  const matches = text.match(/\B@\S+\b/g);
+
+  if (matches) {
+    matches.forEach((hashtag) => {
+      const word = hashtag.match(/\w+/)[0];
+
+      if (checkWord(word) && !acc.includes(hashtag)) {
+        acc.push(hashtag);
+      }
+    });
+  }
+}, []);
+```
+
+For hashtags I used the same tactic, but with a slightly different regex:
+
+```js
+const matches = text.match(/\B#\S+\b/g);
+```
+
+In total, I found 2,006 valid "words" (misspellings, abbreviations, hyperbole, etc.), 629 valid mentions, and 82 valid hashtags. In the end, I managed to come up with the following valid sentences:
 
 * hahahaha goodbye @SenatorJeffSessions! #PlayTheTrumpCard
 * Fueled by ignorance: #MeetTheTrumps
 * DACA favors immigrant interests
 * A genuine future every family can enjoy #hardwork
 
-All in all, pretty fun little project.
+So yeah, all in all: pretty fun little project.
