@@ -864,7 +864,7 @@ When you see a voiced consonant followed by a voiceless one in spelling, the voi
 
 Listen how the voiceless **к** in this word makes the voiced **б** sound like a voiceless **п**.
 
-* **юпка** – *\[úpk**a\]*
+* **юпка** – *\[úpk**a**\]*
 
 Unlike when we say *vodka* in English, in Russian, the letter **д** will be pronounced as if it were a voiceless **т**.
 
