@@ -8,7 +8,7 @@ I'm by no means a blogger, but I'll occasionally share code, thoughts, and photo
 - [Iterate (Async)](/iterate-async) (Aug 2018)
 - [Gummy Sort](/gummy-sort) (May 2018)
 - [Tic-Tac-Toe Strategies](/tic-tac-toe-strategies) (Mar 2018)
-- [Russian Spelling Rules](/russian-spelling-rules) (Jun 2017)
+- [Russian Notes](/russian-notes) (Jun 2017)
 - [Weighted Random (Elixir)](/weighted-random-elixir) (May 2017)
 - [Weighted Random](/weighted-random) (Oct 2016)
 - [K-Combinations](/k-combinations) (May 2016)

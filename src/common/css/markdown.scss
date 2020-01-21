@@ -48,7 +48,7 @@ h4 {
   line-height: 20px;
 
   * + & {
-    margin-top: 20px;
+    margin-top: 24px;
   }
 }
 
@@ -145,4 +145,14 @@ blockquote {
 
 img {
   max-width: 100%;
+}
+
+.header-anchor {
+  display: none;
+  color: get-color('gray40');
+  text-decoration: none;
+
+  *:hover > & {
+    display: unset;
+  }
 }

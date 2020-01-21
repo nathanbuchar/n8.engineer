@@ -122,12 +122,17 @@ module.exports = {
                   ...options,
                 });
 
-                md.use(mdItAnchor);
+                md.use(mdItAnchor, {
+                  level: [2, 3, 4],
+                  permalink: true,
+                });
                 md.use(mdItFootnote);
                 md.use(mdItKatex);
                 md.use(mdItSub);
                 md.use(mdItSup);
-                md.use(mdItToc);
+                md.use(mdItToc, {
+                  includeLevel: [2, 3],
+                });
 
                 return md.render(text);
               },

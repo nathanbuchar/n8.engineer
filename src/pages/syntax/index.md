@@ -5,11 +5,6 @@
 ##### h5 Heading
 ###### h6 Heading
 
-## Table of Contents
-
-[[toc]]
-
-
 ## Horizontal Rules
 
 ___
