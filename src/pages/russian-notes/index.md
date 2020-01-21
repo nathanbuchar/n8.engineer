@@ -919,7 +919,7 @@ And these same four letters do not cause a preceding consonant to become voiced.
 
 We should add one exception: the letter **в**. Although it does become devoiced at the end of the word, it does not cause a preceding voiceless consonant to become voiced. So in this word for example, the **с** remains voiceless even though it's followed by the voiced **в**.
 
-* **связь** – *\[**sv**yæs'\]*
+* **связь** – *\[**sv**yas'\]*
 
 
 ***
