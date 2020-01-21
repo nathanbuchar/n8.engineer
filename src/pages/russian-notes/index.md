@@ -902,7 +902,7 @@ Listen to how the voiceless **с** in this word sounds like a voiced **з**, bec
 
 And here, the voiceless **т** of the word **вот** becomes voiced when it's followed by **д**, so here is what sounds like two **д** sounds.
 
-* **вот дочь** – *\[vó**dd**óch'\]*
+* **вот дочь** – *\[vó**d d**óch'\]*
 
 As we saw before though, there are four consonants that don't get involved in this voicing and devoicing business. So, **л**, **м**, **н**, and **р** don't generally become devoiced.
 
@@ -963,7 +963,7 @@ Here are a few more prepositional transforms for practice.
 
 * **дом** → **дом*е***
 
-* **квартси́ра** → **квартси́р*е***
+* **кварти́ра** → **кварти́р*е***
 
 However, there are some common words that end in **и** in the prepositional. The words that take this **-и** ending are feminine nouns that end in a soft sign (**ь**).
 
