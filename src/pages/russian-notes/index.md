@@ -16,7 +16,7 @@ I'm casually learning Russian. Here are some of my notes.
   <tr>
     <th>Letter</th>
     <th>Name</th>
-    <th>Transliteration</th>
+    <th>Translit.</th>
     <th>English Example</th>
     <th>Russian Example</th>
   </tr>
