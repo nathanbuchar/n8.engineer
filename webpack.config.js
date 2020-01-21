@@ -68,7 +68,7 @@ module.exports = {
         use: 'responsive-loader',
       },
       {
-        test: /\.(woff2?|ttf|eot|svg|gif|txt)$/i,
+        test: /\.(woff2?|ttf|eot|svg|gif|mp4|txt)$/i,
         use: {
           loader: 'file-loader',
           options: {
