@@ -58,8 +58,8 @@ const filterWords = new Transform({
     const words = chunk.toString().split('\r\n');
 
     words.forEach((word) => {
-      // There are some words in the list that have punctuation.
-      // Let's avoid those.
+      // There are some words in the list that have weird
+      // punctuation, like "b-". Let's avoid those.
       if (!/!(\w|\.)/.test(word)) {
         if (checkWord(word)) {
           this.push(word);
@@ -94,24 +94,27 @@ It's not bad! I never did end up submitting it, but I did take this one step fur
 
 ## Trump Tweets
 
-I found a website which compiled all of Mr. Trump's tweets in a consumable format, so I downloaded them and parsed through the file using a similar algorithm to the one above. Since it was in JSON format, however, I didn't need to use stream transforms, just a simple `Array.reduce()`.
+I found a website which compiled all of Mr. Trump's tweets in a consumable format, so I downloaded them and parsed through the file using a similar algorithm to the one above. Since it was in JSON format, however, I didn't need to use transform streams, just a simple `Array.reduce()` sufficed. I also decided to extract all valid at-mentions (@) and hashtags (#), because why not?
 
 ```js
 const fs = require('fs');
 const tweets = require('./trump-tweets');
 
-// Find all matching words, not including mentions
-// and hashtags.
 const words = tweets.reduce((acc, { text }) => {
-  // Split into words using word boundaries, then filter
-  // out mentions and hashtags.
-  const matches = text.match(/\S+\b/g).filter((m) => /^[^@#]/.test(m));
+  // Find all matching words, not including mentions
+  // and hashtags. Ignore all words starting with any
+  // character other than a-ZA-Z, @, or #.
+  const matches = text.match(/\s([a-zA-Z@#]\S*\b)/g);
 
   if (matches) {
     matches.forEach((match) => {
+      // Extract just the word portion of the match (i.e.,
+      // strip the @ or # if present).
+      const word = match.match(/\w+/)[0];
+
       // Check that the word is valid and has not already
       // been found.
-      if (checkWord(match) && !acc.includes(match)) {
+      if (checkWord(word) && !acc.includes(match)) {
         acc.push(match);
       }
     });
@@ -120,39 +123,11 @@ const words = tweets.reduce((acc, { text }) => {
   return acc;
 }, []);
 
-// Sort the matching words alphabetically, without
-// sensitivity to case.
 words.sort((a, b) => {
   return a.toLowerCase() < b.toLowerCase() ? -1 : 1;
 });
 
 fs.writeFileSync('./trump-words.txt', `${words.join('\n')}\n`);
-```
-
-I also found all valid at-mentions (@) and hashtags (#), because why not? Here's the code which extracts all valid mentions:
-
-```js
-const mentions = tweets.reduce((acc, { text }) => {
-  const matches = text.match(/\B@\S+\b/g);
-
-  if (matches) {
-    matches.forEach((hashtag) => {
-      const word = hashtag.match(/\w+/)[0];
-
-      if (checkWord(word) && !acc.includes(hashtag)) {
-        acc.push(hashtag);
-      }
-    });
-  }
-
-  return acc;
-}, []);
-```
-
-For hashtags I used the same tactic, but with a slightly different regex:
-
-```js
-const matches = text.match(/\B#\S+\b/g);
 ```
 
 In total, I found 2,006 valid "words" (misspellings, abbreviations, hyperbole, etc.), 629 valid mentions, and 82 valid hashtags. In the end, I managed to come up with the following valid sentences:
