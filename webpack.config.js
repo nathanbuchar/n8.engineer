@@ -37,7 +37,29 @@ module.exports = {
   output: {
     path: path.resolve('dist'),
     publicPath: '/',
-    filename: '[name]-[contenthash].bundle.js',
+    filename: '[name].[contenthash].js',
+  },
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        default: false,
+        vendors: false,
+        vendor: {
+          name: 'vendor',
+          chunks: 'all',
+          test: /node_modules/,
+          priority: 40,
+        },
+        common: {
+          name: 'common',
+          minChunks: 2,
+          chunks: 'all',
+          priority: 20,
+          reuseExistingChunk: true,
+          enforce: true,
+        },
+      },
+    },
   },
   module: {
     rules: [
@@ -133,7 +155,7 @@ module.exports = {
       __IS_DEBUG: JSON.stringify(isDebug),
     }),
     new MiniCSSExtractPlugin({
-      filename: '[name]-[contenthash].css',
+      filename: '[name].[contenthash].css',
     }),
     new CopyWebpackPlugin([
       {
@@ -145,7 +167,7 @@ module.exports = {
       return new HTMLWebpackPlugin({
         template: path.resolve(`src/pages/${name}/index.pug`),
         filename: path.resolve(`dist/${name}/index.html`),
-        chunks: [name],
+        chunks: ['vendor', 'common', name],
       });
     }),
     // Must come after HTMLWebpackPlugin definition.
