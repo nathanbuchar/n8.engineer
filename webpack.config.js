@@ -123,7 +123,6 @@ module.exports = {
                 });
 
                 md.use(mdItAnchor, {
-                  level: [2, 3, 4],
                   permalink: true,
                 });
                 md.use(mdItFootnote);
