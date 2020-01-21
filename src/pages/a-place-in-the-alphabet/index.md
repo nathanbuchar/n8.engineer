@@ -78,10 +78,15 @@ const writable = fs.createWriteStream('./words_valid.txt');
 readable.pipe(filterWords).pipe(writable);
 ```
 
-This is great! Now I have a list of words that we can use to try to form sentences for "Puzzle Mania!". Here are a couple interesting words my program found:
+This is great! Now I have a list of words that we can use to try to form sentences for "Puzzle Mania!". Here are a few interesting words my program found:
 
+* puzzleheadedness
+* retroconsciousness
 * straightforwardness
-* ureteropyelonephritis
+
+And the longest valid word:
+
+*  undistinguishableness
 
 And here's the best sentence I came up with:
 
@@ -135,6 +140,9 @@ In total, I found 2,006 valid "words" (misspellings, abbreviations, hyperbole, e
 * hahahaha goodbye @SenatorJeffSessions! #PlayTheTrumpCard
 * Fueled by ignorance: #MeetTheTrumps
 * DACA favors immigrant interests
+
+From what I discovered—and maybe it's not so much of a surprise—most of Mr. Trump's vocabulary leans pretty negative. I was, however, still able to construct at least one positive sentence:
+
 * A genuine future every family can enjoy #hardwork
 
 So yeah, all in all: pretty fun little project.
