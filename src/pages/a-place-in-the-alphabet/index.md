@@ -144,6 +144,8 @@ const mentions = tweets.reduce((acc, { text }) => {
       }
     });
   }
+
+  return acc;
 }, []);
 ```
 
