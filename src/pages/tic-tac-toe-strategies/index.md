@@ -1,6 +1,10 @@
 # Tic-Tac-Toe Strategies
 ###### Mar 23, 2018
 
+***
+
+#### Table of Contents
+
 [[toc]]
 
 ## Background
