@@ -94,9 +94,13 @@ It's not bad! I never did end up submitting it, but I did take this one step fur
 
 ![](./img/trump-best-words.gif)
 
-I found a website which compiled all of Mr. Trump's tweets in a consumable format, so I downloaded them and parsed through the file using a similar algorithm to the one above. I also allowed for at-mentions (@) and hashtags (#), because why not? I found 2,006 valid "words" (misspellings, abbreviations, hyperbole, mentions, hashtags, etc), and managed to come up with the following, arguably amazing, sentences:
+I found a website which compiled all of Mr. Trump's tweets in a consumable format, so I downloaded them and parsed through the file using a similar algorithm to the one above.
+
+I also allowed for at-mentions (@) and hashtags (#), because why not? I found 2,006 valid "words" (misspellings, abbreviations, hyperbole, mentions, hashtags, etc.), and managed to come up with the following valid sentences:
 
 * hahahaha goodbye @SenatorJeffSessions! #PlayTheTrumpCard
 * Fueled by ignorance: #MeetTheTrumps
 * DACA favors immigrant interests
 * A genuine future every family can enjoy #hardwork
+
+All in all, pretty fun little project.
