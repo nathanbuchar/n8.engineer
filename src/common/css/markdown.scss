@@ -6,6 +6,20 @@ h1, h2, h3, h4, h5, h6 {
   font-family: get-font("slab");
   font-weight: normal;
   color: get-color("black");
+
+  .header-anchor {
+    display: none;
+    color: get-color('gray40');
+    text-decoration: none;
+  }
+}
+
+h1, h2, h3, h4 {
+  &:hover {
+    .header-anchor {
+      display: unset;
+    }
+  }
 }
 
 h1, h2 {
@@ -145,14 +159,4 @@ blockquote {
 
 img {
   max-width: 100%;
-}
-
-.header-anchor {
-  display: none;
-  color: get-color('gray40');
-  text-decoration: none;
-
-  *:hover > & {
-    display: unset;
-  }
 }
