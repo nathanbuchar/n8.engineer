@@ -33,7 +33,7 @@ Below you can see an example of how the alpha masks were generated.
 
 ### Life
 
-[The Hennessy Life](hennessy.com/us/life) showcases the brand’s lifestyle through culture, news, events, and influencers. It’s a vibrant, media-rich blend of film, fashion, artist collaborations, hip hop tracks and, of course, cocktails. Content is updated regularly to stay fresh.
+[The Hennessy Life](https://www.hennessy.com/us/life) showcases the brand’s lifestyle through culture, news, events, and influencers. It’s a vibrant, media-rich blend of film, fashion, artist collaborations, hip hop tracks and, of course, cocktails. Content is updated regularly to stay fresh.
 
 ![](./img/hennessy-life-1.jpg)
 
@@ -53,7 +53,7 @@ In a similar vein to the homepage, the hero image on the Cocktails landing page 
 
 ### Engraver
 
-The Hennessy engraver module, found on the [purchase](hennessy.com/us/purchase/) page was one of my first hefty projects on Hennessy.
+The Hennessy engraver module, found on the [purchase](https://www.hennessy.com/us/purchase/) page was one of my first hefty projects on Hennessy.
 
 Before purchasing, customers can choose to engrave their bottle, which launched the engraving experience in a full-screen modal.
 
