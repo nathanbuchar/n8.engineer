@@ -1,7 +1,6 @@
 I'm by no means a blogger, but I'll occasionally share code, thoughts, and photos. Here's some of my stuff:
 
 - [Hennessy.com](/hennessy) (Jan 2020)
-- [Responsive Images](/responsive-images) (Jan 2020)
 - [Good Design](/good-design) (Oct 2019)
 - [Thunk Support in React](/thunk-support-in-react) (Mar 2019)
 - [A Place in the Alphabet](/a-place-in-the-alphabet) (Nov 2018)
