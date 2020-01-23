@@ -148,7 +148,7 @@ module.exports = {
           'css-loader',
           {
             loader: 'resolve-url-loader',
-            optoins: {
+            options: {
               debug: true,
             },
           },
