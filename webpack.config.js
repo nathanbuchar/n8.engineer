@@ -145,15 +145,26 @@ module.exports = {
         test: /\.(sa|sc|c)ss$/,
         use: [
           MiniCSSExtractPlugin.loader,
-          'css-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: true,
+            },
+          },
           {
             loader: 'resolve-url-loader',
             options: {
               debug: true,
               root: path.join(__dirname, 'src/common/css'),
+              sourceMap: true,
             },
           },
-          'sass-loader',
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true,
+            },
+          },
         ],
       },
       {
