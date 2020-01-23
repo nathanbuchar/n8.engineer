@@ -1,20 +1,16 @@
-const express = require('express');
-const path = require('path');
+const http = require('http');
+const { Server } = require('node-static');
 
-const app = express();
+const fileServer = new Server('./dist');
 
-app.use('/', [
-  express.static('dist/home'),
-  express.static('dist', {
-    dotfiles: 'allow',
-  }),
-]);
-
-app.get('*', (req, res) => {
-  const errorPage = path.join(__dirname, 'dist/error/index.html');
-
-  res.status(404);
-  res.sendFile(errorPage);
+const server = http.createServer((req, res) => {
+  req.addListener('end', () => {
+    fileServer.serve(req, res, (err) => {
+      if (err && err.status === 404) {
+        fileServer.serveFile('not-found.html', 404, {}, req, res);
+      }
+    });
+  }).resume();
 });
 
-app.listen(process.env.PORT || 3000);
+server.listen(process.env.PORT || 3000);

@@ -1,0 +1,8 @@
+{
+  "filename": "/weighted-random-elixir/index.html",
+  "template": "index.pug",
+  "entry": [
+    "index.js",
+    "index.scss"
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "filename": "/a-place-in-the-alphabet/index.html",
+  "template": "index.pug",
+  "entry": [
+    "index.js",
+    "index.scss"
+  ]
+}

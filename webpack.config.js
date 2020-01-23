@@ -10,7 +10,6 @@ const hljs = require('highlight.js');
 const mdIt = require('markdown-it');
 const mdItAnchor = require('markdown-it-anchor');
 const mdItFootnote = require('markdown-it-footnote');
-const mdItKatex = require('markdown-it-katex');
 const mdItSub = require('markdown-it-sub');
 const mdItSup = require('markdown-it-sup');
 const mdItToc = require('markdown-it-table-of-contents');
@@ -19,25 +18,30 @@ const path = require('path');
 const nodeEnv = process.env.NODE_ENV || 'development';
 const isDebug = nodeEnv === 'development';
 
-const entries = fs.readdirSync('src/pages').reduce((acc, name) => {
-  const pathToEntry = path.join(__dirname, 'src/pages', name);
+const pages = fs.readdirSync('src/pages').map((id) => {
+  const pathToPage = path.join(__dirname, 'src/pages', id);
+  const pathToConfig = path.join(pathToPage, 'config.json');
+  const config = require(pathToConfig);
 
-  acc[name] = [
-    path.join(pathToEntry, 'index.js'),
-    path.join(pathToEntry, 'index.scss'),
-  ];
-
-  return acc;
-}, {});
+  return {
+    id,
+    config: {
+      ...config,
+      entry: config.entry.map((file) => {
+        return path.join(pathToPage, file);
+      }),
+    },
+  };
+});
 
 module.exports = {
   mode: nodeEnv,
   devtool: isDebug ? 'inline-source-map' : false,
-  entry: entries,
+  entry: pages.reduce((entries, page) => ({ ...entries, [page.id]: page.config.entry }), {}),
   output: {
     path: path.resolve('dist'),
     publicPath: '/',
-    filename: '[name].[contenthash].js',
+    filename: 'assets/js/[name].[contenthash].js',
   },
   optimization: {
     splitChunks: {
@@ -64,14 +68,11 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(png|jpe?g)$/i,
-        use: 'responsive-loader',
-      },
-      {
-        test: /\.(woff2?|ttf|eot|svg|gif|mp4|txt)$/i,
+        test: /\.(jpe?g|png|gif)$/i,
         use: {
           loader: 'file-loader',
           options: {
+            name: 'assets/img/[name].[contenthash].[ext]',
             esModule: false,
           },
         },
@@ -88,10 +89,6 @@ module.exports = {
                   browsers: ['IE >= 9'],
                 },
               }],
-            ],
-            plugins: [
-              '@babel/plugin-proposal-class-properties',
-              '@babel/plugin-proposal-export-default-from',
             ],
           },
         },
@@ -122,16 +119,11 @@ module.exports = {
                   ...options,
                 });
 
-                md.use(mdItAnchor, {
-                  permalink: true,
-                });
+                md.use(mdItAnchor, { permalink: true });
                 md.use(mdItFootnote);
-                md.use(mdItKatex);
                 md.use(mdItSub);
                 md.use(mdItSup);
-                md.use(mdItToc, {
-                  includeLevel: [2, 3],
-                });
+                md.use(mdItToc, { includeLevel: [2, 3] });
 
                 return md.render(text);
               },
@@ -155,7 +147,7 @@ module.exports = {
       __IS_DEBUG: JSON.stringify(isDebug),
     }),
     new MiniCSSExtractPlugin({
-      filename: '[name].[contenthash].css',
+      filename: 'assets/css/[name].[contenthash].css',
     }),
     new CopyWebpackPlugin([
       {
@@ -167,19 +159,22 @@ module.exports = {
       // via https://github.com/webpack-contrib/copy-webpack-plugin/issues/261#issuecomment-552550859
       copyUnmodified: true,
     }),
-    ...Object.keys(entries).map((name) => {
+    ...pages.map((page) => {
       return new HTMLWebpackPlugin({
-        template: path.resolve(`src/pages/${name}/index.pug`),
-        filename: path.resolve(`dist/${name}/index.html`),
+        template: path.join(__dirname, 'src/pages', page.id, page.config.template),
+        filename: path.join(__dirname, 'dist', page.config.filename),
         chunks: [
           'vendor',
           'common',
-          name,
+          page.id,
         ],
       });
     }),
     // Must come after HTMLWebpackPlugin definition.
     new SvgSpriteHtmlWebpackPlugin({
+      includeFiles: [
+        'src/common/svg/*.svg',
+      ],
       generateSymbolId(svgFilePath) {
         return path.parse(svgFilePath).name;
       },

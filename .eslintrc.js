@@ -11,6 +11,8 @@ module.exports = {
   },
   rules: {
     'arrow-body-style': 'off',
+    'global-require': 'off',
+    'import/no-dynamic-require': 'off',
     'import/prefer-default-export': 'off',
     'no-underscore-dangle': 'off',
     'no-unused-vars': ['error', {

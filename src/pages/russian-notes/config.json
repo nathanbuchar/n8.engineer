@@ -1,0 +1,8 @@
+{
+  "filename": "/russian-notes/index.html",
+  "template": "index.pug",
+  "entry": [
+    "index.js",
+    "index.scss"
+  ]
+}
