@@ -150,6 +150,7 @@ module.exports = {
             loader: 'resolve-url-loader',
             options: {
               debug: true,
+              root: path.join(__dirname, 'src/common/css'),
             },
           },
           'sass-loader',
