@@ -1,6 +1,6 @@
 {
-  "filename": "/hennessy/index.html",
   "template": "index.pug",
+  "filename": "/hennessy/index.html",
   "entry": [
     "index.js",
     "index.scss"

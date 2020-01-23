@@ -1,6 +1,6 @@
 {
-  "filename": "/thunk-support-in-react/index.html",
   "template": "index.pug",
+  "filename": "/thunk-support-in-react/index.html",
   "entry": [
     "index.js",
     "index.scss"

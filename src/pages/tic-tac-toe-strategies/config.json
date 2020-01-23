@@ -1,6 +1,6 @@
 {
-  "filename": "/tic-tac-toe-strategies/index.html",
   "template": "index.pug",
+  "filename": "/tic-tac-toe-strategies/index.html",
   "entry": [
     "index.js",
     "index.scss"

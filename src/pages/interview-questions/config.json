@@ -1,6 +1,6 @@
 {
-  "filename": "/interview-questions/index.html",
   "template": "index.pug",
+  "filename": "/interview-questions/index.html",
   "entry": [
     "index.js",
     "index.scss"

@@ -1,6 +1,6 @@
 {
-  "filename": "/not-found.html",
   "template": "index.pug",
+  "filename": "/not-found.html",
   "entry": [
     "index.js",
     "index.scss"

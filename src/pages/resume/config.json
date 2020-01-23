@@ -1,6 +1,6 @@
 {
-  "filename": "/resume/index.html",
   "template": "index.pug",
+  "filename": "/resume/index.html",
   "entry": [
     "index.js",
     "index.scss"

@@ -1,6 +1,6 @@
 {
-  "filename": "/weighted-random/index.html",
   "template": "index.pug",
+  "filename": "/weighted-random/index.html",
   "entry": [
     "index.js",
     "index.scss"

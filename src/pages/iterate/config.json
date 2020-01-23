@@ -1,6 +1,6 @@
 {
-  "filename": "/iterate/index.html",
   "template": "index.pug",
+  "filename": "/iterate/index.html",
   "entry": [
     "index.js",
     "index.scss"

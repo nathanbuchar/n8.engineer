@@ -1,6 +1,6 @@
 {
-  "filename": "/gummy-sort/index.html",
   "template": "index.pug",
+  "filename": "/gummy-sort/index.html",
   "entry": [
     "index.js",
     "index.scss"

@@ -1,6 +1,6 @@
 {
-  "filename": "/a-place-in-the-alphabet/index.html",
   "template": "index.pug",
+  "filename": "/a-place-in-the-alphabet/index.html",
   "entry": [
     "index.js",
     "index.scss"

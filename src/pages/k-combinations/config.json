@@ -1,6 +1,6 @@
 {
-  "filename": "/k-combinations/index.html",
   "template": "index.pug",
+  "filename": "/k-combinations/index.html",
   "entry": [
     "index.js",
     "index.scss"
