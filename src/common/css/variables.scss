@@ -1,3 +1,7 @@
+$roboto-slab: 'Roboto Slab';
+$roboto-mono: 'Roboto Mono';
+$open-sans: 'Open Sans';
+
 $colors: (
   "black": #000000,
   "blue": #0000EE,
@@ -21,7 +25,7 @@ $icon-sizes: (
 );
 
 $fonts: (
-  "slab": ('Roboto Slab', serif),
-  "sans": ('Open Sans', sans-serif),
-  "mono": ('Roboto Mono', monospace)
+  "heading": ($roboto-slab, serif),
+  "body": ($open-sans, sans-serif),
+  "code": ($roboto-mono, monospace)
 );

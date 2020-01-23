@@ -3,7 +3,7 @@ h1, h2, h3, h4, h5, h6, p, td, th, li, blockquote, pre, code, table, details {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: get-font("slab");
+  font-family: get-font("heading");
   font-weight: normal;
   color: get-color("black");
 
@@ -83,7 +83,7 @@ h6 {
 }
 
 p, li, td, th, details {
-  font-family: get-font("sans");
+  font-family: get-font("body");
 }
 
 a {
@@ -127,7 +127,7 @@ details {
 }
 
 pre, code {
-  font-family: get-font("mono");
+  font-family: get-font("code");
   font-size: 13px;
   background-color: get-color("gray70");
 }

@@ -41,7 +41,7 @@ module.exports = {
   output: {
     path: path.resolve('dist'),
     publicPath: '/',
-    filename: 'assets/js/[name].[contenthash].js',
+    filename: 'assets/js/[name].[contenthash].bundle.js',
   },
   optimization: {
     splitChunks: {
@@ -72,7 +72,17 @@ module.exports = {
         use: {
           loader: 'file-loader',
           options: {
-            name: 'assets/img/[name].[contenthash].[ext]',
+            name: 'assets/img/[name].[ext]',
+            esModule: false,
+          },
+        },
+      },
+      {
+        test: /\.(woff2?|eot|ttf)$/i,
+        use: {
+          loader: 'file-loader',
+          options: {
+            name: 'assets/fonts/[name].[ext]',
             esModule: false,
           },
         },
@@ -132,8 +142,13 @@ module.exports = {
         }],
       },
       {
-        test: /\.scss$/,
-        use: [MiniCSSExtractPlugin.loader, 'css-loader', 'sass-loader'],
+        test: /\.(sa|sc|c)ss$/,
+        use: [
+          MiniCSSExtractPlugin.loader,
+          'css-loader',
+          'resolve-url-loader',
+          'sass-loader',
+        ],
       },
       {
         test: /\.svg$/,

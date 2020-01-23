@@ -12,40 +12,37 @@ html(lang='en' dir='ltr')
       meta(name='viewport' content='width=device-width, initial-scale=1')
       link(rel='icon' href='/favicon.ico')  
         
-      include /common/html/includes/fonts
       include /common/html/includes/ga
   body
-    block body
-      .container
-        .row.py-2.py-sm-5
-          .col.col-sm-10.col-md-8.col-lg-6
+    .container
+      .row.py-2.py-sm-5
+        .col.col-sm-10.col-md-8.col-lg-6
+          .row.py-4
+            .col
+              nav
+                p.my-0
+                  a(href='/' aria-label='Pigeon logo. Click to go to the homepage')
+                    +icon('pigeon', 'small', 'pigeon-logo')
+          .row
+            .col
+              main
+                block content
+                  //- Page content goes here.
+          if includeFooter
             .row.py-4
               .col
-                nav
-                  p.my-0
-                    a(href='/' aria-label='Pigeon logo. Click to go to the homepage')
-                      +icon('pigeon', 'small', 'pigeon-logo')
-            .row
-              .col
-                main
-                  block content
-                    //- Page content goes here.
-            if includeFooter
-              .row.py-4
-                .col
-                  footer
+                footer
+                  .row.mt-3
+                    .col
+                      p.my-0.aria-hidden &ndash;
+                      p.my-0
+                        a(href='https://github.com/nathanbuchar')
+                          | GitHub
+                      p.my-0
+                        a(href='mailto:hello@nathanbuchar.com')
+                          | hello@nathanbuchar.com
+                  if includeCopyright
                     .row.mt-3
                       .col
-                        p.my-0.aria-hidden &ndash;
-                        p.my-0
-                          a(href='https://github.com/nathanbuchar')
-                            | GitHub
-                        p.my-0
-                          a(href='mailto:hello@nathanbuchar.com')
-                            | hello@nathanbuchar.com
-                    if includeCopyright
-                      .row.mt-3
-                        .col
-                          p.my-0.color-gray20
-                            | Copyright &copy; 2020 Nathan Buchar. All rights reserved.
-    block scripts
+                        p.my-0.color-gray20
+                          | Copyright &copy; 2020 Nathan Buchar. All rights reserved.
