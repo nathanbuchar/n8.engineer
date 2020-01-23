@@ -1,26 +1,26 @@
 @font-face {
   font-family: $roboto-slab;
-  src: url('../fonts/RobotoSlab.woff2') format('woff2'),
-       url('../fonts/RobotoSlab.woff') format('woff'),
-       url('../fonts/RobotoSlab.ttf') format('truetype');
+  src: url('../../common/fonts/RobotoSlab.woff2') format('woff2'),
+       url('../../common/fonts/RobotoSlab.woff') format('woff'),
+       url('../../common/fonts/RobotoSlab.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: $roboto-mono;
-  src: url('../fonts/RobotoMono.woff2') format('woff2'),
-       url('../fonts/RobotoMono.woff') format('woff'),
-       url('../fonts/RobotoMono.ttf') format('truetype');
+  src: url('../../common/fonts/RobotoMono.woff2') format('woff2'),
+       url('../../common/fonts/RobotoMono.woff') format('woff'),
+       url('../../common/fonts/RobotoMono.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: $open-sans;
-  src: url('../fonts/OpenSans.woff2') format('woff2'),
-       url('../fonts/OpenSans.woff') format('woff'),
-       url('../fonts/OpenSans.ttf') format('truetype');
+  src: url('../../common/fonts/OpenSans.woff2') format('woff2'),
+       url('../../common/fonts/OpenSans.woff') format('woff'),
+       url('../../common/fonts/OpenSans.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }

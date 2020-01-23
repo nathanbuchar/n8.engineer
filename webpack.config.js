@@ -146,7 +146,7 @@ module.exports = {
         use: [
           MiniCSSExtractPlugin.loader,
           'css-loader',
-          'resolve-url-loader',
+          // 'resolve-url-loader',
           'sass-loader',
         ],
       },
