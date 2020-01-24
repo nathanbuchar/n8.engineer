@@ -3,8 +3,10 @@ import throttle from 'lodash.throttle';
 
 (function gridOverlay() {
   if (__IS_DEBUG) {
-    window.addEventListener('keypress', throttle((evt) => {
-      if (evt.key === '?') {
+    window.addEventListener('keypress', throttle(({ target, key }) => {
+      if (key !== '?') return;
+
+      if (!['input', 'textarea'].includes(target.tagName.toLowerCase())) {
         const elem = document.getElementById('x-grid-overlay');
 
         if (elem) {
