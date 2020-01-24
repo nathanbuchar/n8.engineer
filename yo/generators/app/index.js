@@ -40,7 +40,11 @@ module.exports = class extends Generator {
           return action === 'createPage';
         },
         validate(str) {
-          return str.length > 0;
+          if (str.length === 0) {
+            return 'Your page needs a name!';
+          }
+
+          return true;
         },
       },
       {
