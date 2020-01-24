@@ -14,16 +14,15 @@ html(lang='en' dir='ltr')
         
       include /common/html/includes/ga
   body
-    a.skip-link(href='#main' tab-index="1") Skip to main content
+    a.skip-link(href='#main' tab-index='1') Skip to main content
     .container
       .row.py-2.py-sm-5
         .col.col-sm-10.col-md-8.col-lg-6
           .row.py-4
             .col
               nav
-                p.my-0
-                  a(href='/' aria-label='Home')
-                    +icon('pigeon', 'small', 'pigeon-logo')
+                a(href='/' aria-label='Home')
+                  +icon('pigeon', 'small', 'pigeon')
           .row
             .col
               main#main
