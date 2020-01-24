@@ -6,7 +6,7 @@
  */
 function domReady() {
   return new Promise((resolve) => {
-    if (['interactive', 'complete'].contains(document.readyState)) {
+    if (['interactive', 'complete'].includes(document.readyState)) {
       resolve();
     } else {
       document.addEventListener('DOMContentLoaded', function handleDOMReady() {
