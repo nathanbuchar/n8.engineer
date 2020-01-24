@@ -1,8 +1,9 @@
+const Generator = require('yeoman-generator');
+
 const figlet = require('figlet');
 const fs = require('fs');
 const path = require('path');
 const slugify = require('slugify');
-const Generator = require('yeoman-generator');
 
 module.exports = class extends Generator {
   constructor(...args) {
