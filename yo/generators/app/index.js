@@ -9,6 +9,7 @@ module.exports = class extends Generator {
     super(...args);
 
     // Display welcome message.
+    // eslint-disable-next-line no-console
     console.log(`\n\n${figlet.textSync('Yo Nate!', { font: 'Slant' })}\n`);
 
     this.destinationRoot(path.join(__dirname, '../../../src'));
