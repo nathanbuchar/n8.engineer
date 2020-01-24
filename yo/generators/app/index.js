@@ -15,7 +15,7 @@ module.exports = class extends Generator {
     this.destinationRoot(path.join(__dirname, '../../../src'));
   }
 
-  async promptingAction() {
+  async prompting() {
     this.answers = await this.prompt([
       {
         type: 'list',
