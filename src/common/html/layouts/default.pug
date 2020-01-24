@@ -14,6 +14,7 @@ html(lang='en' dir='ltr')
         
       include /common/html/includes/ga
   body
+    a.skip-link(href='#main' tab-index="1") Skip to main content
     .container
       .row.py-2.py-sm-5
         .col.col-sm-10.col-md-8.col-lg-6
@@ -21,11 +22,11 @@ html(lang='en' dir='ltr')
             .col
               nav
                 p.my-0
-                  a(href='/' aria-label='Pigeon logo. Click to go to the homepage')
+                  a(href='/' aria-label='Home')
                     +icon('pigeon', 'small', 'pigeon-logo')
           .row
             .col
-              main
+              main#main
                 block content
                   //- Page content goes here.
           if includeFooter

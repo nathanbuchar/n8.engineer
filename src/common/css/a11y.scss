@@ -1,0 +1,9 @@
+.skip-link {
+  position: absolute;
+  clip: rect(1px, 1px, 1px, 1px);
+
+  &:focus {
+    z-index: 20;
+    clip: auto;
+  }
+}
