@@ -78,9 +78,11 @@ module.exports = class extends Generator {
   writing() {
     if (this.answers.action === 'createPage') {
       fs.readdirSync(this.templatePath('page')).forEach((template) => {
+        const filename = template.replace(/(^_|\.ejs$)/g, '');
+
         this.fs.copyTpl(
           this.templatePath(`page/${template}`),
-          this.destinationPath(`pages/${this.answers.slug}/${template.replace(/(^_|\.ejs$)/g, '')}`),
+          this.destinationPath(`pages/${this.answers.slug}/${filename}`),
           this.answers,
         );
       });
