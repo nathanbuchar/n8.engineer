@@ -37,7 +37,7 @@ After some Googling, I found at least a little information, and it seems that 20
 
 ![](./img/flax.png)
 
-Flax stocks are apparently the lowest they've been in 15 years. According to the website, the unusually wet fall in North Dakota and an early-season snowstorm caused heavy damage to the flax crop^[https://www.ameriflax.com/#yui_3_17_2_1_1579928642455_1493]. This is bad news for me (I think?), as someone looking to buy it in large quantities. Well, in theory...
+Flax stocks are apparently the lowest they've been in 15 years (and by stocks I assume they mean, like, caches, not market stocks). According to the website, the unusually wet fall in North Dakota and an early-season snowstorm caused heavy damage to the flax crop^[https://www.ameriflax.com/#yui_3_17_2_1_1579928642455_1493]. This is bad news for me (I think?), as someone looking to buy it in large quantities. Well, in theory...
 
 ### To whom it may concern,
 
