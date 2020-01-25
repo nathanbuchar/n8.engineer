@@ -13,7 +13,7 @@ Well, there's a retail store in Noe Valley that sells brown flax seed at $1.99 p
 
 I want to visualize that. How much flax is 34.2 tons exactly? Well, it seems that a tandem axle dump truck can typically haul 15 to 20 yards, and anywhere between 12 and 16 tons of payload, dependent on truck specifications and local laws^[https://www.answers.com/Q/What_is_the_average_VOLUME_of_dump_truck]. That's a good place to start. Looking up the number of lbs of flax seed per cubic yard, I find it to be 854.93 lbs/yd^3^^[https://www.aqua-calc.com/page/density-table/substance/whole-blank-flax-blank-seed-coma-and-blank-upc-column--blank-078742141602].
 
-Doing a little math, that means 68,392 lbs of flax is almost exactly 80 cubic yards, and if each dump truck can hold, say, 16 cubic yards of material, then it follows that I'd need exactly **five full dump trucks** to haul it all. And in case you were wondering, I did double check: the dump trucks would _not_ be over their weight recommended capacity, which I think is pretty surprising, because flax is legitimately pretty dense.
+Doing a little math, that means 68,392 lbs of flax is almost exactly 80 cubic yards, and if each dump truck can hold, say, 16 cubic yards of material, then it follows that I'd need exactly **five full dump trucks** to haul it all. And in case you were wondering, I did double check: the dump trucks would _not_ be over their recommended weight capacity, which I think is pretty surprising, because flax is legitimately pretty dense.
 
 But let's be real. If I were serious about this, I would be _crazy_ to pay retail price for that much seed. If I were smart I'd go through an industrial supplier or wholesaler—that's the _not_ crazy thing to do. And I'm not crazy.
 
