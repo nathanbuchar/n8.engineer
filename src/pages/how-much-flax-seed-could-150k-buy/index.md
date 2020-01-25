@@ -7,19 +7,25 @@ It's a silly little joke: Claiming that I'm spending all my time, energy, and in
 
 But yesterday afternoon I thought to myself: **how much flax seed could I actually buy on a year's salary?**
 
-***
+
+## Retail
 
 Well, there's a retail store in Noe Valley that sells brown flax seed at $1.99 per lb. That's usually where I get my flax seed from. Assuming I have an annual salary of $150k (I don't), that works out to roughly **68,392 lbs** of flax. About 34.2 tons! That's a lot of flax. Not accounting for tax, obviously (flax tax?).
 
 I want to visualize that. How much flax is 34.2 tons exactly? Well, it seems that a tandem axle dump truck can typically haul 15 to 20 yards, and anywhere between 12 and 16 tons of payload, dependent on truck specifications and local laws^[https://www.answers.com/Q/What_is_the_average_VOLUME_of_dump_truck]. That's a good place to start. Looking up the number of lbs of flax seed per cubic yard, I find it to be 854.93 lbs/yd^3^^[https://www.aqua-calc.com/page/density-table/substance/whole-blank-flax-blank-seed-coma-and-blank-upc-column--blank-078742141602].
 
-Doing a little math, that means 68,392 lbs of flax is almost exactly 80 cubic yards, and if each dump truck can hold, say, 16 cubic yards of material, then it follows that I'd need exactly **five full dump trucks** to haul it all. And in case you were wondering, I did double check: the dump trucks would _not_ be over their recommended weight capacity, which I think is pretty surprising, because flax is legitimately pretty dense.
+Doing a little math, that means 68,392 lbs of flax is almost exactly 80 cubic yards, and if each dump truck can hold, say, 16 cubic yards of material, then it follows that I'd need exactly **five full dump trucks** to haul it all. And in case you were wondering, I did double check: the dump trucks would _not_ be over their recommended weight capacity.
+
+
+## Wholesale
 
 But let's be real. If I were serious about this, I would be _crazy_ to pay retail price for that much seed. If I were smart I'd go through an industrial supplier or wholesaler—that's the _not_ crazy thing to do. And I'm not crazy.
 
 So at around 7pm on a Friday night, I found myself searching "industrial suppliers brown flax" on Google. I eventually discovered the website for the [Flax Council of Canada](https://flaxcouncil.ca/) where they have a list of something like ten industrial flax suppliers. It's Canadian, but eh I'm sure it's fine.
 
 Oh, as an aside, I should mention that while I was searching for industrial suppliers, I did find a website selling 50lb bags of brown flax seed for horses, but they were $124.95 a bag! That's 25% more expensive per pound than my shop in the city. What a scam. To be fair, they did have a deal that if you buy two bags you get $30 off your total, but it's still a no-go.
+
+### Flax: Past, Present, and Future (Abridged)
 
 While I was on the Flax Council's website, I also read about the rich and storied history of flax. Did you know that flax (L. usitatissimum) has been grown since the beginnings of civilization and that people all over the world have celebrated it's usefulness throughout the ages? Boy I sure didn't. Also, as we "head into the new millennium" (when was this site last updated?), new markets for flax are—apparently—soaring worldwide.
 
@@ -30,6 +36,9 @@ After some Googling, I found at least a little information, and it seems that 20
 ![](./img/flax.png)
 
 Flax stocks are apparently the lowest they've been in 15 years. According to the website, the unusually wet fall in North Dakota and an early-season snowstorm caused heavy damage to the flax crop^[https://www.ameriflax.com/#yui_3_17_2_1_1579928642455_1493]. This is great news for me (I think?), as someone looking to buy it in large quantities. Well, in theory.
+
+
+### To whom it may concern,
 
 Anyway, I chose the first flax supplier on the list, because I'm not exactly an expert in comparison shopping industrial suppliers of ancient grains and seeds. It was a company headquartered in Chicago named [Archer Daniels Midland Company](https://www.adm.com/) (ADM). I guess they won because they were fortunate enough to have a name starting with the letter A. They seemed pretty legit, so I was poking around their site hoping to find anything on prices for bulk quantities of brown flax seed, but of course it wasn't listed. I did, however, find a handy "Contact us" button...
 
