@@ -1,7 +1,7 @@
 # How Much Flax Seed Could $150k Buy?
 ###### Jan 24, 2020
 
-So some mornings before I leave for work, I apologize to my bird while I'm getting her set up in her cage that I have to leave and that I'll be spending the whole day picking flax for her to eat. Oh, brown flax seed is Sophia's favorite food by the way—brown flax that is, not that golden shit.
+So some mornings before I catch my bus to work, I apologize to my bird while I'm getting her set up in her cage that I have to leave and that I'll be spending the whole day picking flax for her to eat. Oh, flax seed is Sophia's favorite food by the way—brown flax that is, not that golden shit.
 
 It's a silly little joke: Claiming that I'm spending all my time, energy, and income on buying seeds for a bird who eats less than two tablespoons per day.
 
