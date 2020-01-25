@@ -59,4 +59,4 @@ How could I not?
 
 ***
 
-At the moment, I'm still waiting on a reply from one of the two suppliers I reached out to.
+At the moment, I'm still waiting on a reply from at least one of the two suppliers I reached out to.
