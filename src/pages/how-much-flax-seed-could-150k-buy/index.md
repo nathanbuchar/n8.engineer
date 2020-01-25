@@ -29,7 +29,7 @@ After some Googling, I found at least a little information, and it seems that 20
 
 ![](./img/flax.png)
 
-Flax stocks are apparently the lowest they've been in 15 years. According to the website, the unusually wet fall in North Dakota and an early-season snowstorm caused heavy damage to the flax crop^[https://www.ameriflax.com/#yui_3_17_2_1_1579928642455_1493]. This is great news for me m(I think?), as someone looking to buy it in large quantities. Well, in theory.
+Flax stocks are apparently the lowest they've been in 15 years. According to the website, the unusually wet fall in North Dakota and an early-season snowstorm caused heavy damage to the flax crop^[https://www.ameriflax.com/#yui_3_17_2_1_1579928642455_1493]. This is great news for me (I think?), as someone looking to buy it in large quantities. Well, in theory.
 
 Anyway, I chose the first flax supplier on the list, because I'm not exactly an expert in comparison shopping industrial suppliers of ancient grains and seeds. It was a company headquartered in Chicago named [Archer Daniels Midland Company](https://www.adm.com/) (ADM). I guess they won because they were fortunate enough to have a name starting with the letter A. They seemed pretty legit, so I was poking around their site hoping to find anything on prices for bulk quantities of brown flax seed, but of course it wasn't listed. I did, however, find a handy "Contact us" button...
 
