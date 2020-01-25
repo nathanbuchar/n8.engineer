@@ -1,9 +1,9 @@
 # How Much Flax Seed Could $150k Buy?
 ###### Jan 24, 2020
 
-So some mornings before I catch my bus to work, I apologize to my bird while I'm getting her set up in her cage that I have to leave and that I'll be spending the whole day picking flax for her to eat. Oh, flax seed is Sophia's favorite food by the way—brown flax that is, not that golden shit.
+So some mornings while I'm getting my bird set up in her cage before I catch my bus, I apologize to her that I have leave for work, but that I'll be spending the whole day picking flax for her to eat. Oh, by the way, flax seed is Sophia's favorite food—brown flax that is, not that golden shit.
 
-It's a silly little joke: Claiming that I'm spending all my time, energy, and income on buying seeds for a bird who eats less than two tablespoons per day.
+It's a silly little joke: Claiming that I'm spending all my time, energy, and income on buying seeds for a bird who eats less than two tablespoons per day. But I live alone so I take what I can get.
 
 But yesterday afternoon I thought to myself: **how much flax seed could I actually buy on a year's salary?**
 
@@ -16,7 +16,7 @@ I want to visualize that. How much flax is 34.2 tons exactly? Well, it seems tha
 
 Doing a little math, that means 68,392 lbs of flax is almost exactly 80 cubic yards, and if each dump truck can hold, say, 16 cubic yards of material, then it follows that I'd need exactly **five full dump trucks** to haul it all. And in case you were wondering, I did double check: the dump trucks would _not_ be over their recommended weight capacity.
 
-But how long would all that seed last my little Sophia? If I go with 2tbsp per day, that works out to roughly 1,709,800 days, or 4,681 years. That also means that I could instead feed 1,709,800 pigeons in a single day. According to OvoControl, a company that develops a humane bird feed that is essentially pigeon birth control to help combat overpopulation (I love pigeons, but it is a problem and only results in a lot of unnecessary deaths), the number of feral pigeons in New York City exceeds one million^[https://www.ovocontrol.com/pigeon-facts-figures]. So, with that much seed, I could reasonably feed **every single feral pigeon in New York City** for a day, and maybe still have some left over.
+But how long would all that seed last my little Sophia? If I go with 1½ tablespoons per day, that works out to roughly 2,279,733 days, or 4,681 years. That also means that I could instead feed 2,279,733 pigeons in a single day. According to OvoControl, a company that develops a humane bird feed that is essentially pigeon birth control to help combat overpopulation (I love pigeons, but overpopulation _is_ a problem and only results in a lot of unnecessary deaths), the number of feral pigeons in New York City exceeds one million^[https://www.ovocontrol.com/pigeon-facts-figures]. So, with that much seed, I could reasonably feed **every single feral pigeon in New York City** twice over, and maybe still have some left.
 
 
 ## Wholesale
