@@ -1,5 +1,6 @@
 I'm by no means a blogger, but I'll occasionally share code, thoughts, and photos. Here's some of my stuff:
 
+- [How Much Flax Seed Could $150k Buy?](/how-much-flax-seed-could-150k-buy) (Jan 2020)
 - [Hennessy.com](/hennessy) (Jan 2020)
 - [Good Design](/good-design) (Oct 2019)
 - [Thunk Support in React](/thunk-support-in-react) (Mar 2019)
