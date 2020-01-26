@@ -27,17 +27,8 @@ So at around 7pm on a Friday night, I found myself searching "industrial supplie
 
 Oh, as an aside, I should mention that while I was searching for industrial suppliers, I did find a website selling 50lb bags of brown flax seed for horses, but they were $124.95 a bag! That's 25% more expensive per pound than my shop in the city. What a scam. To be fair, they did have a deal that if you buy two bags you get $30 off your total, but it's still a no-go.
 
-### Flax: Past, Present, and Future (Abridged)
-
 While I was on the Flax Council's website, I also read about the rich and storied history of flax. Did you know that flax (L. usitatissimum) has been grown since the beginnings of civilization and that people all over the world have celebrated it's usefulness throughout the ages? Boy I sure didn't. Also, as we "head into the new millennium" (when was this site last updated?), new markets for flax are—apparently—soaring worldwide.
 
-Hold up. Assuming the copy for this website was last updated in something like the early 2000's, has flax actually been a sound commodity to invest in? Boy I'm out of my depth here. Flax doesn't just have its own stock symbol right? How does one find 20-year historical performance on commodity crops exactly?
-
-After some Googling, I found at least a little information, and it seems that 2016 was a great fucking year for flax. Dang, Bitcoin be damned, maybe I should have invested in flax instead. I did manage to find the following chart on the website for [AmeriFlax](https://www.ameriflax.com/), a trade organization that represents North Dakota flax producers. It goes back to 2006:
-
-![](./img/flax.png)
-
-Flax stocks are apparently the lowest they've been in 15 years (and by stocks I assume they mean, like, caches, not market stocks). According to the website, the unusually wet fall in North Dakota and an early-season snowstorm caused heavy damage to the flax crop^[https://www.ameriflax.com/#yui_3_17_2_1_1579928642455_1493]. This is bad news for me (I think?), as someone looking to buy it in large quantities. Well, in theory...
 
 ### To whom it may concern,
 
