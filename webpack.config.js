@@ -1,6 +1,6 @@
-const CopyWebpackPlugin = require('copy-webpack-plugin');
-const HTMLWebpackPlugin = require('html-webpack-plugin');
-const SvgSpriteHtmlWebpackPlugin = require('svg-sprite-html-webpack');
+const CopyPlugin = require('copy-webpack-plugin');
+const HTMLPlugin = require('html-webpack-plugin');
+const SvgSpriteHtmlPlugin = require('svg-sprite-html-webpack');
 const MiniCSSExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const { DefinePlugin } = require('webpack');
@@ -142,7 +142,7 @@ module.exports = {
         }],
       },
       {
-        test: /\.(sa|sc|c)ss$/,
+        test: /\.scss$/,
         use: [
           MiniCSSExtractPlugin.loader,
           {
@@ -167,7 +167,7 @@ module.exports = {
       },
       {
         test: /\.svg$/,
-        use: SvgSpriteHtmlWebpackPlugin.getLoader(),
+        use: SvgSpriteHtmlPlugin.getLoader(),
       },
     ],
   },
@@ -179,18 +179,18 @@ module.exports = {
     new MiniCSSExtractPlugin({
       filename: 'assets/css/[name].[contenthash].css',
     }),
-    new CopyWebpackPlugin([
+    new CopyPlugin([
       {
         from: path.resolve('src/static'),
         to: path.resolve('dist'),
       },
     ], {
-      // resolve conflict with `CopyWebpackPlugin`
+      // resolve conflict with `CopyPlugin`
       // via https://github.com/webpack-contrib/copy-webpack-plugin/issues/261#issuecomment-552550859
       copyUnmodified: true,
     }),
     ...pages.map((page) => {
-      return new HTMLWebpackPlugin({
+      return new HTMLPlugin({
         template: path.join(__dirname, 'src/pages', page.id, page.config.template),
         filename: path.join(__dirname, 'dist', page.config.filename),
         chunks: [
@@ -200,8 +200,8 @@ module.exports = {
         ],
       });
     }),
-    // Must come after HTMLWebpackPlugin definition.
-    new SvgSpriteHtmlWebpackPlugin({
+    // Must come after HTMLPlugin definition.
+    new SvgSpriteHtmlPlugin({
       includeFiles: [
         'src/common/svg/*.svg',
       ],
