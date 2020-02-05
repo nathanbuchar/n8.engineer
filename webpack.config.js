@@ -189,14 +189,14 @@ module.exports = {
       // via https://github.com/webpack-contrib/copy-webpack-plugin/issues/261#issuecomment-552550859
       copyUnmodified: true,
     }),
-    ...pages.map((page) => {
+    ...pages.map(({ id, config }) => {
       return new HTMLPlugin({
-        template: path.join(__dirname, 'src/pages', page.id, page.config.template),
-        filename: path.join(__dirname, 'dist', page.config.filename),
+        template: path.join(__dirname, 'src/pages', id, config.template),
+        filename: path.join(__dirname, 'dist', config.filename),
         chunks: [
           'vendor',
           'common',
-          page.id,
+          id,
         ],
       });
     }),
