@@ -20,7 +20,7 @@ const isDebug = nodeEnv === 'development';
 
 const pages = fs.readdirSync('src/pages').map((id) => {
   const pathToPage = path.join(__dirname, 'src/pages', id);
-  const pathToConfig = path.join(pathToPage, 'config.json');
+  const pathToConfig = path.join(pathToPage, 'page.json');
   const config = require(pathToConfig);
 
   return {
