@@ -1,3 +1,3 @@
 ### Error
 
-Something went wrong. Sorry!
+Something went wrong. ¯\\\_(ツ)\_/¯

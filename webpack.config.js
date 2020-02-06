@@ -129,11 +129,17 @@ module.exports = {
                   ...options,
                 });
 
-                md.use(mdItAnchor, { permalink: true });
-                md.use(mdItFootnote);
                 md.use(mdItSub);
                 md.use(mdItSup);
                 md.use(mdItToc, { includeLevel: [2, 3] });
+
+                if (options.anchors) {
+                  md.use(mdItAnchor, { permalink: true });
+                }
+
+                if (options.footnotes) {
+                  md.use(mdItFootnote);
+                }
 
                 return md.render(text);
               },

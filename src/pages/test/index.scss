@@ -1,1 +1,10 @@
 @import "common/css/page";
+
+#toggle-grid-btn {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  margin: 10px;
+  cursor: pointer;
+  z-index: 100;
+}
