@@ -14,10 +14,9 @@
  * @returns {Array.<any[]>}
  */
 function kCombinations(set) {
-  return set.reduce((acc, item) => [
-    ...acc,
+  return set.reduce((acc, item) => acc.concat([
     ...acc.map((c) => [...c, item]),
-  ], [[]]);
+  ]), [[]]);
 }
 ```
 
