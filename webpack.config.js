@@ -132,13 +132,10 @@ module.exports = {
                 md.use(mdItSub);
                 md.use(mdItSup);
                 md.use(mdItToc, { includeLevel: [2, 3] });
+                md.use(mdItFootnote);
 
                 if (options.anchors) {
                   md.use(mdItAnchor, { permalink: true });
-                }
-
-                if (options.footnotes) {
-                  md.use(mdItFootnote);
                 }
 
                 return md.render(text);
