@@ -1,0 +1,8 @@
+{
+  "template": "index.pug",
+  "filename": "/error.html",
+  "entry": [
+    "index.js",
+    "index.scss"
+  ]
+}

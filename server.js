@@ -6,8 +6,14 @@ const fileServer = new Server('./dist');
 const server = http.createServer((req, res) => {
   req.addListener('end', () => {
     fileServer.serve(req, res, (err) => {
-      if (err && err.status === 404) {
-        fileServer.serveFile('not-found.html', 404, {}, req, res);
+      if (err) {
+        switch (err.status) {
+          case 404:
+            fileServer.serveFile('not-found.html', 404, {}, req, res);
+            break;
+          default:
+            fileServer.serveFile('error.html', err.status, {}, req, res);
+        }
       }
     });
   }).resume();
