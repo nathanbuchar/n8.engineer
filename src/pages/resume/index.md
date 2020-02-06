@@ -69,11 +69,11 @@ The usual. Also: Ubuntu, Sketch, and Vim.
 
 ## Other
 
-* I'm a Notary Public commissioned by the State of California.
+* I'm a Notary Public commissioned by the State of California (comm. expires Dec. 2023).
 
 * I've done ballroom dance competitively, and I was President of my university's Ballroom Dance Club.
 
-* Since 2016, I've been an outreach volunteer for Palomacy: a nonprofit dedicated to pigeon and dove rescue and adoption. Palomacy attends dozens of outreach events throughout the Bay Area and beyond every year, raising awareness for and inspiring adoptions of rescued pigeons and doves.
+* Since 2016, I've been an outreach volunteer for [Palomacy](http://pigeonrescue.org): a nonprofit dedicated to pigeon and dove rescue. Palomacy attends dozens of outreach events throughout the Bay Area and beyond every year, raising awareness for and inspiring adoptions of rescued pigeons and doves.
 
 
 ## Contact
