@@ -1,7 +1,9 @@
 # K-Combinations
 ###### May 10, 2016
 
-> In mathematics, a **combination** is a selection of items from a collection, such that (unlike permutations) the order of selection does not matter. For example, given three fruits, say an apple, an orange and a pear, there are three combinations of two that can be drawn from this set: an apple and a pear; an apple and an orange; or a pear and an orange. More formally, a k-**combination** of a set *S* is a subset of *k* distinct elements of *S*.
+This is a utility function I slowly improve on over time. I've never actually had any use for it (well, maybe once?), but I love how elegant the solution is: substantial logic jam-packed into only three lines using nothing but vanilla JavaScript array methods, and yet in spite of this the syntax is completely clean and readable.
+
+There are a million different ways to solve this, but this is my own and I'm proud of it.
 
 ## Implementation
 
