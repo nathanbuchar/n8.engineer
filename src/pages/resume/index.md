@@ -1,5 +1,5 @@
 # Nathan Buchar
-###### Revised Jan, 2020
+###### Revised Feb, 2020
 
 > I'm a San Francisco-based frontend software engineer at HelloSign, a Dropbox Company. My best work explores JavaScript performance, best practices, and Node.js. I'm most passionate about solving puzzles and making things that other developers use to make things.
 >
