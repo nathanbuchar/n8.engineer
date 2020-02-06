@@ -71,10 +71,13 @@ h5, h6 {
 }
 
 h5, h6, p, li, td, th, details, summary {
-  font-family: get-font("body");
   font-size: 14px;
   line-height: 23px;
   color: get-color("gray10");
+}
+
+p, li, td, th, details, summary {
+ font-family: get-font("body");
 }
 
 h6 {
