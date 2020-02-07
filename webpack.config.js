@@ -5,7 +5,6 @@ const MiniCSSExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const { DefinePlugin } = require('webpack');
 
-const fs = require('fs');
 const glob = require('glob');
 const hljs = require('highlight.js');
 const mdIt = require('markdown-it');

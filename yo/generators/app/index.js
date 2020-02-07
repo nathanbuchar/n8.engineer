@@ -37,7 +37,7 @@ module.exports = class extends Generator {
       {
         type: 'input',
         name: 'title',
-        message: 'Name? (Ex. "Cool Page")',
+        message: 'Title? (Ex. "Cool Page")',
         when({ action }) {
           return action === 'createPage';
         },
@@ -65,26 +65,59 @@ module.exports = class extends Generator {
       },
       {
         type: 'input',
+        name: 'dir',
+        message: 'Source dir?',
+        when({ action }) {
+          return action === 'createPage';
+        },
+        transformer(dir, answers, flags) {
+          if (flags.isFinal) {
+            return path.join('src/pages', dir);
+          }
+
+          return dir;
+        },
+        default({ slug }) {
+          return `/${slug}`;
+        },
+      },
+      {
+        type: 'input',
         name: 'filename',
         message: 'Output filename?',
         when({ action }) {
           return action === 'createPage';
         },
+        transformer(filename, answers, flags) {
+          if (flags.isFinal) {
+            return path.join('dist', filename);
+          }
+
+          return filename;
+        },
         default({ slug }) {
           return `/${slug}/index.html`;
+        },
+      },
+      {
+        type: 'confirm',
+        name: 'confirm',
+        message: 'Confirm?',
+        when({ action }) {
+          return action === 'createPage';
         },
       },
     ]);
   }
 
   writing() {
-    if (this.answers.action === 'createPage') {
+    if (this.answers.action === 'createPage' && this.answers.confirm) {
       fs.readdirSync(this.templatePath('page')).forEach((template) => {
-        const filename = template.replace(/(^_|\.ejs$)/g, '');
+        const file = template.replace(/(^_|\.ejs$)/g, '');
 
         this.fs.copyTpl(
           this.templatePath(`page/${template}`),
-          this.destinationPath(`pages/${this.answers.slug}/${filename}`),
+          this.destinationPath(`pages/${this.answers.dir}/${file}`),
           this.answers,
         );
       });
