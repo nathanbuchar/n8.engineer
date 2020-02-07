@@ -1,7 +1,7 @@
 {
   "id": "k-combinations",
   "template": "index.pug",
-  "filename": "/k-combinations/index.html",
+  "filename": "k-combinations/index.html",
   "entry": [
     "index.js",
     "index.scss"

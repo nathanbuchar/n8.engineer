@@ -1,7 +1,7 @@
 {
   "id": "a-place-in-the-alphabet",
   "template": "index.pug",
-  "filename": "/a-place-in-the-alphabet/index.html",
+  "filename": "a-place-in-the-alphabet/index.html",
   "entry": [
     "index.js",
     "index.scss"

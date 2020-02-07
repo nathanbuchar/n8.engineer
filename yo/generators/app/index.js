@@ -96,7 +96,7 @@ module.exports = class extends Generator {
           return filename;
         },
         default({ slug }) {
-          return `/${slug}/index.html`;
+          return `${slug}/index.html`;
         },
       },
       {

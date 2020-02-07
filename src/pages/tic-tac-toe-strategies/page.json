@@ -1,7 +1,7 @@
 {
   "id": "tic-tac-toe-strategies",
   "template": "index.pug",
-  "filename": "/tic-tac-toe-strategies/index.html",
+  "filename": "tic-tac-toe-strategies/index.html",
   "entry": [
     "index.js",
     "index.scss"

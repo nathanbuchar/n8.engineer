@@ -1,7 +1,7 @@
 {
   "id": "resume",
   "template": "index.pug",
-  "filename": "/resume/index.html",
+  "filename": "resume/index.html",
   "entry": [
     "index.js",
     "index.scss"

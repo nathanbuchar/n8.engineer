@@ -1,7 +1,7 @@
 {
   "id": "russian-notes",
   "template": "index.pug",
-  "filename": "/russian-notes/index.html",
+  "filename": "russian-notes/index.html",
   "entry": [
     "index.js",
     "index.scss"

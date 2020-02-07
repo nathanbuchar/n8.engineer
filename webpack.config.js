@@ -19,20 +19,20 @@ const nodeEnv = process.env.NODE_ENV || 'development';
 const isDebug = nodeEnv === 'development';
 
 const pages = glob.sync('src/pages/**/page.json', { absolute: true }).map((page) => {
-  const { template, entry, ...config } = require(page);
   const { dir } = path.parse(page);
+  const config = require(page);
 
   return {
     ...config,
-    template: path.join(dir, template),
-    entry: entry.map((file) => path.join(dir, file)),
+    template: path.join(dir, config.template),
+    entry: config.entry.map((e) => path.join(dir, e)),
   };
 });
 
 module.exports = {
   mode: nodeEnv,
   devtool: isDebug ? 'inline-source-map' : false,
-  entry: pages.reduce((entries, page) => ({ ...entries, [page.id]: page.entry }), {}),
+  entry: pages.reduce((entries, { id, entry }) => ({ ...entries, [id]: entry }), {}),
   output: {
     path: path.resolve('dist'),
     publicPath: '/',
@@ -190,7 +190,7 @@ module.exports = {
     ...pages.map(({ id, template, filename }) => {
       return new HTMLPlugin({
         template,
-        filename: path.join(__dirname, 'dist', filename),
+        filename,
         chunks: [
           'vendor',
           'common',

@@ -1,7 +1,7 @@
 {
   "id": "thunk-support-in-react",
   "template": "index.pug",
-  "filename": "/thunk-support-in-react/index.html",
+  "filename": "thunk-support-in-react/index.html",
   "entry": [
     "index.js",
     "index.scss"

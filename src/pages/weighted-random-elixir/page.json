@@ -1,6 +1,6 @@
 {
   "id": "weighted-random-elixir",
-  "filename": "/weighted-random-elixir/index.html",
+  "filename": "weighted-random-elixir/index.html",
   "template": "index.pug",
   "entry": [
     "index.js",

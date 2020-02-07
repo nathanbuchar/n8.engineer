@@ -1,7 +1,7 @@
 {
   "id": "how-much-flax-seed-could-150k-buy",
   "template": "index.pug",
-  "filename": "/how-much-flax-seed-could-150k-buy/index.html",
+  "filename": "how-much-flax-seed-could-150k-buy/index.html",
   "entry": [
     "index.js",
     "index.scss"

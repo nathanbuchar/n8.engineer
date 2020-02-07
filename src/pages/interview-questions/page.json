@@ -1,7 +1,7 @@
 {
   "id": "interview-questions",
   "template": "index.pug",
-  "filename": "/interview-questions/index.html",
+  "filename": "interview-questions/index.html",
   "entry": [
     "index.js",
     "index.scss"

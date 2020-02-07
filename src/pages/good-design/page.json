@@ -1,7 +1,7 @@
 {
   "id": "good-design",
   "template": "index.pug",
-  "filename": "/good-design/index.html",
+  "filename": "good-design/index.html",
   "entry": [
     "index.js",
     "index.scss"

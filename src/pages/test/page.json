@@ -1,7 +1,7 @@
 {
   "id": "test",
   "template": "index.pug",
-  "filename": "/test/index.html",
+  "filename": "test/index.html",
   "entry": [
     "index.js",
     "index.scss"

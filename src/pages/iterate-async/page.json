@@ -1,7 +1,7 @@
 {
   "id": "iterate-async",
   "template": "index.pug",
-  "filename": "/iterate-async/index.html",
+  "filename": "iterate-async/index.html",
   "entry": [
     "index.js",
     "index.scss"

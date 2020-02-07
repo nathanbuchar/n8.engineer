@@ -1,7 +1,7 @@
 {
   "id": "weighted-random",
   "template": "index.pug",
-  "filename": "/weighted-random/index.html",
+  "filename": "weighted-random/index.html",
   "entry": [
     "index.js",
     "index.scss"

@@ -1,7 +1,7 @@
 {
   "id": "pgp-key",
   "template": "index.pug",
-  "filename": "/pgp-key/index.html",
+  "filename": "pgp-key/index.html",
   "entry": [
     "index.js",
     "index.scss"

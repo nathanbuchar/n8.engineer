@@ -1,7 +1,7 @@
 {
   "id": "iterate",
   "template": "index.pug",
-  "filename": "/iterate/index.html",
+  "filename": "iterate/index.html",
   "entry": [
     "index.js",
     "index.scss"
