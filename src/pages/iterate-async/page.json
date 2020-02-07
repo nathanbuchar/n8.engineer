@@ -1,5 +1,6 @@
 {
-  "template": "iterate-async",
+  "id": "iterate-async",
+  "template": "index.pug",
   "filename": "/iterate-async/index.html",
   "entry": [
     "index.js",
