@@ -498,7 +498,7 @@ Just as with **писать**, the stem here ends in a consonant, so the **я** 
 
 Now, note that there is no **в** in the infinitive. So how do we know that the stem is **жив-**? Because we've gone ahead and learned the **я**, **ты**, and **они** forms separately. Unfortunately there's no magic rule for deriving **жив-** from the infinitive **жить**.
 
-There's one more important pattern here that has to do with the **ты**, **он**, **мы**, and **вы** forms: here we see that if the ending is stressed, then the vowel of the ending is **ё**. And how do you we if the endings are stressed? Well once again,  because we've learned the **я**, **ты**, and **они** forms.
+There's one more important pattern here that has to do with the **ты**, **он**, **мы**, and **вы** forms: here we see that if the ending is stressed, then the vowel of the ending is **ё**. And how do we know if the endings are stressed? Well once again,  because we've learned the **я**, **ты**, and **они** forms.
 
 
 #### Stress
