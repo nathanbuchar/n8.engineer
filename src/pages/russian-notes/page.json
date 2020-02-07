@@ -1,4 +1,5 @@
 {
+  "id": "russian-notes",
   "template": "index.pug",
   "filename": "/russian-notes/index.html",
   "entry": [

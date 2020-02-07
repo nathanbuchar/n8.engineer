@@ -1,4 +1,5 @@
 {
+  "id": "k-combinations",
   "template": "index.pug",
   "filename": "/k-combinations/index.html",
   "entry": [

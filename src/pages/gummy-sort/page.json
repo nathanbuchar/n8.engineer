@@ -1,4 +1,5 @@
 {
+  "id": "gummy-sort",
   "template": "index.pug",
   "filename": "/gummy-sort/index.html",
   "entry": [

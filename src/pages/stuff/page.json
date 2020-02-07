@@ -1,4 +1,5 @@
 {
+  "id": "stuff",
   "template": "index.pug",
   "filename": "/stuff/index.html",
   "entry": [

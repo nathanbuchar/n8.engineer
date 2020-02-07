@@ -6,6 +6,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const { DefinePlugin } = require('webpack');
 
 const fs = require('fs');
+const glob = require('glob');
 const hljs = require('highlight.js');
 const mdIt = require('markdown-it');
 const mdItAnchor = require('markdown-it-anchor');
@@ -18,26 +19,21 @@ const path = require('path');
 const nodeEnv = process.env.NODE_ENV || 'development';
 const isDebug = nodeEnv === 'development';
 
-const pages = fs.readdirSync('src/pages').map((id) => {
-  const pathToPage = path.join(__dirname, 'src/pages', id);
-  const pathToConfig = path.join(pathToPage, 'page.json');
-  const config = require(pathToConfig);
+const pages = glob.sync('src/pages/**/page.json', { absolute: true }).map((page) => {
+  const { template, entry, ...config } = require(page);
+  const { dir } = path.parse(page);
 
   return {
-    id,
-    config: {
-      ...config,
-      entry: config.entry.map((file) => {
-        return path.join(pathToPage, file);
-      }),
-    },
+    ...config,
+    template: path.join(dir, template),
+    entry: entry.map((file) => path.join(dir, file)),
   };
 });
 
 module.exports = {
   mode: nodeEnv,
   devtool: isDebug ? 'inline-source-map' : false,
-  entry: pages.reduce((entries, page) => ({ ...entries, [page.id]: page.config.entry }), {}),
+  entry: pages.reduce((entries, page) => ({ ...entries, [page.id]: page.entry }), {}),
   output: {
     path: path.resolve('dist'),
     publicPath: '/',
@@ -192,10 +188,10 @@ module.exports = {
       // via https://github.com/webpack-contrib/copy-webpack-plugin/issues/261#issuecomment-552550859
       copyUnmodified: true,
     }),
-    ...pages.map(({ id, config }) => {
+    ...pages.map(({ id, template, filename }) => {
       return new HTMLPlugin({
-        template: path.join(__dirname, 'src/pages', id, config.template),
-        filename: path.join(__dirname, 'dist', config.filename),
+        template,
+        filename: path.join(__dirname, 'dist', filename),
         chunks: [
           'vendor',
           'common',

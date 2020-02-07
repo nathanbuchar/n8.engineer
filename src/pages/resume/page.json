@@ -1,4 +1,5 @@
 {
+  "id": "resume",
   "template": "index.pug",
   "filename": "/resume/index.html",
   "entry": [

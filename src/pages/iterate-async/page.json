@@ -1,5 +1,5 @@
 {
-  "template": "index.pug",
+  "template": "iterate-async",
   "filename": "/iterate-async/index.html",
   "entry": [
     "index.js",

@@ -1,4 +1,5 @@
 {
+  "id": "iterate",
   "template": "index.pug",
   "filename": "/iterate/index.html",
   "entry": [

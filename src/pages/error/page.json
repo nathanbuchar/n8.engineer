@@ -1,4 +1,5 @@
 {
+  "id": "error",
   "template": "index.pug",
   "filename": "/error.html",
   "entry": [

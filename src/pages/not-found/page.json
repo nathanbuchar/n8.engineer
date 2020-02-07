@@ -1,4 +1,5 @@
 {
+  "id": "not-found",
   "template": "index.pug",
   "filename": "/not-found.html",
   "entry": [
