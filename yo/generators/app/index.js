@@ -51,6 +51,17 @@ module.exports = class extends Generator {
       },
       {
         type: 'input',
+        name: 'id',
+        message: 'ID?',
+        when({ action }) {
+          return action === 'createPage';
+        },
+        default({ title }) {
+          return slugify(title.toLowerCase());
+        },
+      },
+      {
+        type: 'input',
         name: 'dir',
         message: 'Source dir?',
         when({ action }) {
@@ -63,8 +74,8 @@ module.exports = class extends Generator {
 
           return dir;
         },
-        default({ title }) {
-          return slugify(title.toLowerCase());
+        default({ id }) {
+          return id;
         },
       },
       {
@@ -82,9 +93,7 @@ module.exports = class extends Generator {
           return filename;
         },
         default({ dir }) {
-          const id = path.parse(dir).base;
-
-          return path.join(id, 'index.html');
+          return path.join(dir, 'index.html');
         },
       },
       {
@@ -102,15 +111,11 @@ module.exports = class extends Generator {
     if (this.answers.action === 'createPage' && this.answers.confirm) {
       fs.readdirSync(this.templatePath('page')).forEach((template) => {
         const file = template.replace(/(^_|\.ejs$)/g, '');
-        const id = path.parse(this.answers.dir).base;
 
         this.fs.copyTpl(
           this.templatePath(`page/${template}`),
           this.destinationPath(`pages/${this.answers.dir}/${file}`),
-          {
-            id,
-            ...this.answers,
-          },
+          this.answers,
         );
       });
     }
