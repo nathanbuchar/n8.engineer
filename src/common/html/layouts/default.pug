@@ -1,7 +1,8 @@
+doctype html
+
 include /common/html/includes/variables
 include /common/html/includes/mixins
 
-doctype html
 html(lang='en' dir='ltr')
   head
     block head
@@ -36,15 +37,10 @@ html(lang='en' dir='ltr')
                 footer
                   .row.mt-3
                     .col
-                      p.my-0.aria-hidden &ndash;
+                      p.my-0.aria-hidden –
                       p.my-0
                         a(href='https://github.com/nathanbuchar')
                           | GitHub
                       p.my-0
                         a(href='mailto:hello@nathanbuchar.com')
                           | hello@nathanbuchar.com
-                  if includeCopyright
-                    .row.mt-3
-                      .col
-                        p.my-0.color-gray20
-                          | Copyright &copy; 2020 Nathan Buchar. All rights reserved.
