@@ -1,0 +1,9 @@
+{
+  "id": "not-everything",
+  "template": "index.pug",
+  "filename": "not-everything/index.html",
+  "entry": [
+    "index.js",
+    "index.scss"
+  ]
+}
