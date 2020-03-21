@@ -52,7 +52,7 @@ module.exports = class extends Generator {
       {
         type: 'input',
         name: 'id',
-        message: 'ID?',
+        message: 'Chunk name?',
         when({ action }) {
           return action === 'createPage';
         },
