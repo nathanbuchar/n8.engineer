@@ -60,7 +60,7 @@ I won't even attempt to explain the code below—but it does work!
  * @example
  *
  *   getPermutationalTree({ a: 2, b: 1})
- *   // => { a: { a: { b: {} }, b: { a: {} } }, b: { a: { a: {} } } }
+ *   // expected output: { a: { a: { b: {} }, b: { a: {} } }, b: { a: { a: {} } } }
  *
  * @param {Seed} seed
  * @returns {Tree}
@@ -98,7 +98,7 @@ function getPermutationalTree(seed) {
  * @example
  *
  *   getTreePaths({ a: { a: { b: {} }, b: { a: {} } }, b: { a: { a: {} } } })
- *   // => [["a", "a", "b"], ["a", "b", "a"], ["b", "a", "a"]]
+ *   // expected output: [["a", "a", "b"], ["a", "b", "a"], ["b", "a", "a"]]
  *
  * @param {Tree} tree
  * @param {Permutation[]} [root]
@@ -123,7 +123,7 @@ function getTreePaths(tree, root = []) {
  * @example
  *
  *   getUniquePermutationsFromData({ a: 1, b: 2 });
- *   // => [["a", "b", "b"], ["b", "a", "b"], ["b", "b", "a"]]
+ *   // expected output: [["a", "b", "b"], ["b", "a", "b"], ["b", "b", "a"]]
  *
  * @param {Seed} seed
  * @returns {Permutation[]}
@@ -143,7 +143,7 @@ function getUniquePermutationsFromData(seed) {
  * @example
  *
  *   calculateRoundedValue(1.4354);
- *   // => 1.44
+ *   // expected output: 1.44
  *
  * @param {number} val
  * @param {number} [numDecimalPlaces=2]
@@ -162,7 +162,7 @@ function calculateRoundedValue(val, numDecimalPlaces = 2) {
  * @example
  *
  *   calculateSum([1, 2, 6]);
- *   // => 9
+ *   // expected output: 9
  *
  * @param {number[]} set
  * @returns {number}
@@ -177,7 +177,7 @@ function calculateSum(set) {
  * @example
  *
  *   calculateAverage([1, 2, 6]);
- *   // => 3
+ *   // expected output: 3
  *
  * @param {number[]} set
  * @returns {number}
@@ -193,7 +193,7 @@ function calculateAverage(set) {
  * @example
  *
  *   calculateSquaredDistanceFromMean([1, 2, 6]);
- *   // => [4, 1, 9]
+ *   // expected output: [4, 1, 9]
  *
  * @param {number[]} set
  * @returns {number}
@@ -216,7 +216,7 @@ function calculateSquaredDistanceFromMean(set) {
  * @example
  *
  *   calculateAverageSquaredDistanceFromMean([1, 2, 6]);
- *   // => 4.6666...
+ *   // expected output: 4.6666...
  *
  * @param {number[]} set
  * @returns {number}
@@ -235,7 +235,7 @@ function calculateAverageSquaredDistanceFromMean(set) {
  * @example
  *
  *   calculateStandardDeviation([1, 2, 6]);
- *   // => 2.1602...
+ *   // expected output: 2.1602...
  *
  * @param {number[]} set
  * @returns {number}
@@ -326,13 +326,13 @@ function calculateMedian(set) {
  * @example
  *
  *   1. calculateSkewOfMedianIndexFromSetMidpoint([0, 2, 4], 5)
- *      // => 0
+ *      // expected output: 0
  *
  *   2. calculateSkewOfMedianIndexFromSetMidpoint([0, 1, 2], 5);
- *      // => -0.5
+ *      // expected output: -0.5
  *
  *   3. calculateSkewOfMedianIndexFromSetMidpoint([2, 3, 4], 5);
- *      // => 0.5
+ *      // expected output: 0.5
  *
  * @param {number[]} indexes
  * @param {number} setLen
@@ -357,13 +357,13 @@ function calculateSkewOfMedianIndexFromSetMidpoint(indexes, setLen) {
  * @example
  *
  *   1. calculateAbsSkewOfMedianIndexFromSetMidpoint([0, 2, 4], 5)
- *      // => 0
+ *      // expected output: 0
  *
  *   2. calculateAbsSkewOfMedianIndexFromSetMidpoint([0, 1, 2], 5);
- *      // => 0.5
+ *      // expected output: 0.5
  *
  *   3. calculateAbsSkewOfMedianIndexFromSetMidpoint([2, 3, 4], 5);
- *      // => 0.5
+ *      // expected output: 0.5
  *
  * @param {number[]} indexes
  * @param {number} setLen
@@ -383,10 +383,10 @@ function calculateAbsSkewOfMedianIndexFromSetMidpoint(indexes, setLen) {
  * @example
  *
  *   1. getIndexesOfTargetValueWithinSet(['a', 'b', 'a'], 'a')
- *      // => [0, 2]
+ *      // expected output: [0, 2]
  *
  *   2. getIndexesOfTargetValueWithinSet(['a', 'b', 'a'], 'b')
- *      // => [1]
+ *      // expected output: [1]
  *
  * @param {Array} set
  * @param {any} targetVal
@@ -407,10 +407,10 @@ function getIndexesOfTargetValueWithinSet(set, targetVal) {
  * @example
  *
  *   1. getDistancesBetweenIndexesWithinSet([0, 2], 3)
- *      // => [1, 0]
+ *      // expected output: [1, 0]
  *
  *   2. getDistancesBetweenIndexesWithinSet([1], 3)
- *      // => [2]
+ *      // expected output: [2]
  *
  * @param {number[]} indexes
  * @param {number} setLen
@@ -476,10 +476,10 @@ function getDistancesBetweenIndexesWithinSet(indexes, setLen) {
  * @example
  *
  *   1. calculatePermutationEntropy(["a", "b", "b"], { a: 1, b: 2 });
- *      // => 0.8125
+ *      // expected output: 0.8125
  *
  *   2. calculatePermutationEntropy(["b", "a", "b"], { a: 1, b: 2 });
- *      // => 0.125
+ *      // expected output: 0.125
  *
  * @param {Permutation} permutation
  * @param {Seed} seed
@@ -521,7 +521,7 @@ function calculatePermutationEntropy(permutation, seed) {
  * @example
  *
  *   1. gummySort({ a: 2, b: 2, c: 1});
- *      // => [["a", "b", "c", "a", "b"], ["b", "a", "c", "b", "a"]]
+ *      // expected output: [["a", "b", "c", "a", "b"], ["b", "a", "c", "b", "a"]]
  *
  *   2. gummySort({ a: 3, b: 2 });
  *      //=> [["a", "b", "a", "b", "a"]]

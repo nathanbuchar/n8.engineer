@@ -4,7 +4,7 @@
  * Example:
  *
  *   get-color("white");
- *   // => #ffffff
+ *   // expected output: #ffffff
  *
  */
 @function get-color($key) {
@@ -21,7 +21,7 @@
  * Example:
  *
  *   get-font("sans");
- *   // => 'Open Sans', sans-serif
+ *   // expected output: 'Open Sans', sans-serif
  *
  */
 @function get-font($key) {
@@ -38,7 +38,7 @@
  * Example:
  *
  *   get-layer("modal");
- *   // => 100
+ *   // expected output: 100
  *
  */
 @function get-layer($key) {
