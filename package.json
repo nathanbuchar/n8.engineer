@@ -14,6 +14,7 @@
     "common-tags": "^1.8.0",
     "copy-webpack-plugin": "^5.1.1",
     "css-loader": "^3.4.2",
+    "express": "^4.17.1",
     "file-loader": "^5.0.2",
     "forever": "^1.0.0",
     "glob": "^7.1.6",

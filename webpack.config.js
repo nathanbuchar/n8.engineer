@@ -105,7 +105,7 @@ module.exports = {
           options: {
             basedir: path.resolve('src'),
             filters: {
-              md(text, options) {
+              markdown(text, options) {
                 const md = mdIt({
                   linkify: true,
                   breaks: true,
