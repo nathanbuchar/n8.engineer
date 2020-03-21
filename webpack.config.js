@@ -32,7 +32,7 @@ const pages = glob.sync('src/pages/**/page.json', { absolute: true }).map((page)
 module.exports = {
   mode: nodeEnv,
   devtool: isDebug ? 'inline-source-map' : false,
-  entry: pages.reduce((entries, { chunk, entry }) => ({ ...entries, [chunk]: entry }), {}),
+  entry: pages.reduce((entries, { id, entry }) => ({ ...entries, [id]: entry }), {}),
   output: {
     path: path.resolve('dist'),
     publicPath: '/',
@@ -187,14 +187,14 @@ module.exports = {
       // via https://github.com/webpack-contrib/copy-webpack-plugin/issues/261#issuecomment-552550859
       copyUnmodified: true,
     }),
-    ...pages.map(({ chunk, template, filename }) => {
+    ...pages.map(({ id, template, filename }) => {
       return new HTMLPlugin({
         template,
         filename,
         chunks: [
           'vendor',
           'common',
-          chunk,
+          id,
         ],
       });
     }),
