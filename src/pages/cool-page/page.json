@@ -1,9 +1,0 @@
-{
-  "id": "cool-page",
-  "template": "index.pug",
-  "filename": "cool-page/index.html",
-  "entry": [
-    "index.js",
-    "index.scss"
-  ]
-}
