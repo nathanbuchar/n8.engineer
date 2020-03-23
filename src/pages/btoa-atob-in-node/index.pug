@@ -1,0 +1,10 @@
+extends /common/html/layouts/default
+
+block append variables
+  - title = 'btoa/atob in Node | Nathan Buchar - Software Engineer';
+  
+block append head
+  meta(name='date' content='Mar. 23, 2020')
+
+block content
+  include:markdown(anchors) index.md

@@ -1,0 +1,9 @@
+{
+  "id": "node-btoa-atob",
+  "template": "index.pug",
+  "filename": "node-btoa-atob/index.html",
+  "entry": [
+    "index.js",
+    "index.scss"
+  ]
+}
