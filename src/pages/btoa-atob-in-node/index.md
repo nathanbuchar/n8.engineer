@@ -13,9 +13,15 @@ It's stringified JSON in base-64 stored in the location hash! That's super neat.
 
 However, I sometimes find myself needing to convert UTF-8 strings into base-64 and back in Node instead of in the browser, but unlike in the browser, in Node there is no global `window` object so many functions (like `window.btoa`) are simply not available.
 
-There are `btoa` and `atob` npm packages that one can install, but it seems like a lot of unnecessary risk to install 3rd-party libraries for what should be a trivial utility function. So, here's how `btoa` and `atob` can be emulated in Node:
+There are `btoa` and `atob` npm packages that one can install, but it seems like a lot of unnecessary risk to install 3rd-party libraries for what should be a trivial utility function. So, here's how `window.btoa` can be emulated in Node:
 
-#### btoa
+If you want to be quick about it, just run:
+
+```js
+Buffer.from(str, 'utf8').toString('base64');
+```
+
+But if you want a more generic function that also handle buffers instead of just strings, you can use this:
 
 ```js
 /**
@@ -30,14 +36,20 @@ function btoa(str) {
   if (str instanceof Buffer) {
     buffer = str;
   } else {
-    buffer = Buffer.from(str.toString(), 'binary');
+    buffer = Buffer.from(str.toString(), 'utf8');
   }
 
   return buffer.toString('base64');
 }
 ```
 
-#### atob
+To convert back to UTF-8, `window.atob` can be emulated via:
+
+```js
+Buffer.from(str, 'base64').toString('utf8');
+```
+
+Or as a more generic function:
 
 ```js
 /**
@@ -55,6 +67,6 @@ function atob(str) {
     buffer = Buffer.from(str, 'base64');
   }
 
-  return buffer.toString('binary');
+  return buffer.toString('utf8');
 }
 ```
