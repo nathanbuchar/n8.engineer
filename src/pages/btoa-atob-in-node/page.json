@@ -1,7 +1,7 @@
 {
   "id": "node-btoa-atob",
   "template": "index.pug",
-  "filename": "node-btoa-atob/index.html",
+  "filename": "btoa-atob-in-node/index.html",
   "entry": [
     "index.js",
     "index.scss"
