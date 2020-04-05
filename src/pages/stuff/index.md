@@ -1,7 +1,6 @@
 I'm by no means a blogger, but I'll occasionally share code, thoughts, and photos. Here's some of my stuff:
 
 [/btoa-atob-in-node](/btoa-atob-in-node)
-[/not-everything](/not-everything)
 [/how-much-flax-seed-could-150k-buy](/how-much-flax-seed-could-150k-buy)
 [/hennessy](/hennessy)
 [/good-design](/good-design)
