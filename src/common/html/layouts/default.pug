@@ -17,7 +17,7 @@ html(lang='en' dir='ltr')
       include /common/html/includes/ga
       include /common/html/includes/fonts
   body
-    a.skip-link(href='#main' tab-index='1')
+    a.skip-link(href='#main' tabindex='1')
       | Skip to main content
     .container
       .row.py-2.py-sm-5
@@ -29,7 +29,7 @@ html(lang='en' dir='ltr')
                   +icon('pigeon', 'small', 'pigeon')
           .row
             .col
-              main#main
+              main#main(role='main')
                 block content
                   //- Page content goes here.
           if includeFooter
@@ -45,6 +45,5 @@ html(lang='en' dir='ltr')
                       p.my-0
                         a(href='mailto:hello@nathanbuchar.com')
                           | hello@nathanbuchar.com
-                      if includeCopyright
-                        p.my-4
-                          | Copyright &copy; #{(new Date()).getFullYear()} Nathan Buchar. All rights reserved.
+                      p.my-4
+                        | Copyright &copy; #{(new Date()).getFullYear()} Nathan Buchar. All rights reserved.
