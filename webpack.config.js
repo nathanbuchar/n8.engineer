@@ -136,6 +136,10 @@ module.exports = {
                 return md.render(text);
               },
             },
+            data: {
+              __IS_DEBUG: JSON.stringify(isDebug),
+              __NODE_ENV: JSON.stringify(nodeEnv),
+            },
           },
         }],
       },
@@ -173,6 +177,7 @@ module.exports = {
     new CleanWebpackPlugin(),
     new DefinePlugin({
       __IS_DEBUG: JSON.stringify(isDebug),
+      __NODE_ENV: JSON.stringify(nodeEnv),
     }),
     new MiniCSSExtractPlugin({
       filename: 'assets/css/[name].[contenthash].css',

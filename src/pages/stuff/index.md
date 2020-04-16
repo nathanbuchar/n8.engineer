@@ -1,4 +1,8 @@
-I'm by no means a blogger, but I'll occasionally share code, thoughts, and photos. Here's some of my stuff:
+Hey hi hello!
+
+I'm by no means a blogger, but I'll occasionally share code, thoughts, and photos. Here's some of my stuff.
+
+---
 
 [/btoa-atob-in-node](/btoa-atob-in-node)
 [/how-much-flax-seed-could-150k-buy](/how-much-flax-seed-could-150k-buy)
@@ -15,3 +19,4 @@ I'm by no means a blogger, but I'll occasionally share code, thoughts, and photo
 [/weighted-random](/weighted-random)
 [/k-combinations](/k-combinations)
 [/iterate](/iterate)
+[/test](/test)

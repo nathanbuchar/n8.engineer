@@ -1,0 +1,10 @@
+extends /common/html/layouts/default
+
+block append variables
+  - title = 'Env | Nathan Buchar - Software Engineer';
+  - includeFooter = false;
+
+block content
+  pre.
+    __IS_DEBUG = #{__IS_DEBUG}
+    __NODE_ENV = #{__NODE_ENV}

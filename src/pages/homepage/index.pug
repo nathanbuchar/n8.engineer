@@ -1,4 +1,7 @@
 extends /common/html/layouts/default
 
+block append variables
+  - includeCopyright = false;
+
 block append content
   include:markdown index.md

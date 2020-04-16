@@ -1,8 +1,9 @@
 # btoa/atob in Node
+###### Mar 3, 2020
 
 I love using `window.btoa` and its counterpart `window.atob`. One of my favorite real-world examples of how `window.btoa` can be used is the [Emojic 8 Ball](https://xkcd.com/1525/) by XKCD. If you ask it a question, you can see that a long, base-64 encoded hash is appended to the URL.
 
-Let's decoding this string back into UTF-8:
+Decoding this string back into UTF-8…
 
 ```js
 window.atob(window.location.hash.substr(1));
@@ -13,34 +14,12 @@ It's stringified JSON in base-64 stored in the location hash! That's super neat.
 
 However, I sometimes find myself needing to convert UTF-8 strings into base-64 and back in Node instead of in the browser, but unlike in the browser, in Node there is no global `window` object so many functions (like `window.btoa`) are simply not available.
 
-There are `btoa` and `atob` npm packages that one can install, but it seems like a lot of unnecessary risk to install 3rd-party libraries for what should be a trivial utility function. So, here's how `window.btoa` can be emulated in Node:
+There are `btoa` and `atob` npm packages that one can install, but it seems unnecessary to me to install 3rd-party libraries for what should be a trivial utility function.
 
-If you want to be quick about it, just run:
+So, here's how `window.btoa` can be emulated in Node:
 
 ```js
 Buffer.from(str, 'utf8').toString('base64');
-```
-
-But if you want a more generic function that also handle buffers instead of just strings, you can use this:
-
-```js
-/**
- * Converts a UTF-8 string or buffer into a base-64 string.
- *
- * @param {string|Buffer} str
- * @returns {string}
- */
-function btoa(str) {
-  let buffer;
-
-  if (str instanceof Buffer) {
-    buffer = str;
-  } else {
-    buffer = Buffer.from(str.toString(), 'utf8');
-  }
-
-  return buffer.toString('base64');
-}
 ```
 
 To convert back to UTF-8, `window.atob` can be emulated via:
@@ -49,24 +28,4 @@ To convert back to UTF-8, `window.atob` can be emulated via:
 Buffer.from(str, 'base64').toString('utf8');
 ```
 
-Or as a more generic function:
-
-```js
-/**
- * Converts a base-64 string or buffer into a UTF-8 string.
- *
- * @param {string|Buffer} str
- * @returns {string}
- */
-function atob(str) {
-  let buffer;
-
-  if (str instanceof Buffer) {
-    buffer = str;
-  } else {
-    buffer = Buffer.from(str, 'base64');
-  }
-
-  return buffer.toString('utf8');
-}
-```
+Short and simple.

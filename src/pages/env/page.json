@@ -1,7 +1,7 @@
 {
-  "id": "btoa-atob-in-node",
+  "id": "env",
   "template": "index.pug",
-  "filename": "btoa-atob-in-node/index.html",
+  "filename": "env/index.html",
   "entry": [
     "index.js",
     "index.scss"

@@ -36,12 +36,15 @@ html(lang='en' dir='ltr')
             .row.py-4
               .col
                 footer
-                  .row.mt-3
+                  .row
                     .col
-                      p.my-0.aria-hidden –
+                      hr
                       p.my-0
                         a(href='https://github.com/nathanbuchar')
                           | GitHub
                       p.my-0
                         a(href='mailto:hello@nathanbuchar.com')
                           | hello@nathanbuchar.com
+                      if includeCopyright
+                        p.my-4
+                          | Copyright &copy; #{(new Date()).getFullYear()} Nathan Buchar. All rights reserved.

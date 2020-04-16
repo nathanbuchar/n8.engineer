@@ -1,6 +1,6 @@
-$roboto-slab: 'Roboto Slab';
-$roboto-mono: 'Roboto Mono';
-$open-sans: 'Open Sans';
+$fira-mono: 'Fira Mono';
+$fira-sans: 'Fira Sans';
+$fira-sans-extra-condensed: 'Fira Sans Extra Condensed';
 
 $colors: (
   "black": #000000,
@@ -25,9 +25,9 @@ $icon-sizes: (
 );
 
 $fonts: (
-  "heading": ($roboto-slab, serif),
-  "body": ($open-sans, sans-serif),
-  "code": ($roboto-mono, monospace)
+  "heading": ($fira-sans-extra-condensed, serif),
+  "body": ($fira-sans, sans-serif),
+  "code": ($fira-mono, monospace)
 );
 
 $layers: (
