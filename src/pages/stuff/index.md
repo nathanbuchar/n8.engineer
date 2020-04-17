@@ -1,8 +1,4 @@
-Hey hi hello!
-
 I'm by no means a blogger, but I'll occasionally share code, thoughts, and photos. Here's some of my stuff.
-
----
 
 [/bounce](/bounce)
 [/btoa-atob-in-node](/btoa-atob-in-node)
