@@ -5,10 +5,9 @@ const blockEl = document.getElementById('block');
 
 const coords = [0, 0];
 
-const velocity = [
-  (2 + 2 * Math.random()) * (Math.random() > 0.5 ? 1 : -1),
-  (2 + 2 * Math.random()) * (Math.random() > 0.5 ? 1 : -1),
-];
+const velocity = [...new Array(2)].map(() => (
+  (2 + 2 * Math.random()) * (Math.random() > 0.5 ? 1 : -1)
+));
 
 function clip(min, max, curr) {
   return Math.min(max, Math.max(min, curr));
