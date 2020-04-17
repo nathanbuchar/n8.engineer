@@ -4,6 +4,7 @@ I'm by no means a blogger, but I'll occasionally share code, thoughts, and photo
 
 ---
 
+[/bounce](/bounce)
 [/btoa-atob-in-node](/btoa-atob-in-node)
 [/how-much-flax-seed-could-150k-buy](/how-much-flax-seed-could-150k-buy)
 [/hennessy](/hennessy)
