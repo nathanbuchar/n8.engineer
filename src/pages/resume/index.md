@@ -33,7 +33,7 @@ HelloSign was acquired by Dropbox in February of 2019, and has since been its fa
 
 * I lead my office's emergency response team, coordinating with the larger Dropbox physical security effort.
 
-* I run a weekly recognition award called "The Bird." Once a week it's passed by the previous week's winner to a a co-worker they want to recognize for going above and beyond the call of duty.
+* I run a weekly recognition award called "The Bird." Once a week it's passed by the previous week's winner to a co-worker they want to recognize for going above and beyond the call of duty.
 
 ---
 
