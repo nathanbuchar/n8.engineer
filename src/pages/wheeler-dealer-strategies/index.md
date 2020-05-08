@@ -60,6 +60,8 @@ The box did have one other thing though: a tiny white price tag stuck to the cel
 
 The Game of Alameda, like other variants of Wheeler-Dealer, is a personalized version of the board game Wheeler-Dealer unique to the local area. The properties you can land on and purchase are those of local business and retailers that donated to help have the game licensed, like Sunny Beans Coffee Co., Sailnetics Computers, and John S. Towata Flowers. By the way, now that it's been 22 years since this game was produced, most of the businesses on the game board are no longer around, but there are a few!
 
+I'm so glad we decided to purchase it. _The Game of Alameda_ has consistently been one of my favorite games, and has been a very contentious game between myself and my significant other.
+
 
 ## Strategies
 
@@ -67,7 +69,7 @@ Having played this game a number of times, I've discovered there are a few trick
 
 In this section I take a pretty deep dive into the math of the Commodity Futures Exchange, as well as discuss strategies for Wheeler-Dealer cards, using School to your advantage, and high-value property blocks.
 
-Please note that the recommendations mentioned here may not --- and likely won't --- suite most versions of Whealer-Dealer, as each production is completely unique and older variants have drastically different rules with respect to the Commodity Futures Exchange. Also, all recommendations assume play at Level II.
+Please note that the recommendations mentioned here may not --- and likely won't --- suit most versions of Whealer-Dealer, as each production is completely unique and older variants have drastically different rules with respect to the Commodity Futures Exchange. Also, all recommendations assume play at Level II.
 
 
 ### The Commodity Futures Exchange
