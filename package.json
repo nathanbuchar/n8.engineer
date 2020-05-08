@@ -3,7 +3,8 @@
   "private": true,
   "scripts": {
     "build": "webpack",
-    "start": "forever server.js"
+    "start": "forever server.js",
+    "watch": "webpack --watch"
   },
   "dependencies": {
     "@babel/core": "^7.9.0",

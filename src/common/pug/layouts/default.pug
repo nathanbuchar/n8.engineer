@@ -1,7 +1,7 @@
 doctype html
 
-include /common/html/includes/variables
-include /common/html/includes/mixins
+include /common/pug/includes/variables
+include /common/pug/includes/mixins
 
 html(lang='en' dir='ltr')
   head
@@ -12,10 +12,10 @@ html(lang='en' dir='ltr')
       meta(name='description' content=description)
       meta(name='keywords' content=keywords.join(','))
       meta(name='viewport' content='width=device-width, initial-scale=1')
-      link(rel='icon' href='/favicon.ico')  
-        
-      include /common/html/includes/ga
-      include /common/html/includes/fonts
+      link(rel='icon' href='/favicon.ico')
+
+      include /common/pug/includes/ga
+      include /common/pug/includes/fonts
   body
     block body
       a.skip-link(href='#main' tabindex='1')

@@ -1,10 +1,10 @@
-extends /common/html/layouts/default
+extends /common/pug/layouts/default
 
 block append variables
   - title = 'Russian Notes | Nathan Buchar - Software Engineer';
 
 block append head
   meta(name='date' content='Jun. 27, 2017')
-  
+
 block content
   include:markdown(anchors) index.md
