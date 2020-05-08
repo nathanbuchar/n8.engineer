@@ -1,4 +1,4 @@
-# Gummy Sort
+# Gummy sort
 ###### May 3, 2018
 
 ## Background

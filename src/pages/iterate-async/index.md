@@ -1,4 +1,4 @@
-# Iterate (Async)
+# Iterate (async)
 ###### Aug 8, 2018
 
 This is an `async`/`await` implementation of my [iterate](/iterate) utility from 2016.

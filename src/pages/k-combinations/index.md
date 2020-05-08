@@ -1,4 +1,4 @@
-# K-Combinations
+# K-combinations
 ###### May 10, 2016
 
 This is a utility function I've been slowly improving on over time. I've never actually had any use for it (well, maybe once?), but I love how elegant the solution is: substantial logic jam-packed into only four lines using nothing but vanilla JavaScript array methods, and yet in spite of this the syntax is completely clean and readable.

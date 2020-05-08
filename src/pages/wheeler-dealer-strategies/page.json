@@ -1,0 +1,9 @@
+{
+  "id": "wheeler-dealer-strategies",
+  "template": "index.pug",
+  "filename": "wheeler-dealer-strategies/index.html",
+  "entry": [
+    "index.js",
+    "index.scss"
+  ]
+}

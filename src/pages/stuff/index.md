@@ -1,19 +1,18 @@
 I'm by no means a blogger, but I'll occasionally share code, thoughts, and photos. Here's some of my stuff.
 
-[/bounce](/bounce)
-[/btoa-atob-in-node](/btoa-atob-in-node)
-[/how-much-flax-seed-could-150k-buy](/how-much-flax-seed-could-150k-buy)
-[/hennessy](/hennessy)
-[/good-design](/good-design)
-[/thunk-support-in-react](/thunk-support-in-react)
-[/a-place-in-the-alphabet](/a-place-in-the-alphabet)
-[/pgp-key](/pgp-key)
-[/iterate-async](/iterate-async)
-[/gummy-sort](/gummy-sort)
-[/tic-tac-toe-strategies](/tic-tac-toe-strategies)
-[/russian-notes](/russian-notes)
-[/weighted-random-elixir](/weighted-random-elixir)
-[/weighted-random](/weighted-random)
-[/k-combinations](/k-combinations)
-[/iterate](/iterate)
-[/test](/test)
+\- [Bounce](/bounce)
+\- [btoa/atob in Node](/btoa-atob-in-node)
+\- [How much flax seed could $150k buy?](/how-much-flax-seed-could-150k-buy) ⭐
+\- [Hennessy](/hennessy)
+\- [Good design](/good-design)
+\- [Thunk support in React](/native-thunk-support-in-react)
+\- [A place in the alphabet](/a-place-in-the-alphabet) ⭐
+\- [Iterate (async)](/iterate-async)
+\- [Gummy sort](/gummy-sort)
+\- [Tic-tac-toe strategies](/tic-tac-toe-strategies) ⭐
+\- [Russian notes](/russian-notes)
+\- [Weighted random (Elixir)](/weighted-random-elixir)
+\- [Weighted random](/weighted-random)
+\- [K-combinations](/k-combinations)
+\- [Iterate](/iterate)
+

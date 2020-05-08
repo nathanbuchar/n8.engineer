@@ -1,4 +1,4 @@
-# A Place in the Alphabet
+# A place in the alphabet
 ###### Nov 9, 2018
 
 ## Background

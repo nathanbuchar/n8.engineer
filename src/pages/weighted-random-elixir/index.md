@@ -1,4 +1,4 @@
-# Weighted Random (Elixir)
+# Weighted random (Elixir)
 ###### May 17, 2017
 
 This is an Elixir implementation of a weighted random generator, inspired by my [previous exploration](/weighted-random) using JavaScript.

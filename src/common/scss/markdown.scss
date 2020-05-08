@@ -114,6 +114,8 @@ hr {
 table {
   border-collapse: collapse;
   border-spacing: 0;
+  display: block;
+  overflow-x: scroll;
 
   tr {
     border-top: 1px solid get-color("gray50");
@@ -126,6 +128,7 @@ table {
   th, td {
     border: 1px solid get-color("gray50");
     padding: 6px 12px;
+    min-width: 80px;
   }
 }
 

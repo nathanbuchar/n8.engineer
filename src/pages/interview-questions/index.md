@@ -1,4 +1,4 @@
-# Frontend Interview Questions
+# Frontend interview questions
 ###### Revised Dec, 2019
 
 

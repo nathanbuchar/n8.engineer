@@ -1,4 +1,4 @@
-# Tic-Tac-Toe Strategies
+# Tic-tac-toe strategies
 ###### Mar 23, 2018
 
 ***

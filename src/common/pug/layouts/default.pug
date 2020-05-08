@@ -38,14 +38,18 @@ html(lang='en' dir='ltr')
               .row.py-4
                 .col
                   footer
-                    .row
-                      .col
-                        hr
-                        p.my-0
-                          a(href='https://github.com/nathanbuchar')
-                            | GitHub
-                        p.my-0
-                          a(href='mailto:hello@nathanbuchar.com')
-                            | hello@nathanbuchar.com
-                        p.my-4
-                          | Copyright &copy; #{(new Date()).getFullYear()} Nathan Buchar. All rights reserved.
+                    hr
+                    p.my-0
+                      a(href='https://github.com/nathanbuchar')
+                        | GitHub
+                    p.my-0
+                      a(href='mailto:hello@nathanbuchar.com')
+                        | hello@nathanbuchar.com
+                    p.my-4
+                      | Copyright &copy; #{(new Date()).getFullYear()} Nathan Buchar. All rights reserved.
+
+
+    noscript#deferred-styles
+      block deferredStyles
+        //- Non-critical CSS should go here.
+        include /common/pug/includes/vendor

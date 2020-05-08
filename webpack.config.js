@@ -10,6 +10,7 @@ const hljs = require('highlight.js');
 const mdIt = require('markdown-it');
 const mdItAnchor = require('markdown-it-anchor');
 const mdItFootnote = require('markdown-it-footnote');
+const mdItKatex = require('markdown-it-katex');
 const mdItSub = require('markdown-it-sub');
 const mdItSup = require('markdown-it-sup');
 const mdItToc = require('markdown-it-table-of-contents');
@@ -124,6 +125,7 @@ module.exports = {
                   ...options,
                 });
 
+                md.use(mdItKatex);
                 md.use(mdItSub);
                 md.use(mdItSup);
                 md.use(mdItToc, { includeLevel: [2, 3] });

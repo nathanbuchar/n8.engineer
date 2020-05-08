@@ -1,4 +1,4 @@
-# Russian Notes
+# Russian notes
 ###### Jun 27, 2017
 
 I'm casually learning Russian. Here are some of my notes.

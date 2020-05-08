@@ -1,4 +1,4 @@
-# Weighted Random
+# Weighted random
 ###### Oct 25, 2016
 
 The goal of this task was to design a generator function in JavaScript which yields a random value from a set based on a given probability of being chosen.
