@@ -15,6 +15,7 @@ html(lang='en' dir='ltr')
       link(rel='icon' href='/favicon.ico')
 
       include /common/pug/includes/ga
+      include /common/pug/includes/vendor
       include /common/pug/includes/fonts
   body
     block body
@@ -50,4 +51,3 @@ html(lang='en' dir='ltr')
     noscript#deferred-styles
       block deferredStyles
         //- Non-critical CSS should go here.
-        include /common/pug/includes/vendor

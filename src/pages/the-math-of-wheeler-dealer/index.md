@@ -107,11 +107,10 @@ Where
 
 $$
 \begin{array}{ll}
-  \\
   \mu &= \text{The average profit per turn,}\\
   P_\text{win} &= \text{The investment's profit odds,}\\
   R &= \text{The investment's total return,}\\
-  I &= \text{The amount a player must invest}\\
+  I &= \text{The amount a player must invest}
 \end{array}
 $$
 
@@ -149,16 +148,16 @@ $$
 \end{array}
 $$
 
-You'll notice that **Strawberries** and **Platinum** both have the highest average profit per turn at $50,000. Without question these two commodities are the most consistent and reliable money makers, but, interestingly, although these two commodities share the same average profit per turn, they have no other variable in common --- they just both happened to end up resulting in the same average profit. So... which one is better? Are either fair game? Or are there any subtle differences that make one more desirable than the other? Time to think about volatility.
+You'll notice that **Platinum** and **Strawberries** both have the highest average profit per turn at $50,000. Without question these two commodities are the most consistent and reliable money makers, but, interestingly, although these two commodities share the same average profit per turn, they have no other variable in common --- they just both happened to end up resulting in the same average profit. So... which one is better? Are either fair game? Or are there any subtle differences that make one more desirable than the other? Time to think about volatility.
 
 Some commodities are riskier than others. Eggs, with it's steep $100,000 investment, only yields $20,000, but it's an incredibly safe investment having the highest profit odds of any other commodity at 11 in 12 (~92%). Peppermint on the other hand has a much smaller investment of $20,000, but yields a massive $400,000 return if the player's investment is successful. However, the player only has a 1 in 9 (~11%) chance of success. Given these data, it's easy to come to the conclusion that Peppermint is a riskier or more volatile investment than Eggs --- although you don't have to invest very much, most of the time you lose... but if you do win, you win big.
 
-Sure, the difference in volatility between two extremes on the Exchange is easy to grasp. But how exactly can we measure more subtle risk, like that of Strawberries versus Platinum? Somehow we need to calculate the percentage of players who'd expect to be "in the money" for any given investment. Sure, Strawberries and Platinum both return $50,000 on average, but is one more likely to turn a profit than the other? Sounds like the kind of thing a cumulative distribution function^[https://en.wikipedia.org/wiki/Cumulative_distribution_function] might help us solve. Before we can go that far, we first need to calculate the standard deviation of the expected profit for each commodity.
+Sure, the difference in volatility between two extremes on the Exchange is easy to grasp. But how exactly can we measure more subtle risk, like that of Platinum versus Strawberries? Somehow we need to calculate the percentage of players who'd expect to be "in the money" for any given investment. Sure, Platinum and Strawberries both return $50,000 on average, but is one more likely to turn a profit than the other? Sounds like the kind of thing a cumulative distribution function^[https://en.wikipedia.org/wiki/Cumulative_distribution_function] might help us solve. Before we can go that far, we first need to calculate the standard deviation of the expected profit for each commodity.
 
 To calculate the standard deviation $\sigma$ for each turn for a given commodity, we can use the following equation.
 
 $$
-\sigma = \sqrt{\Big[P_\text{win} \times (R - I - \mu)^{2}\Big] + \Big[(1 - P_\text{win}) \times (-I - \mu)^{2}\Big]}
+\sigma = \sqrt{\Big[P_\text{win}(R - I - \mu)^{2}\Big] + \Big[(1 - P_\text{win})(-I - \mu)^{2}\Big]}
 $$
 
 Using the equation above, we find the following approximate standard deviations for each commodity's average profit.
@@ -180,11 +179,11 @@ $$
 \end{array}
 $$
 
-Looking again to Strawberries and Platinum, we now find that they have slightly different standard deviations. What exactly do these numbers mean though?
+Looking again to Platinum and Strawberries, we now find that they have slightly different standard deviations. What exactly do these numbers mean though?
 
-Basically: **the middle 68% of players can expect their profit to fall within one standard deviation above or below the average for any given turn.** This means that, for any given turn, 68% players who invest in Strawberries would expect a profit (or loss) of between -$20,711 (16th percentile) and $120,711 (68th percentile), whereas those who invest in Platinum would expect a profit of between -$17,082 and $117,082.
+Basically: **the middle 68% of players can expect their profit to fall within one standard deviation above or below the average for any given turn.** This means that, for any given turn, 68% players who invest in Platinum would expect a profit (or loss) of between -$17,082 (16th percentile) and $117,0823 (68th percentile), whereas those who invest in Strawberries would expect a return of between -$20,711 and $120,711.
 
-Now that we've found the standard deviation for each commodity, what we want to find is the percentage of players who can expect their average profit per turn to be greater than $0. To do this, we'll use the cumulative distribution function and evaluate it at $x = \$0$.
+Now that we've found the standard deviation for each commodity, what we want to find is the percentage of players who can expect their profit for any given turn to be greater than $0. To do this, we'll use the cumulative distribution function and evaluate it at $x = 0$.
 
 The cumulative distribution function is as follows.
 
@@ -192,7 +191,7 @@ $$
 F(x;\mu,\sigma) = \frac{1}{\sigma\sqrt{2\pi}}\int_{-\infty}^x \exp\Bigg(-\frac{(t - \mu)^{2}}{2\sigma^{2}}\Bigg)dt
 $$
 
-Using this function (or just the `NORMDIST` function in Google Sheets^[https://support.google.com/docs/answer/3094021]) to solve for each commodity, we find the following approximate percentiles.
+Note that this function is in the form $\int e^{-x^2}dx$ which has no elementary antiderivative. Instead, it involves the use of the Gauss error function^[https://en.wikipedia.org/wiki/Error_function] to solve. That's well beyond my familiarity with math, so I just used the `NORMDIST` function in Google Sheets^[https://support.google.com/docs/answer/3094021] to solve for each commodity.
 
 $$
 \begin{array}{l|lll}
@@ -211,13 +210,13 @@ $$
 \end{array}
 $$
 
-We see that the percentile of players who'd expect their average profit per turn when investing in Strawberries to be greater than $0 is 23.98. Compare this to 22.80, which is the percentile of players who'd expect their average profit per turn when investing in Platinum to be greater than $0. **This means that, on average, for any given turn, players can expect their average profit to be greater than $0 about _1.18%_ more often when investing in _Platinum_ rather than in Strawberries**.
+We see that the percentile of players who'd expect their average profit per turn when investing in Platinum to be greater than $0 is 22.80. Compare this to 23.98, which is the percentile of players who'd expect their average profit per turn when investing in Strawberries to be greater than $0. **This means that, on average, of the players who invest in _Platinum_ rather than Strawberries, _1.18%_ more of them should expect the profit on their investment to be greater than $0 for any given turn.**
 
 
 ## Final thoughts
 
 Wheeler-Dealer is really quite a fun and profoundly interesting game, and I've made many memories with many friends playing it. People always act a bit aloof at first when they hear that it's similar to Monopoly, but warm up pretty quick once things get rolling.
 
-At the moment, I'm hoping to grow my budding collection of Wheeler-Dealers from different cities --- my most recent addition at the time of this writing is _The Game of Sedona_! Currently sitting at the top of my wishlist are The Games of Rochester (my hometown), and Pacifica (as featured in this post). I actually saw _The Game of Rochester_ for sale on Ebay years ago not long after I purchased _The Game of Alamed_a, so another will pop up again sometime soon.
+At the moment, I'm hoping to grow my budding collection of Wheeler-Dealers from different cities --- my most recent addition at the time of this writing is _The Game of Sedona_! Currently sitting at the top of my wishlist are The Games of Rochester (my hometown), and Pacifica (as featured in this post). I actually found _The Game of Rochester_ for sale on Ebay years ago not long after I purchased _The Game of Alameda_, so another will pop up again sometime soon.
 
 If you do happen to come across the Wheeler-Dealer for your city at the local City Hall, museum, library, or wherever it may be, I'd really recommend the investment (no pun intended).

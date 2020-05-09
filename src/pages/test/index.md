@@ -174,7 +174,7 @@ Duplicated footnote reference[^second].
 [^second]: Footnote text.
 
 
-### [LaTeX](https://github.com/waylonflinn/markdown-it-katex)
+### [KaTeX](https://github.com/waylonflinn/markdown-it-katex)
 
 **Inline**
 
@@ -191,9 +191,9 @@ $$
 \begin{array}{c}
 
 \nabla \times \vec{\mathbf{B}} -\, \frac1c\, \frac{\partial\vec{\mathbf{E}}}{\partial t} &
-= \frac{4\pi}{c}\vec{\mathbf{j}}    \nabla \cdot \vec{\mathbf{E}} & = 4 \pi \rho \\
+= \frac{4\pi}{c}\vec{\mathbf{j}}    \nabla \cdot \vec{\mathbf{E}} & = 4 \pi \rho \\\\
 
-\nabla \times \vec{\mathbf{E}}\, +\, \frac1c\, \frac{\partial\vec{\mathbf{B}}}{\partial t} & = \vec{\mathbf{0}} \\
+\nabla \times \vec{\mathbf{E}}\, +\, \frac1c\, \frac{\partial\vec{\mathbf{B}}}{\partial t} & = \vec{\mathbf{0}} \\\\
 
 \nabla \cdot \vec{\mathbf{B}} & = 0
 
