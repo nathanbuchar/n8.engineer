@@ -1,0 +1,9 @@
+{
+  "id": "the-math-of-wheeler-dealer",
+  "template": "index.pug",
+  "filename": "the-math-of-wheeler-dealer/index.html",
+  "entry": [
+    "index.js",
+    "index.scss"
+  ]
+}
