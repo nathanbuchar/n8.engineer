@@ -1,21 +1,16 @@
-$fira-mono: 'Fira Mono';
-$fira-sans: 'Fira Sans';
-$fira-sans-extra-condensed: 'Fira Sans Extra Condensed';
-
 $colors: (
-  "black": #000000,
-  "blue": #0000EE,
-  "cerulean": #00B3E6,
-  "red": #D73A49,
-  "gray10": #2e2e33,
-  "gray20": #81818b,
-  "gray30": #b4b4be,
-  "gray40": #d7d8de,
-  "gray50": #e8e9ee,
-  "gray60": #f2f3f5,
-  "gray70": #f6f7f8,
-  "white": #ffffff,
+  "cerulean": #00b3e6
 );
+
+$blue: rgb(0, 0, 255); // Use plain blue
+$spacer: 2rem;
+
+$font-size-base: 0.875rem; // About 14px
+$font-family-sans-serif: "Fira Sans", sans-serif;
+$font-family-monospace: "Fira Mono", monospace;
+$headings-font-family: "Fira Sans Extra Condensed", serif;
+$h1-font-size: $font-size-base * 2.75;
+$line-height-base: 1.643; // About 23px;
 
 $icon-sizes: (
   "xsmall": 15px,
@@ -23,14 +18,4 @@ $icon-sizes: (
   "medium": 36px,
   "large": 48px,
   "xlarge": 64px
-);
-
-$fonts: (
-  "heading": ($fira-sans-extra-condensed, serif),
-  "body": ($fira-sans, sans-serif),
-  "code": ($fira-mono, monospace)
-);
-
-$layers: (
-  "skipLink": 20,
 );

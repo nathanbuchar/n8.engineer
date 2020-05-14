@@ -3,7 +3,7 @@
   clip: rect(1px, 1px, 1px, 1px);
 
   &:focus {
-    z-index: get-layer("skipLink");
+    z-index: 20;
     clip: auto;
   }
 }

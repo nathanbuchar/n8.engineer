@@ -6,7 +6,6 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: get-color('black');
   overflow: hidden;
 }
 
@@ -16,7 +15,7 @@
   left: 0;
   width: 100px;
   height: 100px;
-  background: get-color('cerulean');
+  background: color("cerulean");
 
   .icon {
     position: absolute;

@@ -8,7 +8,6 @@ const { DefinePlugin } = require('webpack');
 const glob = require('glob');
 const hljs = require('highlight.js');
 const mdIt = require('markdown-it');
-const mdItAnchor = require('markdown-it-anchor');
 const mdItFootnote = require('markdown-it-footnote');
 const mdItKatex = require('markdown-it-katex');
 const mdItSub = require('markdown-it-sub');
@@ -106,7 +105,7 @@ module.exports = {
           options: {
             basedir: path.resolve('src'),
             filters: {
-              markdown(text, options) {
+              'markdown-it': (text, options) => {
                 const md = mdIt({
                   linkify: true,
                   breaks: true,
@@ -116,7 +115,7 @@ module.exports = {
                     if (lang && hljs.getLanguage(lang)) {
                       try {
                         return hljs.highlight(lang, str, true).value;
-                      } catch (_err) {
+                      } catch (err) {
                         // Do nothing.
                       }
                     }
@@ -130,10 +129,6 @@ module.exports = {
                 md.use(mdItSup);
                 md.use(mdItToc, { includeLevel: [2, 3] });
                 md.use(mdItFootnote);
-
-                if (options.anchors) {
-                  md.use(mdItAnchor, { permalink: true });
-                }
 
                 return md.render(text);
               },
