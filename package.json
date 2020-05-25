@@ -3,7 +3,6 @@
   "private": true,
   "scripts": {
     "build": "webpack",
-    "start": "forever server.js",
     "watch": "webpack --watch"
   },
   "dependencies": {
@@ -18,7 +17,6 @@
     "css-loader": "^3.4.2",
     "express": "^4.17.1",
     "file-loader": "^6.0.0",
-    "forever": "^2.0.0",
     "glob": "^7.1.6",
     "highlight.js": "^9.18.1",
     "html-loader": "^1.0.0",

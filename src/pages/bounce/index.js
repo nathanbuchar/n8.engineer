@@ -1,7 +1,7 @@
 import 'common/js/page';
 
-const canvasEl = document.getElementById('canvas');
-const blockEl = document.getElementById('block');
+const canvas = document.getElementById('canvas');
+const block = document.getElementById('block');
 
 const coords = [0, 0];
 
@@ -24,27 +24,29 @@ function randomColor() {
 }
 
 function updateBlockPos([x, y]) {
-  blockEl.style.transform = `translateX(${x}px) translateY(${y}px)`;
+  block.style.transform = `translateX(${x}px) translateY(${y}px)`;
 }
 
 function loop() {
   window.requestAnimationFrame(() => {
-    const canvas = canvasEl.getBoundingClientRect();
-    const block = blockEl.getBoundingClientRect();
+    const [dx, dy] = velocity;
 
-    const maxX = canvas.right - block.width;
-    const maxY = canvas.bottom - block.height;
-    const newX = clip(canvas.left, maxX, block.left + velocity[0]);
-    const newY = clip(canvas.top, maxY, block.top + velocity[1]);
+    const canvasRect = canvas.getBoundingClientRect();
+    const blockRect = block.getBoundingClientRect();
 
-    if (!inBounds(canvas.left, maxX, newX)) {
-      velocity[0] *= -1;
-      blockEl.style.background = randomColor();
+    const maxX = canvasRect.right - blockRect.width;
+    const maxY = canvasRect.bottom - blockRect.height;
+    const newX = clip(canvasRect.left, maxX, blockRect.left + dx);
+    const newY = clip(canvasRect.top, maxY, blockRect.top + dy);
+
+    if (!inBounds(canvasRect.left, maxX, newX)) {
+      velocity[0] = -dx;
+      block.style.background = randomColor();
     }
 
-    if (!inBounds(canvas.top, maxY, newY)) {
-      velocity[1] *= -1;
-      blockEl.style.background = randomColor();
+    if (!inBounds(canvasRect.top, maxY, newY)) {
+      velocity[1] = -dy;
+      block.style.background = randomColor();
     }
 
     // Update coords
@@ -57,12 +59,12 @@ function loop() {
 }
 
 function init() {
-  const canvas = canvasEl.getBoundingClientRect();
-  const block = blockEl.getBoundingClientRect();
+  const canvasRect = canvas.getBoundingClientRect();
+  const blockRect = block.getBoundingClientRect();
 
   // Set initial coords
-  coords[0] = canvas.left + (canvas.right - block.width) * Math.random();
-  coords[1] = canvas.top + (canvas.bottom - block.height) * Math.random();
+  coords[0] = canvasRect.left + (canvasRect.right - blockRect.width) * Math.random();
+  coords[1] = canvasRect.top + (canvasRect.bottom - blockRect.height) * Math.random();
 
   updateBlockPos(coords);
   loop();
