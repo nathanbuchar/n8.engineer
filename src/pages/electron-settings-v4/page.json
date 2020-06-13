@@ -1,0 +1,9 @@
+{
+  "id": "electron-settings-v4",
+  "template": "index.pug",
+  "filename": "electron-settings-v4/index.html",
+  "entry": [
+    "index.js",
+    "index.scss"
+  ]
+}

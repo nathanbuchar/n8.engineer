@@ -64,8 +64,6 @@ _The Game of Alameda_, like other variants of Wheeler-Dealer, is a personalized 
 
 I opened the game as soon as I got home and got to learning it with my significant other who was living with me at the time. Initially very skeptical of a cheap, Monopoly-style game whose seemingly sole purpose was to advertise local businesses, we ended up actually really loving it.
 
-![Playing The Game of Alameda](./img/5.jpg)
-
 The game mechanics, although similar in concept to Monopoly, were totally unique and a lot of fun to learn and manipulate. We very quickly fell in love playing the game, and we even brought it with us to her family's Christmas dinner one year for the whole family to join. _The Game of Alameda_ was just always that solid game we'd always go back to when we couldn't think of anything else to play.
 
 It goes without saying that the game also tested our fortitude as a couple. Both of us, very competitive by nature, sometimes found ourselves emotionally exhausted by the end of each game. We'd claw at the loss of a high-valued property at the hands of an "Underhanded Double-dealing Bamboozle!", and then jump with joy at the unlikely win of a hail-mary investment into Peppermint to avoid almost certain bankruptcy.
@@ -77,7 +75,7 @@ And in the end, we also argued about who would get to keep _The Game of Alameda_
 
 The Commodity Futures Exchange is a really unique game concept. To recap from earlier, at the start of each turn each player must invest their money into one of twelve commodities. After rolling the dice, they will either turn a profit on their investment, or lose the investment entirely.
 
-![Commodity Futures Exchange reference card](./img/6.jpg)
+![Commodity Futures Exchange reference card](./img/5.jpg)
 *<small>via David Patterson (@Davidsp145), boardgamegeek.com.</small>*
 
 Interestingly, in earlier productions of the game, there were no compulsory investments for any commodity, only a maximum allowable investment. Returns on commodities were not a set amount either, but rather determined by a payoff multiple which ranged somewhere between 1.2x and 30x depending on the commodity. These earlier productions arguably had a significantly more complex Commodity Futures Exchange than the one you see in later versions --- some games were even packaged with cheat-sheet cards to help players determine what they've won.
@@ -86,7 +84,7 @@ You might notice that some commodities are riskier than others. Peppermint is a 
 
 The game rules also allows players facing certain bankruptcy to make a last-ditch, hail-Mary investment on the Exchange. If the player manages to procure at least $20,000 in capital, they may make a one-time investment on the Commodity Futures Exchange for a chance at winning big and being able to settle their debts without having to resign from the game.
 
-![2-by-3 grid showing all denominations of Wheeler-Dealer money](./img/7.jpg)
+![2-by-3 grid showing all denominations of Wheeler-Dealer money](./img/6.jpg)
 *<small>via Chris Hansen (@chansen2794), boardgamegeek.com.</small>*
 
 The Commodity Futures Exchange is really quite an interesting game mechanic. It's hard to really say if it even adds anything to the game --- the profit odds are always constant, so there's bound to be certain commodities that are just simply always going to be better than others, so if all players invest in the same commodity, they all have the same odds of profiting. It's likely that the Exchange was a hold-over from earlier productions of the games where, in those versions, there were a lot more variables at play making the Exchange far less predictable.
@@ -185,13 +183,7 @@ Basically: **the middle 68% of players can expect their profit to fall within on
 
 Now that we've found the standard deviation for each commodity, what we want to find is the percentage of players who can expect their profit for any given turn to be greater than $0. To do this, we'll use the cumulative distribution function and evaluate it at $x = 0$.
 
-The cumulative distribution function is as follows.
-
-$$
-F(x;\mu,\sigma) = \frac{1}{\sigma\sqrt{2\pi}}\int_{-\infty}^x \exp\Bigg(-\frac{(t - \mu)^{2}}{2\sigma^{2}}\Bigg)dt
-$$
-
-Note that this function is in the form $\int e^{-x^2}dx$ which has no elementary antiderivative. Instead, it involves the use of the Gauss error function^[https://en.wikipedia.org/wiki/Error_function] to solve. That's well beyond my familiarity with math, so I just used the `NORMDIST` function in Google Sheets^[https://support.google.com/docs/answer/3094021] to solve for each commodity.
+The cumulative distribution function is notoriously difficult to solve, as it does not have any elementary derivative. That's well beyond my familiarity with math, so I just used the `NORMDIST` function in Google Sheets^[https://support.google.com/docs/answer/3094021] to solve for each commodity.
 
 $$
 \begin{array}{l|lll}

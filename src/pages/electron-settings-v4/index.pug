@@ -1,0 +1,10 @@
+extends /common/pug/layouts/default
+
+block append variables
+  - title = 'Electron Settings v4 | Nathan Buchar - Software Engineer';
+
+block append head
+  meta(name='date' content='May 25, 2020')
+
+block content
+  include:markdown-it index.md
