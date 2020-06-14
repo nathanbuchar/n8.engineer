@@ -12,7 +12,7 @@ Read on to learn more, or [check out the project on GitHub](https://github.com/n
 
 ## Background
 
-A little bit of background on the library: it was initially born from a personal need to read and write user settings in an Electron app I was building after being disappointed with the only available third-party options at the time. The first version of Electron Settings was developed in late 2015 and was heavily inspired by [Atom's](https://atom.io) internal configuration manager, which used a novel, albeit complex (yet quite performant), approach to handling user settings.
+A little bit of background on the library: it was initially borne from a personal need to read and write user settings in an Electron app I was building after being disappointed with the only available third-party options at the time. The first version of Electron Settings was developed in late 2015 and was heavily inspired by [Atom's](https://atom.io) internal configuration manager, which used a novel, albeit complex (yet quite performant), approach to handling user settings.
 
 Subsequent major releases of Electron Settings were aimed at eliminating complexity to increase reliability, and simplifying the API so that the developer would be less concerned with the minutiae of how their settings are stored.
 
