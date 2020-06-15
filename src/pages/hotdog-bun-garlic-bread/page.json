@@ -1,0 +1,9 @@
+{
+  "id": "hotdog-bun-garlic-bread",
+  "template": "index.pug",
+  "filename": "hotdog-bun-garlic-bread/index.html",
+  "entry": [
+    "index.js",
+    "index.scss"
+  ]
+}

@@ -1,5 +1,6 @@
 I'm by no means a blogger, but I'll occasionally share code, thoughts, and photos. Here's some of my stuff.
 
+\- [Hotdog bun garlic bread](/hotdog-bun-garlic-bread)
 \- [Electron Settings v4](/electron-settings-v4)
 \- [The math of Wheeler-Dealer](/the-math-of-wheeler-dealer)
 \- [Bounce](/bounce)
