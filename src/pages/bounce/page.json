@@ -1,9 +1,0 @@
-{
-  "id": "bounce",
-  "template": "index.pug",
-  "filename": "bounce/index.html",
-  "entry": [
-    "index.js",
-    "index.scss"
-  ]
-}
