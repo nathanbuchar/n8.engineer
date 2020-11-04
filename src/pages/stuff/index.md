@@ -1,5 +1,6 @@
 I'm by no means a blogger, but I'll occasionally share code, thoughts, and photos. Here's some of my stuff.
 
+\- 2020 / [Mic Check](/mic-check)
 \- 2020 / [Hotdog bun garlic bread](/hotdog-bun-garlic-bread)
 \- 2020 / [Electron Settings v4](/electron-settings-v4)
 \- 2020 / [The math of Wheeler-Dealer](/the-math-of-wheeler-dealer)

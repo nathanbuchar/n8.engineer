@@ -1,0 +1,9 @@
+{
+  "id": "mic-check",
+  "template": "index.pug",
+  "filename": "mic-check/index.html",
+  "entry": [
+    "index.js",
+    "index.scss"
+  ]
+}
