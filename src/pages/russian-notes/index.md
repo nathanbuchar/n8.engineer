@@ -3,13 +3,13 @@
 
 I'm casually learning Russian. Here are some of my notes.
 
-***
+---
 
 #### Table of Contents
 
 [[toc]]
 
-***
+---
 
 ## Alphabet
 
@@ -261,7 +261,7 @@ I'm casually learning Russian. Here are some of my notes.
 ^†††^ Silent; palatalizes the preceding consonant (if it is phonologically possible).
 
 
-***
+---
 
 
 ## Spelling Rules
@@ -367,7 +367,7 @@ A **ю** or **я** may not immediately follow **к**, **г**, **х**, **ж**, **
   However, because the 8-Letter spelling rule states that **ю** may not follow the letter **ч**, it has been swapped with **у**.
 
 
-***
+---
 
 
 ## Verb Conjugation
@@ -763,7 +763,7 @@ Lastly, it should be noted that in Russian, there actually is a verb "to have", 
   > *to have the opportunity*
 
 
-***
+---
 
 
 ## Pronunciation
@@ -922,7 +922,7 @@ We should add one exception: the letter **в**. Although it does become devoiced
 * **связь** – *\[**sv**yas'\]*
 
 
-***
+---
 
 
 ## Prepositional Case
@@ -1047,7 +1047,7 @@ There's a reason the prepositional case is called the "prepositional": It's the 
     In the last example you can see that **о** has an alternate form **об** which is used before words that start with vowel sounds. It's not unlike **a** vs **an** in English.
 
 
-***
+---
 
 
 ## Works Cited
