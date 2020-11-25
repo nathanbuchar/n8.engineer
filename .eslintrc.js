@@ -15,6 +15,7 @@ module.exports = {
     'global-require': 'off',
     'import/no-dynamic-require': 'off',
     'import/prefer-default-export': 'off',
+    'no-plusplus': 'off',
     'no-underscore-dangle': 'off',
     'no-unused-vars': ['error', {
       argsIgnorePattern: '^_',
