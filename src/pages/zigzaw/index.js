@@ -1,5 +1,7 @@
 import 'common/js/page';
 
+import debounce from 'debounce';
+
 const CUBE_SIZE = 36; // Radius of circle hexagon fits into.
 const YELLOW = '#F6C42C';
 const RED = '#AE282A';
@@ -16,11 +18,11 @@ const ctx = canvas.getContext('2d');
 canvas.width = document.body.clientWidth;
 canvas.height = document.body.clientHeight;
 
-const distanceBetweenVertices = CUBE_SIZE * Math.sqrt(3);
-const numTilesHorizontal = Math.ceil(canvas.width / distanceBetweenVertices) + 1;
-const numTilesVertical = Math.ceil(canvas.height / (3 * (CUBE_SIZE / 2))) + 1;
-
 function draw() {
+  const distanceBetweenVertices = CUBE_SIZE * Math.sqrt(3);
+  const numTilesHorizontal = Math.ceil(canvas.width / distanceBetweenVertices) + 1;
+  const numTilesVertical = Math.ceil(canvas.height / (3 * (CUBE_SIZE / 2))) + 1;
+
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
   for (let y = 0; y < numTilesVertical; y++) {
@@ -148,5 +150,12 @@ function loop() {
   // Initial draw.
   draw();
 }
+
+window.addEventListener('resize', debounce(() => {
+  canvas.width = document.body.clientWidth;
+  canvas.height = document.body.clientHeight;
+
+  draw();
+}, 100));
 
 loop();

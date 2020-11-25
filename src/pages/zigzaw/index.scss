@@ -11,8 +11,9 @@ body {
   padding: 20px;
   background: white;
   position: fixed;
-  top: 20px;
+  bottom: 20px;
   left: 20px;
-  width: 480px;
+  max-width: 480px;
+  right: 20px;
   box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.2);
 }
