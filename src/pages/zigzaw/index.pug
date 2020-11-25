@@ -1,0 +1,10 @@
+extends /common/pug/layouts/default
+
+block append variables
+  - title = 'Zigzaw | Nathan Buchar - Software Engineer';
+
+block body
+  canvas#canvas
+  .info.
+    Cube tiling pattern dynamically generated using HTML canvas.
+    Inspired by #[a(href='https://twistypuzzles.com/cgi-bin/puzzle.cgi?pkey=407') Rubik's Zigzaw].

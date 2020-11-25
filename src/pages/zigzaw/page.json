@@ -1,0 +1,9 @@
+{
+  "id": "zigzaw",
+  "template": "index.pug",
+  "filename": "zigzaw/index.html",
+  "entry": [
+    "index.js",
+    "index.scss"
+  ]
+}
