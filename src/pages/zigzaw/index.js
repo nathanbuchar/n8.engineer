@@ -2,142 +2,78 @@ import 'common/js/page';
 
 import debounce from 'debounce';
 
-const CUBE_SIZE = 36; // Radius of circle hexagon fits into.
-const YELLOW = '#F6C42C';
-const RED = '#AE282A';
-const BLUE = '#2E51A2';
-const GREEN = '#466446';
-const ORANGE = '#D56524';
-const WHITE = '#D4D5D0';
-const BLACK = '#271C1C';
-const COLORS = [YELLOW, RED, WHITE, GREEN, ORANGE, BLUE];
+const size = 36; // Radius of circle hexagon fits into.
+const distanceBetweenCubes = size * Math.sqrt(3);
 
+const colors = {
+  white: '#D4D5D0',
+  green: '#466446',
+  red: '#AE282A',
+  yellow: '#F6C42C',
+  blue: '#2E51A2',
+  orange: '#D56524',
+  black: '#271C1C',
+};
+
+// Set up canvas
 const canvas = document.getElementById('canvas');
-const ctx = canvas.getContext('2d');
-
 canvas.width = document.body.clientWidth;
 canvas.height = document.body.clientHeight;
 
-function draw() {
-  const distanceBetweenVertices = CUBE_SIZE * Math.sqrt(3);
-  const numTilesHorizontal = Math.ceil(canvas.width / distanceBetweenVertices) + 1;
-  const numTilesVertical = Math.ceil(canvas.height / (3 * (CUBE_SIZE / 2))) + 1;
+// Set up context
+const ctx = canvas.getContext('2d');
+ctx.lineWidth = size / 16;
+ctx.strokeStyle = colors.black;
 
+function draw() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  for (let y = 0; y < numTilesVertical; y++) {
-    for (let x = 0; x < numTilesHorizontal; x++) {
-      const availableColors = [...COLORS];
+  const numCubesHorizontal = Math.ceil(canvas.width / distanceBetweenCubes) + 1;
+  const numCubesVertical = Math.ceil(canvas.height / (3 * (size / 2))) + 1;
 
-      const cubeX = x * distanceBetweenVertices - (distanceBetweenVertices / 2) * (y % 2);
-      const cubeY = y * (3 * (CUBE_SIZE / 2)) + CUBE_SIZE / 2;
+  for (let y = 0; y < numCubesVertical; y++) {
+    for (let x = 0; x < numCubesHorizontal; x++) {
+      const cubeX = x * distanceBetweenCubes - (distanceBetweenCubes / 2) * (y % 2);
+      const cubeY = y * size * (3 / 2);
 
       ctx.setTransform(1, 0, 0, 1, cubeX, cubeY);
-      ctx.lineWidth = CUBE_SIZE / 15;
-      ctx.strokeStyle = BLACK;
 
-      // I could probably do something fancy with
-      // matrix transforms and loops that I don't
-      // have to repeat myself so much.
+      const availableColors = [
+        colors.white,
+        colors.green,
+        colors.red,
+        colors.yellow,
+        colors.blue,
+        colors.orange,
+      ];
 
-      // Faces
-      const color1 = availableColors.splice(Math.floor(Math.random() * availableColors.length), 1);
-      ctx.beginPath();
-      ctx.moveTo(0, 0);
-      ctx.lineTo(distanceBetweenVertices / 2, CUBE_SIZE / -2);
-      ctx.lineTo(distanceBetweenVertices / 2, CUBE_SIZE / 2);
-      ctx.lineTo(0, CUBE_SIZE);
-      ctx.lineTo(0, 0);
-      ctx.fillStyle = color1;
-      ctx.fill();
+      for (let i = 0; i < 3; i++) {
+        ctx.save();
+        ctx.rotate(i * 120 * (Math.PI / 180));
 
-      const color2 = availableColors.splice(Math.floor(Math.random() * availableColors.length), 1);
-      ctx.beginPath();
-      ctx.moveTo(0, 0);
-      ctx.lineTo(0, CUBE_SIZE);
-      ctx.lineTo(distanceBetweenVertices / -2, CUBE_SIZE / 2);
-      ctx.lineTo(distanceBetweenVertices / -2, CUBE_SIZE / -2);
-      ctx.lineTo(0, 0);
-      ctx.fillStyle = color2;
-      ctx.fill();
+        // Face
+        const color = availableColors.splice(Math.floor(Math.random() * availableColors.length), 1);
+        ctx.beginPath();
+        ctx.moveTo(0, 0);
+        ctx.lineTo(distanceBetweenCubes / 2, size / -2);
+        ctx.lineTo(distanceBetweenCubes / 2, size / 2);
+        ctx.lineTo(0, size);
+        ctx.closePath();
+        ctx.fillStyle = color;
+        ctx.fill();
+        ctx.stroke();
 
-      const color3 = availableColors.splice(Math.floor(Math.random() * availableColors.length), 1);
-      ctx.beginPath();
-      ctx.moveTo(0, 0);
-      ctx.lineTo(distanceBetweenVertices / 2, CUBE_SIZE / -2);
-      ctx.lineTo(0, -CUBE_SIZE);
-      ctx.lineTo(distanceBetweenVertices / -2, CUBE_SIZE / -2);
-      ctx.lineTo(0, 0);
-      ctx.fillStyle = color3;
-      ctx.fill();
+        // Lines
+        for (let k = 0; k < 2; k++) {
+          ctx.moveTo(distanceBetweenCubes * ((k + 1) / 6), size * ((k + 1) / -6));
+          ctx.lineTo(distanceBetweenCubes * ((k + 1) / 6), size - size * ((k + 1) / 6));
+          ctx.moveTo(0, size * ((k + 1) / 3));
+          ctx.lineTo(distanceBetweenCubes / 2, size / -2 + size * ((k + 1) / 3));
+          ctx.stroke();
+        }
 
-      // Outline
-      ctx.beginPath();
-      ctx.moveTo(0, -CUBE_SIZE);
-      ctx.lineTo(distanceBetweenVertices / 2, CUBE_SIZE / -2);
-      ctx.lineTo(distanceBetweenVertices / 2, CUBE_SIZE / 2);
-      ctx.lineTo(0, CUBE_SIZE);
-      ctx.lineTo(distanceBetweenVertices / -2, CUBE_SIZE / -2 + CUBE_SIZE);
-      ctx.lineTo(distanceBetweenVertices / -2, CUBE_SIZE / -2);
-      ctx.lineTo(0, -CUBE_SIZE);
-      ctx.stroke();
-      ctx.closePath();
-
-      // Lines
-      ctx.beginPath();
-      ctx.moveTo(0, 0);
-      ctx.lineTo(0, CUBE_SIZE);
-      ctx.stroke();
-      ctx.closePath();
-
-      ctx.beginPath();
-      ctx.moveTo(distanceBetweenVertices / -2, CUBE_SIZE / -2);
-      ctx.lineTo(0, 0);
-      ctx.lineTo(distanceBetweenVertices / 2, CUBE_SIZE / -2);
-      ctx.stroke();
-      ctx.closePath();
-
-      ctx.beginPath();
-      ctx.moveTo(distanceBetweenVertices / -2, CUBE_SIZE / -2 + CUBE_SIZE * (1 / 3));
-      ctx.lineTo(0, CUBE_SIZE * (1 / 3));
-      ctx.lineTo(distanceBetweenVertices / 2, CUBE_SIZE / -2 + CUBE_SIZE * (1 / 3));
-      ctx.stroke();
-      ctx.closePath();
-
-      ctx.beginPath();
-      ctx.moveTo(distanceBetweenVertices / -2, CUBE_SIZE / -2 + CUBE_SIZE * (2 / 3));
-      ctx.lineTo(0, CUBE_SIZE * (2 / 3));
-      ctx.lineTo(distanceBetweenVertices / 2, CUBE_SIZE / -2 + CUBE_SIZE * (2 / 3));
-      ctx.stroke();
-      ctx.closePath();
-
-      ctx.beginPath();
-      ctx.moveTo(-distanceBetweenVertices / 6, -CUBE_SIZE + CUBE_SIZE * (1 / 6));
-      ctx.lineTo(distanceBetweenVertices / 3, CUBE_SIZE / -3);
-      ctx.lineTo(distanceBetweenVertices / 3, CUBE_SIZE - CUBE_SIZE * (1 / 3));
-      ctx.stroke();
-      ctx.closePath();
-
-      ctx.beginPath();
-      ctx.moveTo(-distanceBetweenVertices / 3, -CUBE_SIZE + CUBE_SIZE * (1 / 3));
-      ctx.lineTo(distanceBetweenVertices / 6, CUBE_SIZE / -6);
-      ctx.lineTo(distanceBetweenVertices / 6, CUBE_SIZE - CUBE_SIZE * (1 / 6));
-      ctx.stroke();
-      ctx.closePath();
-
-      ctx.beginPath();
-      ctx.moveTo(-distanceBetweenVertices / 3, CUBE_SIZE - CUBE_SIZE * (1 / 3));
-      ctx.lineTo(-distanceBetweenVertices / 3, CUBE_SIZE / -3);
-      ctx.lineTo(distanceBetweenVertices / 6, -CUBE_SIZE + CUBE_SIZE * (1 / 6));
-      ctx.stroke();
-      ctx.closePath();
-
-      ctx.beginPath();
-      ctx.moveTo(-distanceBetweenVertices / 6, CUBE_SIZE - CUBE_SIZE * (1 / 6));
-      ctx.lineTo(-distanceBetweenVertices / 6, CUBE_SIZE / -6);
-      ctx.lineTo(distanceBetweenVertices / 3, -CUBE_SIZE + CUBE_SIZE * (1 / 3));
-      ctx.stroke();
-      ctx.closePath();
+        ctx.restore();
+      }
     }
   }
 }
