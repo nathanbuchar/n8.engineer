@@ -26,65 +26,58 @@ ctx.lineWidth = size / 16;
 ctx.strokeStyle = colors.black;
 
 function draw() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  const numRows = Math.ceil(canvas.width / distanceBetweenCubes) + 1;
+  const numCols = Math.ceil(canvas.height / (3 * (size / 2))) + 1;
 
-  const numCubesHorizontal = Math.ceil(canvas.width / distanceBetweenCubes) + 1;
-  const numCubesVertical = Math.ceil(canvas.height / (3 * (size / 2))) + 1;
+  for (let y = 0; y < numCols; y++) {
+    for (let x = 0; x < numRows; x++) {
+      setTimeout(() => {
+        const cubeX = x * distanceBetweenCubes - (distanceBetweenCubes / 2) * (y % 2);
+        const cubeY = y * size * (3 / 2);
 
-  for (let y = 0; y < numCubesVertical; y++) {
-    for (let x = 0; x < numCubesHorizontal; x++) {
-      const cubeX = x * distanceBetweenCubes - (distanceBetweenCubes / 2) * (y % 2);
-      const cubeY = y * size * (3 / 2);
+        ctx.setTransform(1, 0, 0, 1, cubeX, cubeY);
 
-      ctx.setTransform(1, 0, 0, 1, cubeX, cubeY);
+        const c = [
+          colors.white,
+          colors.green,
+          colors.red,
+          colors.yellow,
+          colors.blue,
+          colors.orange,
+        ];
 
-      const availableColors = [
-        colors.white,
-        colors.green,
-        colors.red,
-        colors.yellow,
-        colors.blue,
-        colors.orange,
-      ];
+        for (let i = 0; i < 3; i++) {
+          ctx.save();
+          ctx.rotate(i * 120 * (Math.PI / 180));
 
-      for (let i = 0; i < 3; i++) {
-        ctx.save();
-        ctx.rotate(i * 120 * (Math.PI / 180));
-
-        // Face
-        const color = availableColors.splice(Math.floor(Math.random() * availableColors.length), 1);
-        ctx.beginPath();
-        ctx.moveTo(0, 0);
-        ctx.lineTo(distanceBetweenCubes / 2, size / -2);
-        ctx.lineTo(distanceBetweenCubes / 2, size / 2);
-        ctx.lineTo(0, size);
-        ctx.closePath();
-        ctx.fillStyle = color;
-        ctx.fill();
-        ctx.stroke();
-
-        // Lines
-        for (let k = 0; k < 2; k++) {
-          ctx.moveTo(distanceBetweenCubes * ((k + 1) / 6), size * ((k + 1) / -6));
-          ctx.lineTo(distanceBetweenCubes * ((k + 1) / 6), size - size * ((k + 1) / 6));
-          ctx.moveTo(0, size * ((k + 1) / 3));
-          ctx.lineTo(distanceBetweenCubes / 2, size / -2 + size * ((k + 1) / 3));
+          // Face
+          const color = c.splice(Math.floor(Math.random() * c.length), 1);
+          ctx.beginPath();
+          ctx.moveTo(0, 0);
+          ctx.lineTo(distanceBetweenCubes / 2, size / -2);
+          ctx.lineTo(distanceBetweenCubes / 2, size / 2);
+          ctx.lineTo(0, size);
+          ctx.closePath();
+          ctx.fillStyle = color;
+          ctx.fill();
           ctx.stroke();
-        }
 
-        ctx.restore();
-      }
+          // Lines
+          for (let j = 0; j < 2; j++) {
+            for (let k = 0; k < 2; k++) {
+              ctx.moveTo(distanceBetweenCubes * ((k + 1) / 6), size * ((k + 1) / -6));
+              ctx.lineTo(distanceBetweenCubes * ((k + 1) / 6), size - size * ((k + 1) / 6));
+              ctx.moveTo(0, size * ((k + 1) / 3));
+              ctx.lineTo(distanceBetweenCubes / 2, size / -2 + size * ((k + 1) / 3));
+              ctx.stroke();
+            }
+          }
+
+          ctx.restore();
+        }
+      }, 1000 * Math.random());
     }
   }
-}
-
-function loop() {
-  setInterval(() => {
-    draw();
-  }, 2500);
-
-  // Initial draw.
-  draw();
 }
 
 window.addEventListener('resize', debounce(() => {
@@ -94,4 +87,8 @@ window.addEventListener('resize', debounce(() => {
   draw();
 }, 100));
 
-loop();
+canvas.addEventListener('click', () => {
+  draw();
+});
+
+draw();
