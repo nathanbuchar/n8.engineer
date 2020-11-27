@@ -84,6 +84,8 @@ window.addEventListener('resize', debounce(() => {
   canvas.width = document.body.clientWidth;
   canvas.height = document.body.clientHeight;
 
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
   draw();
 }, 100));
 
