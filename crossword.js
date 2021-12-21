@@ -9,6 +9,7 @@
 const cron = require('cron');
 const dropbox = require('dropbox');
 const https = require('https');
+const path = require('path');
 
 // https://dropbox.tech/developers/generate-an-access-token-for-your-own-account
 const dbx = new dropbox.Dropbox({
@@ -50,7 +51,7 @@ function getCrossword(date) {
 
         // Upload the file to Dropbox.
         dbx.filesUpload({
-          path: `/${year}${mm}${dd}_${day}-crossword.pdf`,
+          path: path.join(process.env.DROPBOX_UPLOAD_PATH, `${year}${mm}${dd}_${day}-crossword.pdf`),
           contents: Buffer.concat(data),
         }).then((response) => {
           console.log('Successfully uploaded crossword');
