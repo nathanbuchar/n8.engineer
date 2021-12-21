@@ -1,0 +1,9 @@
+{
+  "id": "automatically-uploading-the-nyt-crossword-supernote",
+  "template": "index.pug",
+  "filename": "automatically-uploading-the-nyt-crossword-supernote/index.html",
+  "entry": [
+    "index.js",
+    "index.scss"
+  ]
+}
