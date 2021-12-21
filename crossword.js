@@ -11,11 +11,12 @@ function getTomorrowsCrossword() {
   const tomorrow = new Date(today);
   tomorrow.setDate(tomorrow.getDate() + 1);
 
-  const month = new Intl.DateTimeFormat('en-US', { month: 'short', timeZone: 'America/New_York' }).format(tomorrow);
+  const monthShort = new Intl.DateTimeFormat('en-US', { month: 'short', timeZone: 'America/New_York' }).format(tomorrow);
+  const month2Digit = new Intl.DateTimeFormat('en-US', { month: '2-digit', timeZone: 'America/New_York' }).format(tomorrow);
   const day = new Intl.DateTimeFormat('en-US', { day: '2-digit', timeZone: 'America/New_York' }).format(tomorrow);
-  const year = new Intl.DateTimeFormat('en-US', { year: '2-digit', timeZone: 'America/New_York' }).format(tomorrow);
+  const year = new Intl.DateTimeFormat('en-US', { year: 'numeric', timeZone: 'America/New_York' }).format(tomorrow);
 
-  const filename = `${month}${day}${year}.pdf`;
+  const filename = `${monthShort}${day}${year.substring(2)}.pdf`;
   const filePath = path.join(__dirname, filename);
 
   const req = wget.request({
@@ -45,7 +46,7 @@ function getTomorrowsCrossword() {
         stream.end();
 
         dbx.filesUpload({
-          path: `/${filename}`,
+          path: `/${year}-${month2Digit}-${day}.pdf`,
           contents: fs.createReadStream(filePath),
         }).then((response) => {
           console.log('Successfully uploaded crossword:');
