@@ -17,7 +17,7 @@ function getTomorrowsCrossword() {
   const year = new Intl.DateTimeFormat('en-US', { year: 'numeric', timeZone: 'America/New_York' }).format(tomorrow);
 
   const filename = `${monthShort}${day}${year.substring(2)}.pdf`;
-  const filePath = path.join(__dirname, filename);
+  const filePath = path.resolve(process.env.TMP_DIRECTORY, filename);
 
   const req = wget.request({
     protocol: 'https',
@@ -49,8 +49,11 @@ function getTomorrowsCrossword() {
           path: `/${year}-${month2Digit}-${day}.pdf`,
           contents: fs.createReadStream(filePath),
         }).then((response) => {
-          console.log('Successfully uploaded crossword:');
-          console.log(response);
+          console.log('Successfully uploaded crossword');
+          console.log(`Content hash: ${response.result.content_hash}`);
+        }).catch((err) => {
+          console.log('Error writing to dropbox');
+          console.log(err);
         });
       });
     }
