@@ -76,3 +76,6 @@ const weekendJob = new CronJob({
     getTomorrowsCrossword();
   },
 });
+
+weekdayJob.start();
+weekendJob.start();
