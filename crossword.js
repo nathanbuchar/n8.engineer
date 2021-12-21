@@ -6,7 +6,7 @@ const wget = require('wget');
 
 const dbx = new Dropbox({ accessToken: process.env.DROPBOX_ACCESS_TOKEN });
 
-async function getTomorrowsCrossword() {
+function getTomorrowsCrossword() {
   const today = new Date();
   const tomorrow = new Date(today);
   tomorrow.setDate(tomorrow.getDate() + 1);
