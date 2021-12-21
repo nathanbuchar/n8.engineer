@@ -76,9 +76,3 @@ const weekendJob = new CronJob({
     getTomorrowsCrossword();
   },
 });
-
-try {
-  getTomorrowsCrossword();
-} catch (err) {
-  console.log(err);
-}
