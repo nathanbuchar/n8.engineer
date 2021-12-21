@@ -17,7 +17,6 @@ async function getTomorrowsCrossword() {
 
   const filename = `${month}${day}${year}.pdf`;
   const filePath = path.join(__dirname, filename);
-  const stream = fs.createWriteStream(filePath);
 
   const req = wget.request({
     protocol: 'https',
@@ -30,6 +29,8 @@ async function getTomorrowsCrossword() {
     },
   }, (res) => {
     if (res.statusCode === 200) {
+      const stream = fs.createWriteStream(filePath);
+
       res.on('error', (err) => {
         console.log('Error, could not read crossword:');
         console.log(err);
