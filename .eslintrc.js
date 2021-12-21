@@ -12,6 +12,7 @@ module.exports = {
   rules: {
     'arrow-body-style': 'off',
     'consistent-return': 'off',
+    'object-curly-newline': 'off',
     'global-require': 'off',
     'import/no-dynamic-require': 'off',
     'import/prefer-default-export': 'off',
