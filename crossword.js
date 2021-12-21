@@ -70,7 +70,7 @@ const weekdayJob = new CronJob({
 });
 
 const weekendJob = new CronJob({
-  cronTime: '1 18 * * 6,7', // 6:01pm every Weekend
+  cronTime: '1 18 * * 6,7', // 6:01pm ET every Weekend
   timeZone: 'America/New_York',
   onTick() {
     getTomorrowsCrossword();
