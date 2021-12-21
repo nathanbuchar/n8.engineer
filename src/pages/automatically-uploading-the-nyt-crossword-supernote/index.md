@@ -1,5 +1,7 @@
 # Automatically uploading the daily NYT crossword to my Ratta Supernote
 
+> Note: For anyone landing on this page from Google looking to automatically upload the NYT crossword to your Supernote or similar e-ink tablet, I'm afraid this solution is not for the everyperson and requires some knowledge of programming.
+
 I (try) to do the New York Times crossword puzzle every day, and this holiday season when I purchased myself a [Ratta Supernote A6X](supernote.com), I was excited about the prospect of doing the crossword using an e-ink tablet rather than clumsily on my phone.
 
 Unfortunately, e-ink tablet tech — although truly remarkable — is still very nascent, and I imagine a native NYT Crossword app is several years a way at minimum. Worse, the NYT has a pretty limited API, mostly related to articles and there are no endpoints related to puzzles or games.
@@ -9,13 +11,13 @@ For most, the standard solution is to manually download the crossword as a PDF e
 First off, I noticed that the crossword PDF download URL is predictable for any given day:
 
 ```
-https://www.nytims.com/svc/crosswords/v2/puzzle/print/{month}{day}{2-digit year}.pdf
+https://nytimes.com/svc/crosswords/v2/puzzle/print/{month}{day}{2-digit year}.pdf
 ```
 
 For today's date, that would look like:
 
 ```
-https://www.nytims.com/svc/crosswords/v2/puzzle/print/Dec2121.pdf
+https://nytimes.com/svc/crosswords/v2/puzzle/print/Dec2121.pdf
 ```
 
 Unfortunately, these resources are only accessibe to NYT paid subscribers and any request to this URL by any unathenticated or unpaid user will result in an error.
@@ -142,3 +144,5 @@ const weekendJob = new cron.CronJob({
 weekdayJob.start();
 weekendJob.start();
 ```
+
+If this helped you at all, I'd love to hear about it. If you share this code elsewhere, be sure to give me credit.
