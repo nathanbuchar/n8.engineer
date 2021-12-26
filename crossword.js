@@ -127,6 +127,14 @@ function getTomorrowsNYTCrossword() {
   return getNYTCrossword(tomorrow);
 }
 
+function getTomorrowsWSJCrossword() {
+  const today = new Date();
+  const tomorrow = new Date(today);
+  tomorrow.setDate(tomorrow.getDate() + 1);
+
+  return getWSJCrossword(tomorrow);
+}
+
 const jobNYTWeekdays = new cron.CronJob({
   cronTime: '1 22 * * 1,2,3,4,5', // 10:01pm ET every weekday
   timeZone: 'America/New_York',
@@ -143,16 +151,23 @@ const jobNYTWeekends = new cron.CronJob({
   },
 });
 
-const jobWSJCrossword = new cron.CronJob({
-  cronTime: '0 0 * * *', // 12:00am ET every day
+const jobWSJCrosswordTueThruSat = new cron.CronJob({
+  cronTime: '2 13 * * 1,2,3,4,5', // 1:02pm ET every Mon thru Fri
   timeZone: 'America/New_York',
   onTick() {
-    const today = new Date();
+    getTomorrowsWSJCrossword();
+  },
+});
 
-    getWSJCrossword(today);
+const jobWSJCrosswordMon = new cron.CronJob({
+  cronTime: '21 23 * * 0', // 11:21pm ET every Sunday
+  timeZone: 'America/New_York',
+  onTick() {
+    getTomorrowsWSJCrossword();
   },
 });
 
 jobNYTWeekdays.start();
 jobNYTWeekends.start();
-jobWSJCrossword.start();
+jobWSJCrosswordTueThruSat.start();
+jobWSJCrosswordMon.start();
