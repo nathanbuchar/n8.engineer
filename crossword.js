@@ -160,7 +160,7 @@ const jobWSJCrosswordTueThruSat = new cron.CronJob({
 });
 
 const jobWSJCrosswordMon = new cron.CronJob({
-  cronTime: '21 23 * * 0', // 11:21pm ET every Sunday
+  cronTime: '2 21 * * 0', // 9:02pm ET every Sunday
   timeZone: 'America/New_York',
   onTick() {
     getTomorrowsWSJCrossword();
