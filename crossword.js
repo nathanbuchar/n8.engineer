@@ -16,54 +16,6 @@ const dbx = new dropbox.Dropbox({
   accessToken: process.env.DROPBOX_ACCESS_TOKEN,
 });
 
-function getWSJCrossword(date) {
-  const year = new Intl.DateTimeFormat('en-US', { year: 'numeric', timeZone: 'America/New_York' }).format(date);
-  const mm = new Intl.DateTimeFormat('en-US', { month: '2-digit', timeZone: 'America/New_York' }).format(date);
-  const dd = new Intl.DateTimeFormat('en-US', { day: '2-digit', timeZone: 'America/New_York' }).format(date);
-  const day = new Intl.DateTimeFormat('en-US', { weekday: 'short', timeZone: 'America/New_York' }).format(date);
-
-  const req = https.request({
-    protocol: 'https:',
-    host: 's.wsj.net',
-    path: `/public/resources/documents/XWD${mm}${dd}${year}.pdf`, // Ex. XWD12152021.pdf
-    method: 'GET',
-  }, (res) => {
-    if (res.statusCode === 200) {
-      const data = [];
-
-      res.on('error', (err) => {
-        console.log(err);
-      });
-
-      res.on('data', (chunk) => {
-        data.push(chunk);
-      });
-
-      res.on('end', () => {
-        console.log('Successfully downloaded WSJ crossword');
-
-        // Upload the file to Dropbox.
-        dbx.filesUpload({
-          path: path.join(process.env.DROPBOX_UPLOAD_PATH, `${year}${mm}${dd}_WSJ_${day}-crossword.pdf`),
-          contents: Buffer.concat(data),
-        }).then((response) => {
-          console.log('Successfully uploaded WSJ crossword');
-          console.log(`Content hash: ${response.result.content_hash}`);
-        }).catch((err) => {
-          console.log('Error writing to dropbox');
-          console.log(err);
-        });
-      });
-    }
-  });
-
-  req.on('error', (err) => {
-    console.log(err);
-  });
-
-  req.end();
-}
-
 function getNYTCrossword(date) {
   const year = new Intl.DateTimeFormat('en-US', { year: 'numeric', timeZone: 'America/New_York' }).format(date);
   const yy = new Intl.DateTimeFormat('en-US', { year: '2-digit', timeZone: 'America/New_York' }).format(date);
@@ -71,6 +23,8 @@ function getNYTCrossword(date) {
   const mm = new Intl.DateTimeFormat('en-US', { month: '2-digit', timeZone: 'America/New_York' }).format(date);
   const dd = new Intl.DateTimeFormat('en-US', { day: '2-digit', timeZone: 'America/New_York' }).format(date);
   const day = new Intl.DateTimeFormat('en-US', { weekday: 'short', timeZone: 'America/New_York' }).format(date);
+
+  console.log(`Attempting to get NYT crossword for ${year}-${mm}-${dd}`);
 
   const req = https.request({
     protocol: 'https:',
@@ -83,33 +37,95 @@ function getNYTCrossword(date) {
       Cookie: process.env.NYT_COOKIE,
     },
   }, (res) => {
-    if (res.statusCode === 200) {
-      const data = [];
+    if (res.statusCode !== 200) {
+      // The crossword is seemingly not yet available.
+      // Try again in an hour.
+      console.log('NYT crossword not yet available.');
+      setTimeout(getNYTCrossword(date), 1000 * 60 * 60);
+      return;
+    }
 
-      res.on('error', (err) => {
+    const data = [];
+
+    res.on('error', (err) => {
+      console.log(err);
+    });
+
+    res.on('data', (chunk) => {
+      data.push(chunk);
+    });
+
+    res.on('end', () => {
+      console.log('Successfully downloaded NYT crossword');
+
+      // Upload the file to Dropbox.
+      dbx.filesUpload({
+        path: path.join(process.env.DROPBOX_UPLOAD_PATH, `${year}${mm}${dd}_NYT_${day}-crossword.pdf`),
+        contents: Buffer.concat(data),
+      }).then((response) => {
+        console.log('Successfully uploaded NYT crossword');
+        console.log(`Content hash: ${response.result.content_hash}`);
+      }).catch((err) => {
+        console.log('Error writing to dropbox');
         console.log(err);
       });
+    });
+  });
 
-      res.on('data', (chunk) => {
-        data.push(chunk);
-      });
+  req.on('error', (err) => {
+    console.log(err);
+  });
 
-      res.on('end', () => {
-        console.log('Successfully downloaded NYT crossword');
+  req.end();
+}
 
-        // Upload the file to Dropbox.
-        dbx.filesUpload({
-          path: path.join(process.env.DROPBOX_UPLOAD_PATH, `${year}${mm}${dd}_NYT_${day}-crossword.pdf`),
-          contents: Buffer.concat(data),
-        }).then((response) => {
-          console.log('Successfully uploaded NYT crossword');
-          console.log(`Content hash: ${response.result.content_hash}`);
-        }).catch((err) => {
-          console.log('Error writing to dropbox');
-          console.log(err);
-        });
-      });
+function getWSJCrossword(date) {
+  const year = new Intl.DateTimeFormat('en-US', { year: 'numeric', timeZone: 'America/New_York' }).format(date);
+  const mm = new Intl.DateTimeFormat('en-US', { month: '2-digit', timeZone: 'America/New_York' }).format(date);
+  const dd = new Intl.DateTimeFormat('en-US', { day: '2-digit', timeZone: 'America/New_York' }).format(date);
+  const day = new Intl.DateTimeFormat('en-US', { weekday: 'short', timeZone: 'America/New_York' }).format(date);
+
+  console.log(`Attempting to get WSJ crossword for ${year}-${mm}-${dd}`);
+
+  const req = https.request({
+    protocol: 'https:',
+    host: 's.wsj.net',
+    path: `/public/resources/documents/XWD${mm}${dd}${year}.pdf`, // Ex. XWD12152021.pdf
+    method: 'GET',
+  }, (res) => {
+    if (res.statusCode !== 200) {
+      // The crossword is seemingly not yet available.
+      // Try again in an hour.
+      console.log('WSJ crossword not yet available.');
+      setTimeout(getWSJCrossword(date), 1000 * 60 * 60);
+      return;
     }
+
+    const data = [];
+
+    res.on('error', (err) => {
+      console.log(err);
+    });
+
+    res.on('data', (chunk) => {
+      data.push(chunk);
+    });
+
+    res.on('end', () => {
+      console.log('Successfully downloaded WSJ crossword');
+
+      // Upload the file to Dropbox.
+      dbx.filesUpload({
+        path: path.join(process.env.DROPBOX_UPLOAD_PATH, `${year}${mm}${dd}_WSJ_${day}-crossword.pdf`),
+        contents: Buffer.concat(data),
+      }).then((response) => {
+        console.log('Successfully uploaded WSJ crossword');
+        console.log(`Content hash: ${response.result.content_hash}`);
+      }).catch((err) => {
+        console.log('Error writing to dropbox');
+        console.log(err);
+      });
+    });
   });
 
   req.on('error', (err) => {
