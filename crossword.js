@@ -40,8 +40,8 @@ function getNYTCrossword(date) {
     if (res.statusCode !== 200) {
       // The crossword is seemingly not yet available.
       // Try again in an hour.
-      console.log('NYT crossword not yet available.');
-      setTimeout(getNYTCrossword(date), 1000 * 60 * 60);
+      console.log('NYT crossword not yet available. Trying again in 1 hour...');
+      setTimeout(() => getNYTCrossword(date), 1000 * 60 * 60);
       return;
     }
 
@@ -96,8 +96,8 @@ function getWSJCrossword(date) {
     if (res.statusCode !== 200) {
       // The crossword is seemingly not yet available.
       // Try again in an hour.
-      console.log('WSJ crossword not yet available.');
-      setTimeout(getWSJCrossword(date), 1000 * 60 * 60);
+      console.log('WSJ crossword not yet available. Trying again in 1 hour...');
+      setTimeout(() => getWSJCrossword(date), 1000 * 60 * 60);
       return;
     }
 
