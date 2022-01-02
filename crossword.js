@@ -60,7 +60,7 @@ function getNYTCrossword(date) {
 
       // Upload the file to Dropbox.
       dbx.filesUpload({
-        path: path.join(process.env.DROPBOX_UPLOAD_PATH, `${year}${mm}${dd}_NYT_${day}-crossword.pdf`),
+        path: path.join(process.env.SUPERNOTE_DOCUMENT_PATH, `Crosswords/${year}${mm}${dd}_NYT_${day}-crossword.pdf`),
         contents: Buffer.concat(data),
       }).then((response) => {
         console.log('Successfully uploaded NYT crossword');
