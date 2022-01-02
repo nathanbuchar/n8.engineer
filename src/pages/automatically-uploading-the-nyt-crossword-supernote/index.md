@@ -1,4 +1,5 @@
 # Automatically uploading the daily NYT crossword to my Ratta Supernote
+###### Dec 21, 2021
 
 > Note: For anyone landing on this page from Google looking to automatically upload the NYT crossword to your Supernote or similar e-ink tablet, I'm afraid this solution is not for the everyperson and requires some knowledge of programming.
 
