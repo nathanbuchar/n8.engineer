@@ -53,7 +53,7 @@ function generatePDFFromStory(storyId) {
             if (siteName) {
               mdContent += `[${siteName} (${host})](${host})\n\n`;
             } else {
-              mdContent += `${host}\n\n`;
+              mdContent += `[${host}](${host})\n\n`;
             }
 
             mdContent += `# ${domPurifier.sanitize(title)}\n\n`;
