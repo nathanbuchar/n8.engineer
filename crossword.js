@@ -16,7 +16,7 @@ const dbx = new dropbox.Dropbox({
   accessToken: process.env.DROPBOX_ACCESS_TOKEN,
 });
 
-function getNYTCrossword(date) {
+function getNYTCrossword(date, attempts = 1) {
   const year = new Intl.DateTimeFormat('en-US', { year: 'numeric', timeZone: 'America/New_York' }).format(date);
   const yy = new Intl.DateTimeFormat('en-US', { year: '2-digit', timeZone: 'America/New_York' }).format(date);
   const mon = new Intl.DateTimeFormat('en-US', { month: 'short', timeZone: 'America/New_York' }).format(date);
@@ -37,11 +37,11 @@ function getNYTCrossword(date) {
       Cookie: process.env.NYT_COOKIE,
     },
   }, (res) => {
-    if (res.statusCode !== 200) {
+    if (res.statusCode !== 200 && attempts < 12) {
       // The crossword is seemingly not yet available.
       // Try again in an hour.
       console.log('NYT crossword not yet available. Trying again in 1 hour...');
-      setTimeout(() => getNYTCrossword(date), 1000 * 60 * 60);
+      setTimeout(() => getNYTCrossword(date, attempts + 1), 1000 * 60 * 60);
       return;
     }
 
@@ -79,7 +79,7 @@ function getNYTCrossword(date) {
   req.end();
 }
 
-function getWSJCrossword(date) {
+function getWSJCrossword(date, attempts = 1) {
   const year = new Intl.DateTimeFormat('en-US', { year: 'numeric', timeZone: 'America/New_York' }).format(date);
   const mm = new Intl.DateTimeFormat('en-US', { month: '2-digit', timeZone: 'America/New_York' }).format(date);
   const dd = new Intl.DateTimeFormat('en-US', { day: '2-digit', timeZone: 'America/New_York' }).format(date);
@@ -93,11 +93,11 @@ function getWSJCrossword(date) {
     path: `/public/resources/documents/XWD${mm}${dd}${year}.pdf`, // Ex. XWD12152021.pdf
     method: 'GET',
   }, (res) => {
-    if (res.statusCode !== 200) {
+    if (res.statusCode !== 200 && attempts < 12) {
       // The crossword is seemingly not yet available.
       // Try again in an hour.
       console.log('WSJ crossword not yet available. Trying again in 1 hour...');
-      setTimeout(() => getWSJCrossword(date), 1000 * 60 * 60);
+      setTimeout(() => getWSJCrossword(date, attempts + 1), 1000 * 60 * 60);
       return;
     }
 
