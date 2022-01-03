@@ -121,7 +121,7 @@ const getStories = new cron.CronJob({
   timeZone: 'America/Los_Angeles',
   onTick() {
     generatePDFsFromTopTenStories();
-  }
+  },
 });
 
 getStories.start();
