@@ -1,5 +1,5 @@
 .env*
-!.env.sample
+!.env.example
 
 dist
 node_modules

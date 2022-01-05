@@ -104,15 +104,21 @@ function generatePDFFromStory(storyId) {
   });
 }
 
-function generatePDFsFromTopTenStories() {
+function generatePDFsFromTopStories() {
   axios.get('https://hacker-news.firebaseio.com/v0/topstories.json').then(({ data }) => {
     const topStories = data.slice(0, 15);
 
     topStories.forEach((storyId, i) => {
       setTimeout(() => {
-        generatePDFFromStory(storyId);
+        try {
+          generatePDFFromStory(storyId);
+        } catch (_err) {
+          // idc
+        }
       }, i * 2500);
     });
+  }).catch((_err) => {
+    // idc
   });
 }
 
@@ -120,7 +126,8 @@ const getStories = new cron.CronJob({
   cronTime: '0 6 * * *', // Every day at 6am PT
   timeZone: 'America/Los_Angeles',
   onTick() {
-    generatePDFsFromTopTenStories();
+    console.log('Generating PDFs from top hacker news stories!');
+    generatePDFsFromTopStories();
   },
 });
 
