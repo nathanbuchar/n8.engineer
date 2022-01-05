@@ -37,11 +37,11 @@ function getNYTCrossword(date, attempts = 1) {
       Cookie: process.env.NYT_COOKIE,
     },
   }, (res) => {
-    if (res.statusCode !== 200 && attempts < 12) {
+    if (res.statusCode !== 200 && attempts < (12 * 6)) {
       // The crossword is seemingly not yet available.
-      // Try again in an hour.
-      console.log('NYT crossword not yet available. Trying again in 1 hour...');
-      setTimeout(() => getNYTCrossword(date, attempts + 1), 1000 * 60 * 60);
+      // Try again in 5 mins.
+      console.log('NYT crossword not yet available. Trying again in 5 mins...');
+      setTimeout(() => getNYTCrossword(date, attempts + 1), 1000 * 60 * 5);
       return;
     }
 
@@ -93,11 +93,11 @@ function getWSJCrossword(date, attempts = 1) {
     path: `/public/resources/documents/XWD${mm}${dd}${year}.pdf`, // Ex. XWD12152021.pdf
     method: 'GET',
   }, (res) => {
-    if (res.statusCode !== 200 && attempts < 12) {
+    if (res.statusCode !== 200 && attempts < (12 * 6)) {
       // The crossword is seemingly not yet available.
-      // Try again in an hour.
-      console.log('WSJ crossword not yet available. Trying again in 1 hour...');
-      setTimeout(() => getWSJCrossword(date, attempts + 1), 1000 * 60 * 60);
+      // Try again in 5 mins.
+      console.log('WSJ crossword not yet available. Trying again in 5 mins...');
+      setTimeout(() => getWSJCrossword(date, attempts + 1), 1000 * 60 * 5);
       return;
     }
 
@@ -167,7 +167,7 @@ const jobNYTWeekends = new cron.CronJob({
   },
 });
 
-const jobWSJCrosswordTueThruSat = new cron.CronJob({
+const jobWSJWeekdays = new cron.CronJob({
   cronTime: '2 13 * * 1,2,3,4,5', // 1:02pm ET every Mon thru Fri
   timeZone: 'America/New_York',
   onTick() {
@@ -175,7 +175,7 @@ const jobWSJCrosswordTueThruSat = new cron.CronJob({
   },
 });
 
-const jobWSJCrosswordMon = new cron.CronJob({
+const jobWSJWeekends = new cron.CronJob({
   cronTime: '2 21 * * 0', // 9:02pm ET every Sunday
   timeZone: 'America/New_York',
   onTick() {
@@ -185,5 +185,5 @@ const jobWSJCrosswordMon = new cron.CronJob({
 
 jobNYTWeekdays.start();
 jobNYTWeekends.start();
-jobWSJCrosswordTueThruSat.start();
-jobWSJCrosswordMon.start();
+jobWSJWeekdays.start();
+jobWSJWeekends.start();
