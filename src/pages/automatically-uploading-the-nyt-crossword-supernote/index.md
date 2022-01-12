@@ -1,13 +1,15 @@
 # Automatically uploading the daily NYT crossword to my Ratta Supernote
 ###### Dec 21, 2021
 
-> Note: For anyone landing on this page from Google looking to automatically upload the NYT crossword to your Supernote or similar e-ink tablet, I'm afraid this solution is not for the everyperson and requires some knowledge of programming.
+> Note: For anyone landing on this page from Google looking to automatically upload the NYT crossword to your Supernote or similar e-ink tablet, I'm afraid this solution requires some knowledge of programming.
+
+## The Problem
 
 I (try) to do the New York Times crossword puzzle every day, and this holiday season when I purchased myself a [Ratta Supernote A6X](supernote.com), I was excited about the prospect of doing the crossword using an e-ink tablet rather than clumsily on my phone.
 
-Unfortunately, e-ink tablet tech — although truly remarkable — is still very nascent, and I imagine a native NYT Crossword app is several years a way at minimum. Worse, the NYT has a pretty limited API, mostly related to articles and there are no endpoints related to puzzles or games.
+Unfortunately, the e-ink tablet software ecosystem is still very nascent, and I imagine we won't see a native NYT Crossword app for a long time, if ever. Worse, the NYT has a pretty limited API, mostly related to articles and there are no endpoints related to puzzles or games.
 
-For most, the standard solution is to manually download the crossword as a PDF every day, and then sync it to the Supernote using either Dropbox or their companion app. But I wanted to automate this.
+For most, the standard solution is to manually download the crossword as a PDF every day, and then sync it to the Supernote using either Dropbox or Supernote Cloud. But I wanted to automate this.
 
 First off, I noticed that the crossword PDF download URL is predictable for any given day:
 
@@ -18,7 +20,7 @@ https://nytimes.com/svc/crosswords/v2/puzzle/print/{month}{day}{2-digit year}.pd
 For today's date, that would look like:
 
 ```
-https://nytimes.com/svc/crosswords/v2/puzzle/print/Dec2121.pdf
+https://nytimes.com/.../Dec2121.pdf
 ```
 
 Unfortunately, these resources are only accessibe to NYT paid subscribers and any request to this URL by any unathenticated or unpaid user will result in an error.
@@ -41,61 +43,63 @@ And it worked!
 2021-12-21 07:10:21 URL:https://www.nytimes.com/svc/crosswords/v2/puzzle/print/Dec2121.pdf [74658/74658] -> "Dec2121.pdf" [1]
 ```
 
-So now I just needed turn this into a service.
+So now I just needed turn this into a service. The following is what I came up with.
 
-I already pay for uptime on Heroku for this website, so I figured I'd use those resources and write in a worker that automatically fetches the crossword for me once per day. The backend of this website runs on Node.js, and so the following is what I ended up with:
+
+## The Solution
+
+**Requirements**
+1. A [Dropbox](https://dropbox.com) account.
+1. Syncing enabled between Dropbox and your Supernote device.
+1. A [Dropbox access token](https://dropbox.tech/developers/generate-an-access-token-for-your-own-account).
+1. A NYT [puzzle subscription](https://www.nytimes.com/subscription/games).
+1. A local or remote server running [Node.js](https://nodejs.org). I use [Heroku](https://heroku.com).
+
+**Code**
 
 ```js
 /**
- * This file schedules a cronjob which will automatically
- * download the NYT daily crossword 1 minute after its
- * published and then upload it to Dropbox.
+ * Schedules a cronjob which will automatically download
+ * the NYT daily crossword 1 minute after its published and
+ * then upload it to your Dropbox.
  *
  * @author Nathan Buchar <hello@nathanbuchar.com>
+ * @license MIT
  */
 
 const cron = require('cron');
 const dropbox = require('dropbox');
 const https = require('https');
+const moment = require('moment');
 const path = require('path');
 
-// Instantiates the Dropbox client so that later we can
-// upload the downloaded crossword PDF files to Dropbox.
+// Instantiate the Dropbox instance.
 //
-// Take note of the `DROPBOX_ACCESS_TOKEN` env variable. To
-// generate one, please visit https://dropbox.tech/developers/generate-an-access-token-for-your-own-account.
+// Set DROPBOX_ACCESS_TOKEN to an access token that you've
+// generated for your Dropbox account.
+//
+// See https://dropbox.tech/developers/generate-an-access-token-for-your-own-account
 const dbx = new dropbox.Dropbox({
   accessToken: process.env.DROPBOX_ACCESS_TOKEN,
 });
 
-// Gets the NYT crossword for a specific date.
 function getNYTCrossword(date) {
-  const year = new Intl.DateTimeFormat('en-US', { year: 'numeric', timeZone: 'America/New_York' }).format(date);
-  const yy = new Intl.DateTimeFormat('en-US', { year: '2-digit', timeZone: 'America/New_York' }).format(date);
-  const mon = new Intl.DateTimeFormat('en-US', { month: 'short', timeZone: 'America/New_York' }).format(date);
-  const mm = new Intl.DateTimeFormat('en-US', { month: '2-digit', timeZone: 'America/New_York' }).format(date);
-  const dd = new Intl.DateTimeFormat('en-US', { day: '2-digit', timeZone: 'America/New_York' }).format(date);
-  const day = new Intl.DateTimeFormat('en-US', { weekday: 'short', timeZone: 'America/New_York' }).format(date);
+  const d = moment(date);
 
   console.log('Attempting to download crossword...');
 
-  // Make an authenticated request to where we believe the
-  // crossword is stored. As of Jan 2022, the NYT crossword
-  // is stored at this location with a filename in the
-  // format of `MMMDDYY`. Ex. Jan0122.pdf.
+  // Get the crossword.
   //
-  // As part of the headers, we send our NYT cookie. This
-  // needs to be copied from an authenticated NYT session.
-  // This cookie requires at least the following: nyt-a,
-  // NYT-S, nyt-auth-method, and nyt-m.
+  // Set NYT_COOKIE to the return value of `document.cookie`
+  // when logged into your account on nytimes.com. This
+  // cookie will eventually expire and need to be set again.
   const req = https.request({
     protocol: 'https:',
     host: 'www.nytimes.com',
-    path: `/svc/crosswords/v2/puzzle/print/${mon}${dd}${yy}.pdf`,
+    path: `/svc/crosswords/v2/puzzle/print/${d.format('MMMDDYY')}.pdf`,
     method: 'GET',
     headers: {
       Referer: 'https://www.nytimes.com/crosswords/archive/daily',
-      // Cookie requires nyt-a, NYT-S, nyt-auth-method, and nyt-m.
       Cookie: process.env.NYT_COOKIE,
     },
   }, (res) => {
@@ -113,19 +117,14 @@ function getNYTCrossword(date) {
       res.on('end', () => {
         console.log('Successfully downloaded crossword');
 
-        // The file has successfully downloaded, and now
-        // we will upload it to Dropbox by concatenating
-        // the data chunks into a buffer.
+        // The file has successfully downloaded. Upload it
+        // to Dropbox.
         //
-        // Take note of the `SUPERNOTE_DOCUMENT_PATH` environment
-        // variable. For Supernote devices, this will be
-        // `/Supernote/Document`.
-        //
-        // As as it's coded below, crosswords will be uploaded to:
-        // `/Supernote/Document/Crosswords` and the filename
-        // will be in the format `YYYYMMDD_ddd-crossword.pdf`.
+        // Set SUPERNOTE_UPLOAD_PATH to the path where the
+        // PDFs should be uploaded on Dropbox. This should
+        // look something like "/Supernote/Documents/Crosswords".
         dbx.filesUpload({
-          path: path.join(process.env.SUPERNOTE_DOCUMENT_PATH, `Crosswords/${year}${mm}${dd}_${day}-crossword.pdf`),
+          path: path.join(process.env.SUPERNOTE_UPLOAD_PATH, `${d.format('YYYYMMDD_ddd')}-crossword.pdf`),
           contents: Buffer.concat(data),
         }).then((response) => {
           console.log('Successfully uploaded crossword');
@@ -136,9 +135,7 @@ function getNYTCrossword(date) {
         });
       });
     } else {
-      // The crossword is seemingly not yet available.
-      // Try again in an hour.
-      setTimeout(() => getNYTCrossword(date), 1000 * 60 * 60);
+      console.log(`Could not get crossword. Status code: ${res.statusCode}`);
     }
   });
 
@@ -149,21 +146,26 @@ function getNYTCrossword(date) {
   req.end();
 }
 
-// Gets the NYT crossword for tomorrow's date, since it's
-// released between 2 and 6 hours before midnight.
 function getTomorrowsNYTCrossword() {
-  const today = new Date();
-  const tomorrow = new Date(today);
+  today = new Date();
+  todayNYTime = today.toLocaleString('en-US', { timeZone: 'America/New_York' });
+
+  tomorrow = new Date(todayNYTime);
   tomorrow.setDate(tomorrow.getDate() + 1);
 
   getNYTCrossword(tomorrow);
 }
 
-// This will create a scheduled task (cronjob) that will
-// run at 10:01pm ET every weekday. On weekdays, the NYT
-// crossword is released at 10pm.
 const weekdayJob = new cron.CronJob({
-  cronTime: '1 22 * * 1,2,3,4,5',
+  cronTime: '1 22 * * 1,2,3,4,5', // Mon-Fri @ 6:01pm ET.
+  timeZone: 'America/New_York',
+  onTick() {
+    getTomorrowsNYTCrossword();
+  },
+});
+
+const weekendJob = new cron.CronJob({
+  cronTime: '1 18 * * 0,6', // Sat,Sun @ 6:01pm ET.
   timeZone: 'America/New_York',
   onTick() {
     getTomorrowsNYTCrossword();
@@ -171,19 +173,40 @@ const weekdayJob = new cron.CronJob({
 });
 
 weekdayJob.start();
-
-// This will create a scheduled task (cronjob) that will
-// run at 6:01pm ET every weekend. On weekends, the NYT
-// crossword is released at 6pm.
-const weekendJob = new cron.CronJob({
-  cronTime: '1 18 * * 0,6',
-  timeZone: 'America/New_York',
-  onTick() {
-    getTomorrowsNYTCrossword();
-  },
-});
-
 weekendJob.start();
 ```
 
 If this helped you at all, I'd love to hear about it. If you share this code elsewhere, be sure to give me credit.
+
+
+## Update 1/12/22
+
+This can be adapted to work for the Wall Street Journal crossword as well. Unlike the NYT crossword, the WSJ crossword does not require a paid membership. To download the WSJ crossword instead, just change the request to:
+
+```js
+const req = https.request({
+  protocol: 'https:',
+  host: 's.wsj.net',
+  path: `/public/resources/documents/${d.format('[XWD]MMDDYYYY')}.pdf`, // Ex. XWD12152021.pdf
+  method: 'GET',
+}, (res) => {
+  // ...
+});
+```
+
+And then update the cron jobs. Note that the WSJ crossword is not always released reliably at a certain time like the NYT crossword, and so it might be best to just schedule the job to run at midnight. There are also no Sunday crosswords.
+
+```js
+const jobWSJCrossword = new cron.CronJob({
+  cronTime: '0 0 * * 0,1,2,3,4,5', // Sun-Fri @ midnight ET.
+  timeZone: 'America/New_York',
+  onTick() {
+    today = new Date();
+    todayNYTime = today.toLocaleString('en-US', { timeZone: 'America/New_York' });
+
+    getWSJCrossword(todayNYTime);
+  },
+});
+
+jobWSJCrossword.start();
+```
