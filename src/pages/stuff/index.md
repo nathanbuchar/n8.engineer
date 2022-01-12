@@ -1,6 +1,6 @@
 I'm by no means a blogger, but I'll occasionally share code, thoughts, and photos. Here's some of my stuff.
 
-\- 2021 / [Automatically uploading the daily NYT crossword to a Supernote](/automatically-uploading-the-nyt-crossword-supernote)
+\- 2021 / [Automatically upload the daily NYT crossword to a Supernote](/automatically-uploading-the-nyt-crossword-supernote)
 \- 2020 / [Zigzaw pattern generator](/zigzaw)
 \- 2020 / [Mic Check](/mic-check)
 \- 2020 / [Hotdog bun garlic bread](/hotdog-bun-garlic-bread)
