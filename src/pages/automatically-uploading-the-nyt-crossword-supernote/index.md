@@ -1,4 +1,4 @@
-# Automatically uploading the daily NYT crossword to a Supernote
+# Automatically upload the daily NYT crossword to a Supernote
 ###### Dec 21, 2021
 
 ![](./img/supernote-1.jpg)
