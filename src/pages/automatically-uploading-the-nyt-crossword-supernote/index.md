@@ -144,7 +144,7 @@ function getNYTCrossword(date) {
         //
         // Set SUPERNOTE_UPLOAD_PATH to the path where the
         // PDFs should be uploaded on Dropbox. This should
-        // look something like "/Supernote/Documents/Crosswords".
+        // look something like "/Supernote/Document/Crosswords".
         dbx.filesUpload({
           path: path.join(process.env.SUPERNOTE_UPLOAD_PATH, `${d.format('YYYYMMDD_ddd')}-crossword.pdf`),
           contents: Buffer.concat(data),

@@ -3,6 +3,7 @@
   "private": true,
   "scripts": {
     "build": "webpack",
+    "start": "node index.js",
     "watch": "webpack --watch"
   },
   "dependencies": {
@@ -38,6 +39,7 @@
     "markdown-it-table-of-contents": "^0.4.4",
     "md-to-pdf": "^5.0.1",
     "mini-css-extract-plugin": "^0.9.0",
+    "moment": "^2.29.1",
     "node-sass": "^4.13.1",
     "pug-html-loader": "^1.1.5",
     "regenerator-runtime": "^0.13.5",
