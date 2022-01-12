@@ -1,4 +1,4 @@
-# Automatically upload the daily NYT crossword to a Supernote
+# How to automatically upload the daily NYT crossword to a Supernote
 ###### Dec 21, 2021
 
 ![](./img/supernote-1.jpg)
@@ -179,7 +179,7 @@ function getTomorrowsNYTCrossword() {
 }
 
 const weekdayJob = new cron.CronJob({
-  cronTime: '1 22 * * 1,2,3,4,5', // Mon-Fri @ 6:01pm ET.
+  cronTime: '1 22 * * 1,2,3,4,5', // Mon-Fri @ 10:01pm ET.
   timeZone: 'America/New_York',
   onTick() {
     getTomorrowsNYTCrossword();

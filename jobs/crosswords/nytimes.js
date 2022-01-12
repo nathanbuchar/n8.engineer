@@ -72,7 +72,7 @@ function getTomorrowsNYTCrossword() {
 }
 
 const weekdayJob = new cron.CronJob({
-  cronTime: '1 22 * * 1,2,3,4,5', // Mon-Fri @ 6:01pm ET.
+  cronTime: '1 22 * * 1,2,3,4,5', // Mon-Fri @ 10:01pm ET.
   timeZone: 'America/New_York',
   onTick() {
     getTomorrowsNYTCrossword();
