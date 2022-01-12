@@ -1,7 +1,7 @@
 # Automatically uploading the daily NYT crossword to a Supernote
 ###### Dec 21, 2021
 
-![](./img/1.jpg)
+![](./img/supernote-1.jpg)
 
 
 ## The Problem
