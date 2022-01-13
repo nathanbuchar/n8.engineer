@@ -8,7 +8,7 @@
 
 > Note: For anyone landing on this page from Google looking to automatically upload the NYT crossword to your Supernote or similar e-ink tablet, I'm afraid this solution requires some knowledge of programming.
 
-> Update 1/12/21: This can be easily adapted to work for the Wall Street Journal crossword as well. Unlike the NYT crossword, the WSJ crossword does not require a paid membership. Scroll down to the bottom of this page for more info.
+> Update 1/12/22: This can be easily adapted to work for the Wall Street Journal crossword as well. Unlike the NYT crossword, the WSJ crossword does not require a paid membership. Scroll down to the bottom of this page for more info.
 
 I (try) to do the New York Times crossword puzzle every day, and this holiday season when I purchased myself a [Ratta Supernote A6X](supernote.com), I was excited about the prospect of doing the crossword using an e-ink tablet rather than clumsily on my phone.
 
