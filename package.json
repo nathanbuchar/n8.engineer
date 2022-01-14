@@ -3,7 +3,6 @@
   "private": true,
   "scripts": {
     "build": "webpack",
-    "start": "node index.js",
     "watch": "webpack --watch"
   },
   "dependencies": {
