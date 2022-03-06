@@ -233,3 +233,7 @@ const jobWSJCrossword = new cron.CronJob({
 
 jobWSJCrossword.start();
 ```
+
+## Update 2/5/22
+
+If you're familiar with GitHub Actions, you spin up your own crossword service by forking [supernote-nytc](https://github.com/arichiv/supernote-nytc).
