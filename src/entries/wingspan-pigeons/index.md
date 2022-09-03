@@ -1,7 +1,5 @@
 # Columbiformes Expansion Pack for Wingspan
 
-![3 fan-made Wingpsan bird cards: Rock Pigeon, Common Wood Pigeon, and Dodo](./img/pigeons-header.jpg)
-
 My significant other and I are both bird lovers and huge fans of [Wingspan](https://stonemaiergames.com/games/wingspan), a delightfully nerdy and birdy boardgame designed by Elizabeth Hargrave and produced by Stonemaier Games.
 
 But, like many other Wingspan enthusiasts, we were surprised to discover that the humble [Rock Pigeon](https://en.wikipedia.org/wiki/Rock_dove) is neither included in the game's base card set nor in any of its expansion packs. Wingspan has about 350 unique cards, and yet none of them are for one of the most recognizable birds in the world!
