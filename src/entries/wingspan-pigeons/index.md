@@ -6,11 +6,6 @@ But, like many other Wingspan enthusiasts, we were surprised to discover that th
 
 Pigeons are particularly near and dear to our hearts (we have a pet pigeon!), and we love volunteering with [Palomacy](https://pigeonrescue.org), a non-profit dedicated to rescuing and finding homes for pigeons and doves that can't survive on their own. So, I put together an unofficial Columbiformes Expansion Pack which includes—of course—the Rock Pigeon, as well as seven of its columbiform cousins (including the Dodo!).
 
-But if you just want to go straight to the downloadable bird cards, read on.
-
-
-## Columbiformes Expansion Pack
-
 The Columbiformes Expansion Pack is a fan-made expansion pack for Wingspan consiting of eight new birds from the taxonomic order [_Columbiformes_](https://en.wikipedia.org/wiki/Columbidae).
 
 ![](./img/pigeons-all.jpg)
