@@ -1,0 +1,14 @@
+block header
+  header
+    nav(aria-label="main")
+      a(href="/" title="Go home")
+        .pigeon
+          include ../../svg/pigeon.svg
+        //- each segment, index in path
+        //-   - href = path.slice(0, index + 1).join('/');
+        //-   .breadcrumb
+        //-     if index < path.length - 1
+        //-       a(href=`/${href}`) #{segment}
+        //-     else
+        //-       span(title="You are here") #{segment}
+

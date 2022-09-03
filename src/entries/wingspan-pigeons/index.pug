@@ -1,0 +1,9 @@
+extends /common/pug/layout
+
+block append variables
+  - title = 'Wingspan Columbiformes Expansion';
+  - description = 'An unofficial expansion pack for Wingspan containing the humble rock pigeon and seven of its columbiform cousins.';
+
+block content
+  section
+    include:markdown index.md

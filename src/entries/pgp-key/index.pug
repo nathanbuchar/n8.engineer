@@ -1,0 +1,10 @@
+extends /common/pug/layout
+
+block append variables
+  - title = 'PGP Key'
+
+block content
+  section
+    pre
+      code
+        include ../../public/pgp-key.txt

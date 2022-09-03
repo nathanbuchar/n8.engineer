@@ -1,0 +1,22 @@
+{
+  "name": "nathanbuchar.com",
+  "author": "Nathan Buchar <hello@nathanbuchar.com>",
+  "private": true,
+  "scripts": {
+    "prebuild": "rimraf dist",
+    "build": "parcel build 'src/entries/**/index.pug'",
+    "serve": "parcel serve 'src/entries/**/index.pug' -p 3000 --no-cache"
+  },
+  "devDependencies": {
+    "@parcel/transformer-pug": "^2.5.0",
+    "@parcel/transformer-sass": "^2.5.0",
+    "markdown-it": "^13.0.0",
+    "parcel": "^2.5.0",
+    "parcel-reporter-static-files-copy": "^1.3.4",
+    "rimraf": "^3.0.2",
+    "sass": "^1.51.0"
+  },
+  "staticFiles": {
+    "staticPath": "src/public"
+  }
+}
