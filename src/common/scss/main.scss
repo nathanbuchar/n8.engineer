@@ -9,10 +9,11 @@
 
 html {
   background:
-		linear-gradient(90deg, #fff (16px - 1px), transparent 1%) top,
-		linear-gradient(#fff (16px - 1px), transparent 1%) top,
-		#aaa;
-	background-size: 16px 16px;
+    linear-gradient(90deg, #fff (16px - 1px), transparent 1%) top,
+    linear-gradient(#fff (16px - 1px), transparent 1%) top,
+    #aaa;
+  background-size: 16px 16px;
+  background-attachment: fixed;
 }
 
 body {
