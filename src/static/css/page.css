@@ -1,0 +1,28 @@
+.page {
+  margin-block-start: 32px;
+}
+
+@media screen and (max-width: 425px) {
+  .page {
+    margin-block-start: 24px;
+  }
+}
+
+.page header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.page header h1 {
+  margin: 0;
+}
+
+.page header h1 {
+  padding-right: 32px;
+  text-align: left;
+}
+
+.page header time {
+  white-space: nowrap;
+}

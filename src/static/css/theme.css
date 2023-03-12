@@ -1,0 +1,145 @@
+html, body {
+  font-family: "Open Sans";
+  font-size: 13.5px;
+  line-height: 24px;
+  color: var(--text);
+  background: var(--primary);
+  letter-spacing: -0.1px;
+  margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--emphasis);
+  font-size: 14px;
+  text-align: left;
+  margin-top: 32px;
+}
+
+strong {
+  color: var(--emphasis);
+}
+
+a {
+  color: var(--secondary);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline
+}
+
+hr {
+  border: none;
+  height: 0;
+  border-top: 1px solid var(--subheading);
+  margin: 32px -24px;
+}
+
+ul,
+ol {
+  padding-left: 32px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 24px 0;
+}
+
+table th,
+table td {
+  padding: 4px 6px;
+  border: 1px solid var(--subheading);
+}
+
+blockquote {
+  border-left: 4px solid var(--subheading);
+  padding-left: 16px;
+  margin: 24px 0;
+  font-style: italic;
+}
+
+blockquote *:not(a) {
+  opacity: 0.75;
+}
+
+sup,
+sub {
+  line-height: 0;
+}
+
+img,
+eqn {
+  max-width: 100%;
+  margin: 24px auto;
+  display: block;
+}
+
+eq,
+eqn {
+  font-size: 14px
+}
+
+eqn {
+  overflow: auto;
+}
+
+button {
+  cursor: pointer;
+  background: var(--primary);
+  border: 1px solid var(--text);
+  box-shadow: 2px 2px 0 0 var(--text);
+  padding: 8px;
+  font: inherit;
+}
+
+pre {
+  margin: 24px 0;
+  padding: 12px 16px;
+  border: 1px solid var(--subheading);
+  overflow-x: auto;
+}
+
+pre code {
+  background-color: transparent;
+  padding: 0;
+  border: none;
+  line-height: 20px;
+}
+
+code {
+  padding: 2px 4px;
+  border: 1px solid var(--subheading);
+  font-size: 12px;
+}
+
+.footnotes {
+  font-size: small;
+  line-height: 1.35rem;
+}
+
+.footnote-ref {
+  position: relative;
+  font-size: small;
+}
+
+.footnote-ref:hover .footnote-snippet {
+  display: block;
+}
+
+.footnote-ref a {
+  text-decoration: none;
+}
+
+.footnote-ref a:hover {
+  text-decoration: underline;
+}
+
+.footnote-item a {
+  text-decoration: underline;
+  word-break: break-all;
+}
+
+.footnote-backref {
+  text-decoration: none !important;
+}

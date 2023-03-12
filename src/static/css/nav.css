@@ -1,0 +1,37 @@
+#nav {
+  margin: 0 -24px;
+  padding: 0 24px 24px;
+  border-bottom: 1px solid var(--subheading);
+}
+
+@media screen and (max-width: 425px) {
+  #nav {
+    padding: 0 24px 16px;
+  }
+}
+
+#nav ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+}
+
+#nav ul span {
+  display: flex;
+  align-items: center;
+}
+
+#nav ul span li:not(:first-of-type) {
+  padding-left: 16px;
+}
+
+#nav a.active {
+  font-weight: bold;
+}
+
+#nav #feed {
+  margin: 0;
+}

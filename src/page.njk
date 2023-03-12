@@ -1,0 +1,20 @@
+{% extends "layout.njk" %}
+
+{% block content %}
+  <div class="page">
+    {% if title %}
+      <header>
+        <h1>{{ title }}</h1>
+        {% if date %}
+          <time datetime="{{ date }}">
+            {{ date }}
+          </time>
+        {% endif %}
+      </header>
+    {% endif %}
+    {% if hero %}
+      <img src="{{ hero.fields.file.url }}" />
+    {% endif %}
+    {{ content | markdown | safe }}
+  </div>
+{% endblock %}

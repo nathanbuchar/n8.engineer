@@ -1,0 +1,27 @@
+* {
+  box-sizing: border-box;
+}
+
+#wrapper {
+  max-width: 544px;
+  min-width: 320px;
+  text-align: justify;
+  hyphens: auto;
+  padding: 8vw 32px 64px;
+  margin: 0 auto;
+}
+
+#main {
+  margin-block: 32px 0;
+}
+
+@media screen and (max-width: 425px) {
+  #wrapper {
+    padding: 16px 16px;
+  }
+
+  #main {
+    margin-block: 24px 0;
+  }
+}
+

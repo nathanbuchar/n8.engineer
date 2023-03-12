@@ -1,0 +1,25 @@
+{% extends "layout.njk" %}
+
+{% set title = "Blog" %}
+{% set url = "/blog" %}
+
+{% block content %}
+  <div id="blog" class="page">
+    <ol>
+      {% for page in pages | noHidden | sort(true, false, 'fields.date') %}
+        <li>
+          <span>
+            <a href="{{ page.fields.url }}">
+              {{ page.fields.title }}
+            </a>
+          </span>
+          <span>
+            <time datetime="{{ page.fields.date }}">
+              {{ page.fields.date }}
+            <time>
+          </span>
+        </li>
+      {% endfor %}
+    </ol>
+  </div>
+{% endblock %}

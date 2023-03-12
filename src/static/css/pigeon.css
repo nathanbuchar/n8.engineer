@@ -1,0 +1,43 @@
+#pigeon {
+  width: 76px;
+  height: 76px;
+  transform-origin: center center;
+  transition: left 0.35s ease;
+}
+
+#pigeon img {
+  margin: 0;
+
+  /* Nice big 'ol hit box */
+  padding: 12px;
+}
+
+#pigeon:hover {
+  animation-name: hop;
+  animation-duration: 0.5s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes hop {
+  0% {
+    transform: translateY(0) rotateZ(-8deg);
+    animation-timing-function: cubic-bezier(0.33333, 0.66667, 0.66667, 1);
+  }
+  33% {
+    transform: translateY(-8px) rotateZ(0deg);
+    animation-timing-function: cubic-bezier(0.33333, 0, 0.66667, 0.33333);
+  }
+  66% {
+    transform: translateY(0);
+  }
+}
+
+@media screen and (max-width: 425px) {
+  #wrapper {
+    padding: 32px 16px;
+  }
+
+  #pigeon {
+    display: none;
+  }
+}

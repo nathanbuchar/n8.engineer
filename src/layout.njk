@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    {% if title %}
+      <title>{{ title }} | Nate — Frontend engineer</title>
+    {% else %}
+      <title>Nate — Frontend engineer</title>
+    {% endif %}
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="shortcut-icon" href="images/favicon.svg" sizes="any" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/styles/github.css" title="light" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/styles/github-dark.css" title="dark" disabled />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <script type="module" src="/js/main.js"></script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y1M6SX9D06"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-Y1M6SX9D06');
+    </script>
+  </head>
+  <body>
+    <div id="wrapper">
+      <header>
+        <nav id="nav">
+          <ul>
+            <span>
+              <li>
+                <a href="/" class="{{ 'active' if url == '/' }}">
+                  nate
+                </a>
+              </li>
+              <li>
+                <a href="/blog" class="{{ 'active' if hidden == false or url == '/blog' }}">
+                  blog
+                </a>
+              </li>
+            </span>
+            <span>
+              <li>
+                <a href="/rss.xml" title="RSS feed" target="__blank">
+                  <img id="feed" src="/img/feed.png" />
+                </a>
+              </li>
+            </span>
+          </ul>
+        </nav>
+      </header>
+      <main id="main">
+        {% block content %}
+          {# Page content goes here. #}
+        {% endblock %}
+      </main>
+    </div>
+  </body>
+</html>

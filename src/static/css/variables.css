@@ -1,0 +1,16 @@
+:root {
+  --primary: #f0e6e5;
+  --secondary: #bf5d54;
+  --text: #382525;
+  --emphasis: #201515;
+  --subheading: #c6a9a9;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary: #201515;
+    --emphasis: #ceb5b5;
+    --text: #bf9d9d;
+    --subheading: #6e4440;
+  }
+}
