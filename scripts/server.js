@@ -2,6 +2,10 @@ import handler from 'serve-handler';
 import http from 'http';
 
 const server = http.createServer((req, res) => {
+
+  // Allows CORS requests from Giscuss.
+  res.setHeader('Access-Control-Allow-Origin', 'https://giscus.app');
+
   return handler(req, res, {
     public: 'dist',
   });

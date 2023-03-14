@@ -1,0 +1,158 @@
+@import "./variables.css";
+@import "./fonts.css";
+
+.gsc-main {
+  --color-border-primary: var(--subheading);
+  --color-text-link: var(--secondary);
+
+  --color-border-primary: var(--subheading);
+  --color-btn-primary-disabled-text: var(--subheading);
+  --color-btn-primary-disabled-border: var(--subheading);
+  --color-btn-primary-text: var(--secondary);
+  --color-btn-primary-border: var(--secondary);
+  --color-btn-primary-hover-border: var(--secondary);
+
+  font-family: "Open Sans";
+  font-size: 13.5px;
+  line-height: 24px;
+  color: var(--text);
+  background: var(--primary);
+  letter-spacing: -0.1px;
+}
+
+.gsc-main .btn:disabled {
+  cursor: not-allowed;
+}
+
+.gsc-main button.link-secondary:hover {
+  text-decoration: underline;
+}
+
+.gsc-header {
+  display: none;
+}
+
+.gsc-comment {
+  font-size: inherit;
+}
+
+.gsc-comment .rounded-md {
+  border-radius: 0;
+}
+
+.gsc-comment-box,
+.gsc-comment-box:not(.gsc-comment-box-is-reply),
+.gsc-comment-box-main,
+.gsc-comment-box-write,
+.gsc-comment-box-textarea {
+  margin: 0;
+  border-radius: 0;
+  border: none;
+}
+
+.gsc-comment-box,
+.gsc-comment-box:not(.gsc-comment-box-is-reply) {
+  margin-block-start: 16px;;
+}
+
+.gsc-comment-box-textarea {
+  border: 1px solid var(--color-border-primary);
+}
+
+.gsc-comment-box-textarea:focus {
+  box-shadow: none;
+}
+
+.gsc-comment-box-textarea::placeholder {
+  color: var(--subheading);
+}
+
+.gsc-comment-box-textarea-extras {
+  display: none;
+}
+
+.gsc-comment-box-write:focus-within {
+  box-shadow: none;
+}
+
+.gsc-comment-box-bottom {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* Log out button */
+.gsc-comment-box-bottom .link-secondary {
+  color: var(--secondary);
+}
+
+.gsc-comment-box-bottom .link-secondary svg {
+  display: none !important;
+}
+
+.gsc-comment-box-buttons .btn {
+  border-radius: 0 !important;
+  border-color: var(--color-border-primary);
+  padding: 4px 10px;
+}
+
+.gsc-comment-box-buttons .btn:hover {
+  border-radius: 0 !important;
+  border-color: var(--color-btn-primary-hover-border);
+
+}
+
+.gsc-comment {
+  margin: 8px 0;
+}
+
+.gsc-comment,
+.gsc-comment * {
+  border: none;
+}
+
+.gsc-comment > * {
+  display: flex;
+  align-items: flex-start;
+}
+
+.gsc-comment-header {
+  padding-left: 0;
+  padding-right: 0.65em;
+}
+
+.gsc-comment-author {
+  padding: 0;
+}
+
+.gsc-comment-author-avatar img {
+  display: none;
+}
+
+.gsc-comment-author .gsc-comment-author-avatar + a {
+  display: none;
+}
+
+.gsc-comment-content {
+  padding: 0;
+}
+
+.gsc-comment-footer {
+  display: none;
+}
+
+.gsc-replies {
+  display: none;
+}
+
+.gsc-reply-box {
+  display: none;
+}
+
+.gsc-reactions-menu {
+  display: none;
+}
+
+.gsc-comment-box-tabs {
+  display: none;
+}
+

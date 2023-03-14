@@ -42,6 +42,7 @@ function buildPages() {
     buildPage('404.njk', 'dist/404.html'),
     buildPage('rss.njk', 'dist/rss.xml'),
     buildPage('blog.njk', 'dist/blog/index.html'),
+    buildPage('guestbook.njk', 'dist/guestbook/index.html'),
 
     // Contentful pages.
     ...pages.map(({ fields }) => (

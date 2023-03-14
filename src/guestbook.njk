@@ -1,0 +1,11 @@
+{% extends "layout.njk" %}
+
+{% set title = "Guestbook" %}
+{% set url = "/guestbook" %}
+
+{% block content %}
+  <div id="guestbook" class="page">
+    <h1>Guestbook</h1>
+    {% include "parts/comments.njk" %}
+  </div>
+{% endblock %}

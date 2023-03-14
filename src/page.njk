@@ -16,5 +16,12 @@
       <img src="{{ hero.fields.file.url }}" />
     {% endif %}
     {{ content | markdown | safe }}
+    {% if allowComments %}
+      <div class="comments">
+        <hr />
+        <h2>Comments</h2>
+        {% include "parts/comments.njk" %}
+      </div>
+    {% endif %}
   </div>
 {% endblock %}

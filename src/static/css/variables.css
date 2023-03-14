@@ -1,16 +1,41 @@
 :root {
-  --primary: #f0e6e5;
-  --secondary: #bf5d54;
-  --text: #382525;
-  --emphasis: #201515;
-  --subheading: #c6a9a9;
+  --light-primary: #f0e6e5;
+  --light-secondary: #bf5d54;
+  --light-text: #382525;
+  --light-emphasis: #201515;
+  --light-subheading: #c6a9a9;
+
+  --dark-primary: #201515;
+  --dark-emphasis: #ceb5b5;
+  --dark-text: #bf9d9d;
+  --dark-subheading: #6e4440;
+}
+
+:root {
+  --primary: var(--light-primary);
+  --secondary: var(--light-secondary);
+  --text: var(--light-text);
+  --emphasis: var(--light-emphasis);
+  --subheading: var(--light-subheading);
+
+  --inverse-primary: var(--dark-primary);
+  --inverse-emphasis: var(--dark-emphasis);
+  --inverse-text: var(--dark-text);
+  --inverse-subheading: var(--dark-subheading);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --primary: #201515;
-    --emphasis: #ceb5b5;
-    --text: #bf9d9d;
-    --subheading: #6e4440;
+    --primary: var(--dark-primary);
+    --secondary: var(--dark-secondary);
+    --text: var(--dark-text);
+    --emphasis: var(--dark-emphasis);
+    --subheading: var(--dark-subheading);
+
+    --inverse-primary: var(--light-primary);
+    --inverse-emphasis: var(--light-emphasis);
+    --inverse-text: var(--light-text);
+    --inverse-subheading: var(--light-subheading);
+  }
   }
 }

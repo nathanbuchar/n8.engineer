@@ -26,3 +26,8 @@
 .page header time {
   white-space: nowrap;
 }
+
+.page .comments {
+  margin-block-start: 32px;
+  margin-block-end: 32px;
+}

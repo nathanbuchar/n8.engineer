@@ -12,12 +12,12 @@
     <link rel="shortcut-icon" href="images/favicon.svg" sizes="any" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/styles/github.css" title="light" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/styles/github-dark.css" title="dark" disabled />
     <link rel="stylesheet" href="/css/styles.css" />
     <script type="module" src="/js/main.js"></script>
+    <script defer type="module" src="https://unpkg.com/giscus?module"></script>
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y1M6SX9D06"></script>
@@ -42,6 +42,11 @@
               <li>
                 <a href="/blog" class="{{ 'active' if hidden == false or url == '/blog' }}">
                   blog
+                </a>
+              </li>
+              <li>
+                <a href="/guestbook" class="{{ 'active' if url == '/guestbook' }}">
+                  guestbook
                 </a>
               </li>
             </span>
