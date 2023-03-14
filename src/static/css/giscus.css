@@ -95,10 +95,8 @@
   padding: 4px 10px;
 }
 
-.gsc-comment-box-buttons .btn:hover {
-  border-radius: 0 !important;
+.gsc-comment-box-buttons .btn:hover:not(:disabled) {
   border-color: var(--color-btn-primary-hover-border);
-
 }
 
 .gsc-comment {

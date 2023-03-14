@@ -27,6 +27,8 @@ async function fetchData() {
 function buildPage(template, filePath, data = {}) {
   return new Promise((resolve) => {
     nunjucks.render(template, { ...data, pages }, (err, res) => {
+      if (err) throw err;
+
       const str = res.trim();
       const normFilePath = path.normalize(filePath);
 

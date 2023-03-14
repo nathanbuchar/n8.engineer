@@ -7,7 +7,7 @@
         <h1>{{ title }}</h1>
         {% if date %}
           <time datetime="{{ date }}">
-            {{ date }}
+            {{ date | friendlyDate }}
           </time>
         {% endif %}
       </header>

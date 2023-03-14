@@ -6,7 +6,7 @@
 {% block content %}
   <div id="blog" class="page">
     <ol>
-      {% for page in pages | noHidden | sort(true, false, 'fields.date') %}
+      {% for page in pages | selectByField('blogPost') | sort(true, false, 'fields.date') %}
         <li>
           <span>
             <a href="{{ page.fields.url }}">
@@ -15,7 +15,7 @@
           </span>
           <span>
             <time datetime="{{ page.fields.date }}">
-              {{ page.fields.date }}
+              {{ page.fields.date | friendlyDate }}
             <time>
           </span>
         </li>

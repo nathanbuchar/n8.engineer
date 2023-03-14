@@ -3,15 +3,15 @@
   <title>Feed</title>
   <description>Nate's personal blog.</description>
   <link>https://nathanbuchar.com</link>
-  {% for page in pages | noHidden | sort(true, false, 'fields.date') %}
+  {% for page in pages | selectByField('blogPost') | sort(true, false, 'fields.date') %}
     <item>
-      <title>{{page.fields.title}}</title>
-      <link>https://nathanbuchar.com{{page.fields.url}}</link>
-      <description>{{page.fields.content | markdown | striptags | truncate(400, false, '…')}}</description>
-      <pubDate>{{page.fields.date}}</pubDate>
+      <title>{{ page.fields.title }}</title>
+      <link>https://nathanbuchar.com{{ page.fields.url }}</link>
+      <description>{{ page.fields.content | markdown | striptags | truncate(400, false, '…') }}</description>
+      <pubDate>{{ page.fields.date }}</pubDate>
       {% if page.fields.hero %}
         <image>
-          <url>{{page.fields.hero.fields.file.url}}</url>
+          <url>{{ page.fields.hero.fields.file.url }}</url>
         </image>
       {% endif %}
     </item>
