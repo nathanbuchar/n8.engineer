@@ -1,0 +1,28 @@
+<nav id="nav">
+  <ul>
+    <span>
+      <li>
+        <a href="/" class="{{ 'active' if url == '/' }}">
+          nate
+        </a>
+      </li>
+      <li>
+        <a href="/blog" class="{{ 'active' if blogPost or url == '/blog' }}">
+          blog
+        </a>
+      </li>
+      <li>
+        <a href="/guestbook" class="{{ 'active' if url == '/guestbook' }}">
+          guestbook
+        </a>
+      </li>
+    </span>
+    <span>
+      <li>
+        <a href="/rss.xml" title="RSS feed">
+          rss
+        </a>
+      </li>
+    </span>
+  </ul>
+</nav>
