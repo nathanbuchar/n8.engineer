@@ -3,7 +3,7 @@ import http from 'http';
 
 const server = http.createServer((req, res) => {
 
-  // Allows CORS requests from Giscuss.
+  // Allows CORS requests from Giscus.
   res.setHeader('Access-Control-Allow-Origin', 'https://giscus.app');
 
   return handler(req, res, {

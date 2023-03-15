@@ -10,10 +10,10 @@ async function clean() {
   return fs.remove('dist');
 }
 
-async function fetchData() {
+async function getPages() {
   const data = await client.getEntries({
     content_type: 'page',
-  })
+  });
 
   return data.items;
 }
@@ -35,7 +35,7 @@ function buildPage(template, outputPath, data = {}) {
 }
 
 async function buildPages() {
-  const pages = await fetchData();
+  const pages = await getPages();
 
   return Promise.all([
     buildPage('404.njk', 'dist/404.html'),
