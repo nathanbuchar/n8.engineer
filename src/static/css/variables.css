@@ -6,6 +6,7 @@
   --light-subheading: #c6a9a9;
 
   --dark-primary: #201515;
+  --dark-secondary: #bf5d54;
   --dark-emphasis: #ceb5b5;
   --dark-text: #bf9d9d;
   --dark-subheading: #6e4440;
@@ -36,6 +37,5 @@
     --inverse-emphasis: var(--light-emphasis);
     --inverse-text: var(--light-text);
     --inverse-subheading: var(--light-subheading);
-  }
   }
 }
