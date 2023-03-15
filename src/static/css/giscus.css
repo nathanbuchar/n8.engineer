@@ -10,7 +10,8 @@
   --color-btn-primary-disabled-border: var(--subheading);
   --color-btn-primary-text: var(--secondary);
   --color-btn-primary-border: var(--secondary);
-  --color-btn-primary-hover-border: var(--secondary);
+  --color-btn-primary-hover-border: var(--emphasis);
+  --color-btn-primary-hover-bg: var(--emphasis);
 
   font-family: "Open Sans";
   font-size: 13.5px;
@@ -94,8 +95,10 @@
   padding: 4px 10px;
 }
 
-.gsc-comment-box-buttons .btn:hover:not(:disabled) {
+.gsc-comment-box-buttons .btn:hover:not(:disabled),
+.gsc-comment-box-buttons .btn:active:not(:disabled) {
   border-color: var(--color-btn-primary-hover-border);
+  color: var(--primary);
 }
 
 .gsc-comment {
