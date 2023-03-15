@@ -2,11 +2,11 @@
 <channel>
   <title>Feed</title>
   <description>Nate's personal blog.</description>
-  <link>https://nathanbuchar.com</link>
+  <link>https://n8.engineer</link>
   {% for page in pages | selectByField('blogPost') | sort(true, false, 'fields.date') %}
     <item>
       <title>{{ page.fields.title }}</title>
-      <link>https://nathanbuchar.com{{ page.fields.url }}</link>
+      <link>https://n8.engineer{{ page.fields.url }}</link>
       <description>{{ page.fields.content | markdown | striptags | truncate(400, false, '…') }}</description>
       <pubDate>{{ page.fields.date }}</pubDate>
       {% if page.fields.hero %}
