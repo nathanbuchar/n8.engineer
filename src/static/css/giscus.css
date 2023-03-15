@@ -20,6 +20,10 @@
   letter-spacing: -0.1px;
 }
 
+.gsc-main .text-sm {
+  font-size: 12.5px !important;
+}
+
 .gsc-main .btn:disabled {
   cursor: not-allowed;
 }
@@ -48,11 +52,6 @@
   margin: 0;
   border-radius: 0;
   border: none;
-}
-
-.gsc-comment-box,
-.gsc-comment-box:not(.gsc-comment-box-is-reply) {
-  margin-block-start: 16px;;
 }
 
 .gsc-comment-box-textarea {
@@ -154,3 +153,6 @@
   display: none;
 }
 
+.gsc-timeline {
+  flex-direction: column-reverse;
+}
