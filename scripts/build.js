@@ -6,44 +6,41 @@ import path from 'path';
 import client from '../lib/contentful.js';
 import nunjucks from '../lib/nunjucks.js';
 
-let pages;
-
-function clean() {
+async function clean() {
   return fs.remove('dist');
-}
-
-function copyStatic() {
-  return fs.copy('src/static', 'dist');
 }
 
 async function fetchData() {
   const data = await client.getEntries({
     content_type: 'page',
-  });
+  })
 
-  pages = data.items;
+  return data.items;
 }
 
-function buildPage(template, filePath, data = {}) {
+function buildPage(template, outputPath, data = {}) {
   return new Promise((resolve) => {
-    nunjucks.render(template, { ...data, pages }, (err, res) => {
+    nunjucks.render(template, { ...data }, (err, res) => {
       if (err) throw err;
 
       const str = res.trim();
-      const normFilePath = path.normalize(filePath);
+      const outputPathNormed = path.normalize(outputPath);
 
-      fs.outputFile(normFilePath, str, () => {
+      fs.outputFile(outputPathNormed, str, () => {
+        console.log(`Wrote "${outputPathNormed}"`);
         resolve();
       });
     });
   });
 }
 
-function buildPages() {
+async function buildPages() {
+  const pages = await fetchData();
+
   return Promise.all([
     buildPage('404.njk', 'dist/404.html'),
-    buildPage('rss.njk', 'dist/rss.xml'),
-    buildPage('blog.njk', 'dist/blog/index.html'),
+    buildPage('rss.njk', 'dist/rss.xml', { pages }),
+    buildPage('blog.njk', 'dist/blog/index.html', { pages }),
     buildPage('guestbook.njk', 'dist/guestbook/index.html'),
 
     // Contentful pages.
@@ -53,9 +50,12 @@ function buildPages() {
   ]);
 }
 
+async function copyStatic() {
+  return fs.copy('src/static', 'dist');
+}
+
 async function build() {
   await clean();
-  await fetchData();
   await buildPages();
   await copyStatic();
 }
