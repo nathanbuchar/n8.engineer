@@ -2,38 +2,28 @@ const light = Symbol('light');
 const dark = Symbol('dark');
 
 function setTheme(scheme) {
-  switch (scheme) {
-    case dark:
-      document
-        .querySelector(`link[title="dark"]`)
-        .removeAttribute('disabled');
-      document
-        .querySelector(`link[title="light"]`)
-        .setAttribute('disabled', 'disabled');
-      break;
-    case light:
-      document
-        .querySelector(`link[title="light"]`)
-        .removeAttribute('disabled');
-      document
-        .querySelector(`link[title="dark"]`)
-        .setAttribute('disabled', 'disabled');
-      break;
-  }
+  document
+    .querySelector(`link[title="${scheme === dark ? 'dark' : 'light'}"]`)
+    .removeAttribute('disabled');
+  document
+    .querySelector(`link[title="${scheme === dark ? 'light' : 'dark'}"]`)
+    .setAttribute('disabled', 'disabled');
+}
+
+function onColorSchemeChanged(evt) {
+  const newColorScheme = evt.matches ? dark : light;
+
+  setTheme(newColorScheme);
 }
 
 function init() {
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', onColorSchemeChanged);
+
   if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
     setTheme(dark);
   } else {
     setTheme(light);
   }
-
-  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (evt) => {
-    const newColorScheme = evt.matches ? dark : light;
-
-    setTheme(newColorScheme);
-  });
 }
 
 init();

@@ -3,30 +3,14 @@
 {% set url = "/blog" %}
 {% set title = "Blog" %}
 
-{% set blogPosts = pages | selectByField("blogPost") | sort(true, false, "fields.date") %}
-
 {% block content %}
   <div id="blog" class="page">
     <ol>
-      {% for page in blogPosts | selectByField("pinned") %}
-        <li class="pinned">
-          <span>
-            <a href="{{ page.fields.url }}">
-              {{ page.fields.title }}
-            </a>
-          </span>
-          <span>
-            <time datetime="{{ page.fields.date }}">
-              {{ page.fields.date }}
-            <time>
-          </span>
-        </li>
-      {% endfor %}
-      {% for page in blogPosts | rejectByField("pinned") %}
+      {% for page in pages | selectByField("blogPost") | sort(true, false, "fields.date") | sort(true, false, "fields.pinned") %}
         <li class="{{ 'pinned' if page.fields.pinned }}">
           <span>
             <a href="{{ page.fields.url }}">
-              {{ "Pinned: " if page.fields.pinned }}{{ page.fields.title }}
+              {{ page.fields.title }}
             </a>
           </span>
           <span>
