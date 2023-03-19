@@ -1,19 +1,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
-  <title>Feed</title>
+  <title>n8.engineer</title>
   <description>Nate's personal blog.</description>
-  <link>https://n8.engineer</link>
+  <link>https://n8.engineer/rss.xml</link>
+  <atom:link href="https://n8.engineer/rss.xml" rel="self" type="application/rss+xml" />
   {% for page in pages | selectByField('blogPost') | sort(true, false, 'fields.date') %}
     <item>
+      <guid isPermaLink="false">{{ page.sys.id }}</guid>
       <title>{{ page.fields.title }}</title>
       <link>https://n8.engineer{{ page.fields.url }}</link>
-      <description>{{ page.fields.content | markdown | striptags | truncate(250, false, '…') }}</description>
-      <pubDate>{{ page.fields.date }}</pubDate>
-      {% if page.fields.hero %}
-        <image>
-          <url>{{ page.fields.hero.fields.file.url }}</url>
-        </image>
-      {% endif %}
+      <description>
+        <![CDATA[
+        {%- if page.fields.hero %}
+          <img align="left" hspace="5" src="{{ page.fields.hero.fields.file.url }}"/>
+        {%- endif %}
+        {{ page.fields.content | markdown | striptags | truncate(250, false, '…') }}]]>
+      </description>
+      <pubDate>{{ page.fields.date | dateToUTC }}</pubDate>
     </item>
   {% endfor %}
 </channel>

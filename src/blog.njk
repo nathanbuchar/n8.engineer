@@ -14,7 +14,7 @@
             </a>
           </span>
           <span>
-            <time datetime="{{ page.fields.date }}">
+            <time datetime="{{ page.fields.date | dateToUTC }}">
               {{ page.fields.date }}
             <time>
           </span>
