@@ -6,7 +6,8 @@
 
 @media screen and (max-width: 425px) {
   #nav {
-    padding: 0 24px 16px;
+    padding: 0 16px 16px;
+    margin: 0 -16px;
   }
 }
 

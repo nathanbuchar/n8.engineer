@@ -1,5 +1,6 @@
 @import "./variables.css";
 @import "./fonts.css";
+@import "./theme.css";
 
 .gsc-main {
   --color-border-primary: var(--subheading);
@@ -34,6 +35,15 @@
 }
 
 .gsc-header {
+  display: none;
+}
+
+.gsc-comments-count-separator,
+.gsc-replies-count {
+  display: none;
+}
+
+.gsc-right-header {
   display: none;
 }
 
@@ -105,14 +115,43 @@
   margin: 8px 0;
 }
 
-.gsc-comment,
-.gsc-comment * {
-  border: none;
+.gsc-comment p {
+  margin-block-start: 1em;
+  margin-block-end: 1em;
 }
 
-.gsc-comment > * {
-  display: flex;
-  align-items: flex-start;
+.gsc-comment,
+.gsc-comment *:not(pre):not(code) {
+  border: none;
+  font-size: 13.5px;
+  line-height: 24px;
+}
+
+.gsc-comment pre {
+  margin: 24px 0;
+}
+
+.gsc-comment pre,
+.gsc-comment pre > *,
+.gsc-comment code,
+.gsc-comment code > * {
+  border-radius: 0 !important;
+  font-size: 12px !important;
+  line-height: 20px !important;
+}
+
+@media screen and (max-width: 425px) {
+  .gsc-comment,
+  .gsc-comment *:not(pre):not(code) {
+    font-size: 14px;
+  }
+
+  .gsc-comment pre,
+  .gsc-comment pre > *,
+  .gsc-comment code,
+  .gsc-comment code > * {
+    font-size: 12.5px !important;
+  }
 }
 
 .gsc-comment-header {
@@ -134,6 +173,10 @@
 
 .gsc-comment-content {
   padding: 0;
+}
+
+.gsc-comment .zeroclipboard-container {
+  display: none;
 }
 
 .gsc-comment-footer {

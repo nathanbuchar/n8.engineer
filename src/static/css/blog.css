@@ -11,19 +11,23 @@
   padding-bottom: 16px;
 }
 
-#blog li.pinned::before {
-  content: "📌";
-  position: absolute;
-  left: 0;
-  margin-left: -20px;
+#blog li .pin {
+  margin-left: -17.5px;
   font-size: 11px;
-  line-height: 26px;
 }
 
 @media screen and (max-width: 425px) {
-  #blog li.pinned::before {
-    margin-left: -14px;
-    font-size: 10px;
+  #blog li {
+    flex-direction: column-reverse;
+    padding-bottom: 20px;
+  }
+
+  #blog li .pin {
+    margin-left: 0;
+  }
+
+  #blog li time {
+    font-size: 12.5px;
   }
 }
 

@@ -8,11 +8,23 @@ html, body {
   margin: 0;
 }
 
+@media screen and (max-width: 425px) {
+  html, body {
+    font-size: 14px;
+  }
+}
+
 h1, h2, h3, h4, h5, h6 {
   color: var(--emphasis);
   font-size: 14px;
   text-align: left;
   margin-top: 32px;
+}
+
+@media screen and (max-width: 425px) {
+  h1, h2, h3, h4, h5, h6 {
+    font-size: 15.5px;
+  }
 }
 
 strong {
@@ -84,15 +96,6 @@ eqn {
   overflow: auto;
 }
 
-button {
-  cursor: pointer;
-  background: var(--primary);
-  border: 1px solid var(--text);
-  box-shadow: 2px 2px 0 0 var(--text);
-  padding: 8px;
-  font: inherit;
-}
-
 pre {
   margin: 24px 0;
   padding: 12px 16px;
@@ -111,6 +114,12 @@ code {
   padding: 2px 4px;
   border: 1px solid var(--subheading);
   font-size: 12px;
+}
+
+@media screen and (max-width: 425px) {
+  code {
+    font-size: 12.5px;
+  }
 }
 
 .footnotes {
