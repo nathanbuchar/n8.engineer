@@ -47,6 +47,12 @@ hr {
   margin: 32px -24px;
 }
 
+@media screen and (max-width: 425px) {
+  hr {
+    margin: 32px -16px;
+  }
+}
+
 ul,
 ol {
   padding-left: 32px;
