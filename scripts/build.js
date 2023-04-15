@@ -10,12 +10,23 @@ async function clean() {
   return fs.remove('dist');
 }
 
-async function getPages() {
+async function getEntries(contentType) {
   const data = await client.getEntries({
-    content_type: 'page',
+    content_type: contentType,
   });
 
   return data.items;
+}
+
+async function getData() {
+  const [pages] = await Promise.all([
+    getEntries('page'),
+    // ...
+  ]);
+
+  return {
+    pages,
+  };
 }
 
 function buildPage(template, outputPath, data = {}) {
@@ -35,17 +46,17 @@ function buildPage(template, outputPath, data = {}) {
 }
 
 async function buildPages() {
-  const pages = await getPages();
+  const data = await getData();
 
   return Promise.all([
     buildPage('404.njk', 'dist/404.html'),
-    buildPage('rss.njk', 'dist/rss.xml', { pages }),
-    buildPage('blog.njk', 'dist/blog/index.html', { pages }),
+    buildPage('rss.njk', 'dist/rss.xml', data),
+    buildPage('blog.njk', 'dist/blog/index.html', data),
     buildPage('guestbook.njk', 'dist/guestbook/index.html'),
 
     // Contentful pages.
-    ...pages.map(({ fields }) => (
-      buildPage('page.njk', `dist/${fields.url}/index.html`, fields)
+    ...data.pages.map((page) => (
+      buildPage('page.njk', `dist/${page.fields.url}/index.html`, page.fields)
     )),
   ]);
 }

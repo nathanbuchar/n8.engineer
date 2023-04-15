@@ -44,13 +44,7 @@ hr {
   border: none;
   height: 0;
   border-top: 1px solid var(--subheading);
-  margin: 32px -24px;
-}
-
-@media screen and (max-width: 425px) {
-  hr {
-    margin: 32px -16px;
-  }
+  margin: 32px 0;
 }
 
 ul,

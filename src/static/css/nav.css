@@ -1,14 +1,8 @@
-#nav {
-  margin: 0 -24px;
-  padding: 0 24px 24px;
-  border-bottom: 1px solid var(--subheading);
-}
+@import "./pigeon.css";
 
-@media screen and (max-width: 425px) {
-  #nav {
-    padding: 0 16px 16px;
-    margin: 0 -16px;
-  }
+#nav {
+  margin: 0;
+  padding: 0;
 }
 
 #nav ul {

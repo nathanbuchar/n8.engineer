@@ -2,10 +2,12 @@
   <ul>
     <span>
       <li>
-        <a href="/" class="{{ 'active' if url == '/' }}">
-          nate
+        <a href="/" id="pigeon" title="{{ '〜Coo〜Coo〜' if url == '/' else '⬿ Fly home' }}">
+          <img src="/img/pigeon-1024.gif" />
         </a>
       </li>
+    </span>
+    <span>
       <li>
         <a href="/blog" class="{{ 'active' if blogPost or url == '/blog' }}">
           blog
@@ -16,11 +18,9 @@
           guestbook
         </a>
       </li>
-    </span>
-    <span>
       <li>
         <a href="/rss.xml" title="RSS feed">
-          rss
+          <img id="feed" src="/img/feed.png" />
         </a>
       </li>
     </span>
