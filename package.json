@@ -17,7 +17,7 @@
     "markdown-it-footnote": "^3.0.3",
     "markdown-it-katex": "^2.0.3",
     "markdown-it-table-of-contents": "^0.6.0",
-    "nunjucks": "^3.2.3"
+    "nunjucks": "^3.2.4"
   },
   "devDependencies": {
     "serve-handler": "^6.1.5"
