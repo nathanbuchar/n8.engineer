@@ -8,16 +8,16 @@
     "server": "node scripts/server.js"
   },
   "dependencies": {
-    "contentful": "^9.3.3",
+    "contentful": "^9.3.5",
     "dotenv": "^16.0.3",
-    "fs-extra": "^11.1.0",
+    "fs-extra": "^11.1.1",
     "highlight.js": "^11.7.0",
     "markdown-it": "^13.0.1",
     "markdown-it-anchor": "^8.6.7",
     "markdown-it-footnote": "^3.0.3",
     "markdown-it-katex": "^2.0.3",
     "markdown-it-table-of-contents": "^0.6.0",
-    "nunjucks": "^3.2.3"
+    "nunjucks": "^3.2.4"
   },
   "devDependencies": {
     "serve-handler": "^6.1.5"
