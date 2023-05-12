@@ -31,3 +31,26 @@
   margin-block-start: 32px;
   margin-block-end: 32px;
 }
+
+.page .blog ol {
+  list-style-type: none;
+  padding: 0;
+}
+
+.page .blog li {
+  padding-bottom: 16px;
+  text-align: left;
+}
+
+.page .blog li > *:first-of-type {
+  padding-right: 32px;
+  text-align: left;
+}
+
+.page #feed {
+  margin: 0;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 4px;
+  margin-top: -2px;
+}

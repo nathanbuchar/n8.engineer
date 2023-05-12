@@ -23,5 +23,31 @@
         {% include "parts/comments.njk" %}
       </div>
     {% endif %}
+    {% if showBlogList %}
+      <div class="blog">
+        <hr>
+        <h2>
+          Recent Posts
+          <a href="/rss.xml" title="RSS feed">
+            <img id="feed" src="/img/feed.png" />
+          </a>
+        </h2>
+        <ol>
+          {% for page in pages | selectByField("blogPost") | sort(true, false, "fields.date") | sort(true, false, "fields.pinned") | batch(5) | first %}
+            <li>
+              <time datetime="{{ page.fields.date | dateToUTC }}">
+                {{ page.fields.date }}
+              </time>
+              <br/>
+              <a href="{{ page.fields.url }}">
+                {{ "📌 " if page.fields.pinned }}
+                {{ page.fields.title }}
+              </a>
+            </li>
+          {% endfor %}
+        </ol>
+        <p><a href="/blog">More…</a></p>
+      </div>
+    {% endif %}
   </div>
 {% endblock %}

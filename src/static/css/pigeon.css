@@ -12,7 +12,7 @@
   padding: 12px;
 }
 
-#pigeon:hover {
+/* #pigeon:hover {
   animation-name: hop;
   animation-duration: 0.5s;
   animation-iteration-count: infinite;
@@ -30,4 +30,4 @@
   66% {
     transform: translateY(0);
   }
-}
+} */

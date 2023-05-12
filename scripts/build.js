@@ -56,7 +56,10 @@ async function buildPages() {
 
     // Contentful pages.
     ...data.pages.map((page) => (
-      buildPage('page.njk', `dist/${page.fields.url}/index.html`, page.fields)
+      buildPage('page.njk', `dist/${page.fields.url}/index.html`, {
+        ...data,
+        ...page.fields,
+      })
     )),
   ]);
 }

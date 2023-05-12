@@ -31,7 +31,15 @@
   <body>
     <div id="wrapper">
       <header>
-        {% include "parts/nav.njk" %}
+        <nav id="nav">
+          <ul>
+            <li>
+              <a href="/" id="pigeon" title="Go home">
+                <img src="/img/pigeon-1024.gif" />
+              </a>
+            </li>
+          </ul>
+        </nav>
       </header>
       <main id="main">
         {% block content %}
