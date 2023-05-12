@@ -32,25 +32,25 @@
   margin-block-end: 32px;
 }
 
-.page .blog ol {
+.page .posts ol {
   list-style-type: none;
   padding: 0;
 }
 
-.page .blog li {
+.page .posts li {
   padding-bottom: 16px;
   text-align: left;
 }
 
-.page .blog li > *:first-of-type {
+.page .posts li > *:first-of-type {
   padding-right: 32px;
   text-align: left;
 }
 
-.page #feed {
-  margin: 0;
-  display: inline-block;
-  vertical-align: middle;
-  margin-left: 4px;
-  margin-top: -2px;
+.page .posts .pinned {
+  font-weight: bold;
+}
+
+.page .posts .rss {
+  font-weight: normal;
 }

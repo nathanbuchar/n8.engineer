@@ -1,11 +1,11 @@
 {% extends "layout.njk" %}
 
-{% set url = "/blog" %}
-{% set title = "Blog" %}
+{% set url = "/posts" %}
+{% set title = "Posts" %}
 
 {% block content %}
   <div class="page">
-    <div class="blog">
+    <div class="posts">
       <ol>
         {% for page in pages | selectByField("blogPost") | sort(true, false, "fields.date") | sort(true, false, "fields.pinned") %}
           <li>

@@ -51,7 +51,7 @@ async function buildPages() {
   return Promise.all([
     buildPage('404.njk', 'dist/404.html'),
     buildPage('rss.njk', 'dist/rss.xml', data),
-    buildPage('blog.njk', 'dist/blog/index.html', data),
+    buildPage('posts.njk', 'dist/posts/index.html', data),
     buildPage('guestbook.njk', 'dist/guestbook/index.html'),
 
     // Contentful pages.
