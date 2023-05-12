@@ -14,7 +14,11 @@
             </time>
             <br/>
             <a href="{{ page.fields.url }}">
-              {{ "📌 " if page.fields.pinned }}
+              {% if page.fields.pinned %}
+                <span class="pinned">
+                  [Pinned]
+                </span>
+              {% endif %}
               {{ page.fields.title }}
             </a>
           </li>
