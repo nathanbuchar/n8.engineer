@@ -5,25 +5,7 @@
 
 {% block content %}
   <div class="page">
-    <div class="posts">
-      <ol>
-        {% for page in pages | selectByField("blogPost") | sort(true, false, "fields.date") | sort(true, false, "fields.pinned") %}
-          <li>
-            <time datetime="{{ page.fields.date | dateToUTC }}">
-              {{ page.fields.date }}
-            </time>
-            <br/>
-            <a href="{{ page.fields.url }}">
-              {% if page.fields.pinned %}
-                <span class="pinned">
-                  [Pinned]
-                </span>
-              {% endif %}
-              {{ page.fields.title }}
-            </a>
-          </li>
-        {% endfor %}
-      </ol>
-    </div>
+    {% set posts = pages | selectByField("blogPost") | sort(true, false, "fields.date") | sort(true, false, "fields.pinned") %}
+    {% include "parts/posts.njk" %}
   </div>
 {% endblock %}

@@ -24,31 +24,13 @@
       </div>
     {% endif %}
     {% if showBlogList %}
-      <div class="posts">
-        <hr>
-        <h2>
-          Recent Posts<sup class="rss"><a href="/rss.xml">[rss]</a></sup>
-        </h2>
-        <ol>
-          {% for page in pages | selectByField("blogPost") | sort(true, false, "fields.date") | sort(true, false, "fields.pinned") | batch(5) | first %}
-            <li>
-              <time datetime="{{ page.fields.date | dateToUTC }}">
-                {{ page.fields.date }}
-              </time>
-              <br/>
-              <a href="{{ page.fields.url }}">
-                {% if page.fields.pinned %}
-                  <span class="pinned">
-                    [Pinned]
-                  </span>
-                {% endif %}
-                {{ page.fields.title }}
-              </a>
-            </li>
-          {% endfor %}
-        </ol>
-        <p><a href="/posts">More…</a></p>
-      </div>
+      <hr>
+      <h2>
+        Recent Posts<sup class="rss"><a href="/rss.xml">[rss]</a></sup>
+      </h2>
+      {% set posts = pages | selectByField("blogPost") | sort(true, false, "fields.date") | sort(true, false, "fields.pinned") | batch(5) | first %}
+      {% include "parts/posts.njk" %}
+      <p><a href="/posts">More…</a></p>
     {% endif %}
   </div>
 {% endblock %}

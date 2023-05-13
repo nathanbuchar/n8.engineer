@@ -1,0 +1,20 @@
+<div class="posts">
+  <ol>
+    {% for post in posts %}
+      <li>
+        <time datetime="{{ post.fields.date | dateToUTC }}">
+          {{ post.fields.date }}
+        </time>
+        <br/>
+        <a href="{{ post.fields.url }}">
+          {% if post.fields.pinned %}
+            <span class="pinned">
+              Pinned:
+            </span>
+          {% endif %}
+          {{ post.fields.title }}
+        </a>
+      </li>
+    {% endfor %}
+  </ol>
+</div>

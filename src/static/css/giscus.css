@@ -20,6 +20,9 @@
   color: var(--text);
   background: var(--primary);
   letter-spacing: -0.1px;
+
+  /* Prevent right border from disappearing due to subpixel rounding */
+  width: calc(100% - 1px);
 }
 
 .gsc-main .text-sm {
