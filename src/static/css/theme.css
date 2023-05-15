@@ -33,11 +33,15 @@ strong {
 
 a {
   color: var(--secondary);
-  text-decoration: none;
+  text-decoration: underline;
+  text-decoration-style: solid;
+  text-decoration-style: dotted;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
 }
 
 a:hover {
-  text-decoration: underline
+  color: #903e36;
 }
 
 hr {
