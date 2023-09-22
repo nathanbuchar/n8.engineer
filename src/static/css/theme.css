@@ -1,6 +1,6 @@
 html, body {
-  font-family: "Open Sans";
-  font-size: 13.5px;
+  font-family: "Inconsolata", monospace;
+  font-size: 14px;
   line-height: 24px;
   color: var(--text);
   background: var(--primary);
@@ -47,7 +47,7 @@ a:hover {
 hr {
   border: none;
   height: 0;
-  border-top: 1px solid var(--subheading);
+  border-top: 1.5px dotted var(--subheading);
   margin: 48px 0;
 }
 
@@ -103,8 +103,8 @@ eqn {
 pre {
   margin: 24px 0;
   padding: 12px 16px;
-  border: 1px solid var(--subheading);
   overflow-x: auto;
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 pre code {
@@ -116,8 +116,9 @@ pre code {
 
 code {
   padding: 2px 4px;
-  border: 1px solid var(--subheading);
-  font-size: 12px;
+  background-color: rgba(0, 0, 0, 0.1);
+  font-size: 14px;
+  font-family: "Inconsolata", monospace;
 }
 
 @media screen and (max-width: 425px) {
@@ -140,16 +141,12 @@ code {
   display: block;
 }
 
-.footnote-ref a {
-  text-decoration: none;
-}
-
 .footnote-ref a:hover {
   text-decoration: underline;
 }
 
 .footnote-item a {
-  text-decoration: underline;
+  /* text-decoration: underline; */
   word-break: break-all;
 }
 

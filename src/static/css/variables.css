@@ -1,15 +1,15 @@
 :root {
-  --light-primary: #f0e6e5;
-  --light-secondary: #bf5d54;
-  --light-text: #382525;
+  --light-primary: #c0c0be;
+  --light-secondary: #000000;
+  --light-text: #262611;
   --light-emphasis: #201515;
-  --light-subheading: #c6a9a9;
+  --light-subheading: #a4a4a0;
 
-  --dark-primary: #201515;
+  /* --dark-primary: #201515;
   --dark-secondary: #bf5d54;
   --dark-emphasis: #ceb5b5;
   --dark-text: #bf9d9d;
-  --dark-subheading: #6e4440;
+  --dark-subheading: #6e4440; */
 }
 
 :root {
@@ -19,13 +19,13 @@
   --emphasis: var(--light-emphasis);
   --subheading: var(--light-subheading);
 
-  --inverse-primary: var(--dark-primary);
+  /* --inverse-primary: var(--dark-primary);
   --inverse-emphasis: var(--dark-emphasis);
   --inverse-text: var(--dark-text);
-  --inverse-subheading: var(--dark-subheading);
+  --inverse-subheading: var(--dark-subheading); */
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --primary: var(--dark-primary);
     --secondary: var(--dark-secondary);
@@ -38,4 +38,4 @@
     --inverse-text: var(--light-text);
     --inverse-subheading: var(--light-subheading);
   }
-}
+} */
