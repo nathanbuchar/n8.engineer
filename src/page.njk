@@ -16,6 +16,31 @@
       <img src="{{ hero.fields.file.url }}" />
     {% endif %}
     {{ content | markdown | safe }}
+    {% if blogPost %}
+      <div class="more">
+        <hr>
+        <h2>More Posts</h2>
+        {% if prevPost %}
+          <p>
+            [Prev] <a href="{{ prevPost.fields.url }}">
+              {{ prevPost.fields.title }}
+            </a>
+          </p>
+        {% endif %}
+        {% if nextPost %}
+          <p>
+            [Next] <a href="{{ nextPost.fields.url }}">
+              {{ nextPost.fields.title }}
+            </a>
+          </p>
+        {% endif %}
+          <p>
+            <a href="/posts">
+              More…
+            </a>
+          </p>
+      </div>
+    {% endif %}
     {% if allowComments %}
       <div class="comments">
         <hr>

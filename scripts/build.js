@@ -48,17 +48,36 @@ function buildPage(template, outputPath, data = {}) {
 async function buildPages() {
   const data = await getData();
 
+  const pages = data.pages.filter((page) => !page.fields.blogPost).sort((a, b) => {
+    return new Date(a.fields.date) < new Date(b.fields.date) ? -1 : 1;
+  });
+
+  const blogPosts = data.pages.filter((page) => page.fields.blogPost).sort((a, b) => {
+    return new Date(a.fields.date) < new Date(b.fields.date) ? -1 : 1;
+  });
+
+
   return Promise.all([
     buildPage('404.njk', 'dist/404.html'),
     buildPage('rss.njk', 'dist/rss.xml', data),
     buildPage('posts.njk', 'dist/posts/index.html', data),
     buildPage('guestbook.njk', 'dist/guestbook/index.html'),
 
-    // Contentful pages.
-    ...data.pages.map((page) => (
+    // Standalone pages.
+    ...pages.map((page) => (
       buildPage('page.njk', `dist/${page.fields.url}/index.html`, {
         ...data,
         ...page.fields,
+      })
+    )),
+
+    // Blog posts.
+    ...blogPosts.map((page, i) => (
+      buildPage('page.njk', `dist/${page.fields.url}/index.html`, {
+        ...data,
+        ...page.fields,
+        prevPost: blogPosts[i - 1],
+        nextPost: blogPosts[i + 1],
       })
     )),
   ]);
