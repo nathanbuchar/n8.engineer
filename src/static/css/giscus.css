@@ -15,7 +15,7 @@
   --color-btn-primary-hover-bg: var(--emphasis);
 
   font-family: "Inconsolata", monospace;
-  font-size: 14px !important;
+  font-size: 13.5px !important;
   line-height: 24px;
   color: var(--text);
   background: var(--primary);
@@ -25,7 +25,8 @@
   width: calc(100% - 1px);
 }
 
-.gsc-main .text-sm {
+.gsc-main .text-sm,
+.gsc-comment-edited {
   font-size: 12.5px !important;
 }
 
@@ -53,9 +54,11 @@
 .gsc-comments-count,
 .gsc-reactions-count {
   color: var(--emphasis);
-  font-size: 14px;
   text-align: left;
   margin-top: 32px;
+  font-size: 13.5px;
+  line-height: 24px;
+  letter-spacing: -0.3px;
 }
 
 .gsc-comments-count-separator,
@@ -69,6 +72,8 @@
 
 .gsc-comment {
   font-size: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
 }
 
 .gsc-comment .rounded-md {
@@ -84,6 +89,8 @@
   border-radius: 0;
   border: none;
   font-size: 13.5px;
+  line-height: 24px;
+  letter-spacing: -0.3px;
 }
 
 .gsc-comment-box-textarea {
@@ -113,7 +120,8 @@
 }
 
 /* Log out button */
-.gsc-comment-box-bottom .link-secondary {
+.gsc-comment-box-bottom .link-secondary,
+.gsc-comment-edited {
   color: var(--secondary);
 }
 
@@ -151,7 +159,7 @@
 .gsc-comment,
 .gsc-comment *:not(pre):not(code) {
   border: none;
-  font-size: 14px;
+  font-size: 13.5px;
   line-height: 24px;
 }
 
@@ -168,17 +176,38 @@
   line-height: 20px !important;
 }
 
+.gsc-comment pre {
+  margin: 0;
+  padding: 12px 16px;
+  overflow-x: auto;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.gsc-comment pre code {
+  background-color: transparent;
+  padding: 0;
+  border: none;
+  line-height: 20px;
+}
+
+.gsc-comment code {
+  padding: 2px 4px;
+  background-color: rgba(0, 0, 0, 0.1);
+  font-size: 14px;
+  font-family: "Inconsolata", monospace;
+}
+
 @media screen and (max-width: 425px) {
   .gsc-comment,
   .gsc-comment *:not(pre):not(code) {
-    font-size: 14px;
+    font-size: 13.5px;
   }
 
   .gsc-comment pre,
   .gsc-comment pre > *,
   .gsc-comment code,
   .gsc-comment code > * {
-    font-size: 12.5px !important;
+    font-size: 13.5px !important;
   }
 }
 

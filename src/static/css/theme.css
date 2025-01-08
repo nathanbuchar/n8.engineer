@@ -1,29 +1,29 @@
 html, body {
   font-family: "Inconsolata", monospace;
-  font-size: 14px;
+  font-size: 13.5px;
   line-height: 24px;
+  letter-spacing: -0.3px;
   color: var(--text);
   background: var(--primary);
-  letter-spacing: -0.1px;
   margin: 0;
 }
 
 @media screen and (max-width: 425px) {
   html, body {
-    font-size: 14px;
+    font-size: 15px;
   }
 }
 
 h1, h2, h3, h4, h5, h6 {
   color: var(--emphasis);
-  font-size: 14px;
+  font-size: 13.5px;
   text-align: left;
   margin-top: 32px;
 }
 
 @media screen and (max-width: 425px) {
   h1, h2, h3, h4, h5, h6 {
-    font-size: 15.5px;
+    font-size: 15px;
   }
 }
 
