@@ -50,6 +50,14 @@
   display: none;
 }
 
+.gsc-comments-count,
+.gsc-reactions-count {
+  color: var(--emphasis);
+  font-size: 14px;
+  text-align: left;
+  margin-top: 32px;
+}
+
 .gsc-comments-count-separator,
 .gsc-replies-count {
   display: none;
@@ -87,7 +95,8 @@
 }
 
 .gsc-comment-box-textarea::placeholder {
-  color: var(--subheading);
+  color: var(--secondary);
+  opacity: 0.35;
 }
 
 .gsc-comment-box-textarea-extras {
@@ -210,8 +219,8 @@
   display: none;
 }
 
-.gsc-reactions-menu {
-  display: none;
+.gsc-reactions-popover {
+  background: var(--primary);
 }
 
 .gsc-comment-box-tabs {
