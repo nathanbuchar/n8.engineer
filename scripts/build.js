@@ -48,9 +48,7 @@ function buildPage(template, outputPath, data = {}) {
 async function buildPages() {
   const data = await getData();
 
-  const pages = data.pages.filter((page) => !page.fields.blogPost).sort((a, b) => {
-    return new Date(a.fields.date) < new Date(b.fields.date) ? -1 : 1;
-  });
+  const pages = data.pages.filter((page) => !page.fields.blogPost);
 
   const blogPosts = data.pages.filter((page) => page.fields.blogPost).sort((a, b) => {
     return new Date(a.fields.date) < new Date(b.fields.date) ? -1 : 1;
