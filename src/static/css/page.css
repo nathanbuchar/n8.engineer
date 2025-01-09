@@ -45,6 +45,12 @@
   column-gap: 32px;
 }
 
+@media screen and (max-width: 768px) {
+  .page .posts li {
+    flex-direction: column;
+  }
+}
+
 .page .posts .pinned {
   font-weight: bold;
 }
