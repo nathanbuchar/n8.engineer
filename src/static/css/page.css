@@ -40,11 +40,9 @@
 .page .posts li {
   padding-bottom: 24px;
   text-align: left;
-}
-
-.page .posts li > *:first-of-type {
-  padding-right: 32px;
-  text-align: left;
+  display: flex;
+  flex-direction: row;
+  column-gap: 32px;
 }
 
 .page .posts .pinned {

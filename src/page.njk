@@ -16,31 +16,45 @@
       <img src="{{ hero.fields.file.url }}" />
     {% endif %}
     {{ content | markdown | safe }}
-    {% if blogPost %}
+    {# {% if blogPost %}
       <div class="more">
         <hr>
         <h2>More Posts</h2>
-        {% if prevPost %}
-          <p>
-            [Prev] <a href="{{ prevPost.fields.url }}">
-              {{ prevPost.fields.title }}
-            </a>
-          </p>
-        {% endif %}
-        {% if nextPost %}
-          <p>
-            [Next] <a href="{{ nextPost.fields.url }}">
-              {{ nextPost.fields.title }}
-            </a>
-          </p>
-        {% endif %}
-          <p>
-            <a href="/posts">
-              More…
-            </a>
-          </p>
+        <div class="posts">
+          <ol>
+            {% if nextPost %}
+              <li>
+                <time datetime="{{ nextPost.fields.date | dateToUTC }}">
+                  {{ nextPost.fields.date }}
+                </time>
+                <span>
+                  [next] <a href="{{ nextPost.fields.url }}">
+                    {{ nextPost.fields.title }}
+                  </a>
+                </span>
+              </li>
+            {% endif %}
+            {% if prevPost %}
+              <li>
+                <time datetime="{{ prevPost.fields.date | dateToUTC }}">
+                  {{ prevPost.fields.date }}
+                </time>
+                <span>
+                  [prev] <a href="{{ prevPost.fields.url }}">
+                    {{ prevPost.fields.title }}
+                  </a>
+                </span>
+              </li>
+            {% endif %}
+          </ol>
+        </div>
+        <p>
+          <a href="/posts">
+            More…
+          </a>
+        </p>
       </div>
-    {% endif %}
+    {% endif %} #}
     {% if allowComments %}
       <div class="comments">
         <hr>

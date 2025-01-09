@@ -54,7 +54,6 @@ async function buildPages() {
     return new Date(a.fields.date) < new Date(b.fields.date) ? -1 : 1;
   });
 
-
   return Promise.all([
     buildPage('404.njk', 'dist/404.html'),
     buildPage('rss.njk', 'dist/rss.xml', data),

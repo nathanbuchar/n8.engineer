@@ -16,10 +16,9 @@
 
   font-family: "Inconsolata", monospace;
   font-size: 13.5px !important;
-  line-height: 24px;
+  line-height: 26px;
   color: var(--text);
   background: var(--primary);
-  letter-spacing: -0.1px;
 
   /* Prevent right border from disappearing due to subpixel rounding */
   width: calc(100% - 1px);
@@ -57,8 +56,7 @@
   text-align: left;
   margin-top: 32px;
   font-size: 13.5px;
-  line-height: 24px;
-  letter-spacing: -0.3px;
+  line-height: 26px;
 }
 
 .gsc-comments-count-separator,
@@ -89,8 +87,7 @@
   border-radius: 0;
   border: none;
   font-size: 13.5px;
-  line-height: 24px;
-  letter-spacing: -0.3px;
+  line-height: 26px;
 }
 
 .gsc-comment-box-textarea {
@@ -160,7 +157,7 @@
 .gsc-comment *:not(pre):not(code) {
   border: none;
   font-size: 13.5px;
-  line-height: 24px;
+  line-height: 26px;
 }
 
 .gsc-comment pre {
