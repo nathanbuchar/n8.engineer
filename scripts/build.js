@@ -19,13 +19,15 @@ async function getEntries(contentType) {
 }
 
 async function getData() {
-  const [pages] = await Promise.all([
+  const [pages, alerts] = await Promise.all([
     getEntries('page'),
+    getEntries('alert'),
     // ...
   ]);
 
   return {
     pages,
+    alerts,
   };
 }
 

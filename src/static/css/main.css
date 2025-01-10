@@ -15,14 +15,23 @@
   margin-block: 32px 0;
 }
 
-.top {
-  text-align: center;
+footer {
   margin: 72px 0 0;
+  text-align: center;
 }
 
-@media screen and (max-width: 425px) {
+footer ul {
+  display: flex;
+  align-items: center;
+  column-gap: 12px;
+  list-style-type: none;
+  justify-content: center;
+  padding: 0;
+}
+
+@media screen and (max-width: 768px) {
   #wrapper {
-    padding: 16px 16px;
+    padding: 56px 16px;
   }
 
   #main {

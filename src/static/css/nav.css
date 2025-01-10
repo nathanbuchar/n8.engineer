@@ -14,15 +14,59 @@
   margin: 0;
 }
 
-#nav ul span {
-  display: flex;
-  align-items: center;
-}
-
-#nav ul span li:not(:first-of-type) {
-  padding-left: 16px;
+#nav li {
+  position: relative;
 }
 
 #nav a.active {
   font-weight: bold;
+}
+
+#nav .blurb {
+  position: absolute;
+  left: 17px;
+  top: -24px;
+  background: #FFF;
+  padding: 2px 8px;
+  line-height: 22px;
+  text-wrap: nowrap;
+  animation: float 2s ease-in-out infinite, fadeIn 2s ease-out;
+}
+
+#nav .blurb::before {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 4px;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 5px solid white;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  66% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1
+  }
+}
+
+@keyframes float {
+  0% {
+      transform: translateY(0);
+  }
+
+  50% {
+      transform: translateY(-5px);
+  }
+
+  100% {
+      transform: translateY(0);
+  }
 }

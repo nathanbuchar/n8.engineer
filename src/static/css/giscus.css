@@ -194,7 +194,7 @@
   font-family: "Inconsolata", monospace;
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 768px) {
   .gsc-comment,
   .gsc-comment *:not(pre):not(code) {
     font-size: 13.5px;

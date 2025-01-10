@@ -32,10 +32,17 @@
       <header>
         <nav id="nav">
           <ul>
-            <li>
+            <li class="nav-home">
               <a href="/" id="pigeon" title="Go home">
                 <img src="/img/pigeon-1024.gif" />
               </a>
+              <span class="blurb">
+                {% if alerts %}
+                  {{ alerts[0].fields.content | markdownInline | safe }}
+                {% else %}
+                  <a href="/guestbook">Say hi</a>
+                {% endif %}
+              </span>
             </li>
           </ul>
         </nav>
@@ -45,8 +52,15 @@
           {# Page content goes here. #}
         {% endblock %}
       </main>
-      <div class="top">
-        <a href="#top">[Top]</a>
+      <footer>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/guestbook">Guestbook</a></li>
+          <li><a href="mailto:hello@n8.engineer">Email me</a></li>
+        </ul>
+        <div class="top">
+          <a href="#top">[Top]</a>
+        </div>
       </div>
     </div>
   </body>
