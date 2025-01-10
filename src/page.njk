@@ -68,8 +68,8 @@
         Recent Posts<sup class="rss"><a href="/rss.xml">[rss]</a></sup>
       </h2>
       {% set posts = pages | selectByField("blogPost") | sort(true, false, "fields.date") | sort(true, false, "fields.pinned") | batch(5) | first %}
+      {% set showMore = true %}
       {% include "parts/posts.njk" %}
-      <p><a href="/posts">More…</a></p>
     {% endif %}
   </div>
 {% endblock %}

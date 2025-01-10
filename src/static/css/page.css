@@ -45,6 +45,10 @@
   column-gap: 32px;
 }
 
+.page .posts li * {
+  min-width: 72px;
+}
+
 @media screen and (max-width: 768px) {
   .page .posts li {
     flex-direction: column;

@@ -8,12 +8,18 @@
         <a href="{{ post.fields.url }}">
           {% if post.fields.pinned %}
             <span class="pinned">
-              Pinned:
+              [Pinned]
             </span>
           {% endif %}
           {{ post.fields.title }}
         </a>
       </li>
     {% endfor %}
+    {% if showMore %}
+      <li>
+        <div></div>
+        <a href="/posts">[More…]</a>
+      </li>
+    {% endif %}
   </ol>
 </div>
