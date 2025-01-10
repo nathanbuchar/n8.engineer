@@ -57,10 +57,10 @@ async function buildPages() {
   });
 
   return Promise.all([
-    buildPage('404.njk', 'dist/404.html'),
+    buildPage('404.njk', 'dist/404.html', data),
     buildPage('rss.njk', 'dist/rss.xml', data),
     buildPage('posts.njk', 'dist/posts/index.html', data),
-    buildPage('guestbook.njk', 'dist/guestbook/index.html'),
+    buildPage('guestbook.njk', 'dist/guestbook/index.html', data),
 
     // Standalone pages.
     ...pages.map((page) => (
