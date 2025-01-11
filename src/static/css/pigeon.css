@@ -2,6 +2,20 @@
   display: block;
   width: 56px;
   height: 56px;
+  animation-name: hop-with-delay;
+  animation-duration: calc(0.5s * 7);
+  animation-iteration-count: infinite;
+  animation-delay: 2.5s;
+  animation-timing-function: ease-in-out;
+}
+
+#pigeon:hover {
+  display: block;
+  width: 56px;
+  height: 56px;
+  animation-name: hop;
+  animation-duration: 0.4s;
+  animation-delay: 0s;
 }
 
 #pigeon img {
@@ -12,22 +26,39 @@
   padding: 12px;
 }
 
-/* #pigeon:hover {
-  animation-name: hop;
-  animation-duration: 0.5s;
-  animation-iteration-count: infinite;
-}
-
 @keyframes hop {
   0% {
-    transform: translateY(0) rotateZ(-8deg);
+    transform: translateY(0) rotateZ(-8deg) scaleY(0.9);
     animation-timing-function: cubic-bezier(0.33333, 0.66667, 0.66667, 1);
   }
   33% {
-    transform: translateY(-8px) rotateZ(0deg);
+    transform: translateY(-8px) rotateZ(0deg) scaleX(0.9) scaleY(1.05);
     animation-timing-function: cubic-bezier(0.33333, 0, 0.66667, 0.33333);
   }
   66% {
+    transform: translateY(0) rotateZ(-8deg) scaleX(1.1) scaleY(0.9);
+    animation-timing-function: cubic-bezier(0.33333, 0.66667, 0.66667, 1);
+  }
+}
+
+@keyframes hop-with-delay {
+  0% {
+    transform: translateY(0) rotateZ(-8deg) scaleY(0.9);
+    animation-timing-function: cubic-bezier(0.33333, 0.66667, 0.66667, 1);
+  }
+  4% {
+    transform: translateY(-8px) rotateZ(0deg) scaleX(0.9) scaleY(1.05);
+    animation-timing-function: cubic-bezier(0.33333, 0, 0.66667, 0.33333);
+  }
+  8% {
+    transform: translateY(0) rotateZ(-8deg) scaleX(1.1) scaleY(0.9);
+    animation-timing-function: cubic-bezier(0.33333, 0.66667, 0.66667, 1);
+  }
+  12% {
+    transform: translateY(-8px) rotateZ(0deg) scaleX(0.9) scaleY(1.05);
+    animation-timing-function: cubic-bezier(0.33333, 0, 0.66667, 0.33333);
+  }
+  16% {
     transform: translateY(0);
   }
-} */
+}

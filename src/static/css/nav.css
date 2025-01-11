@@ -22,7 +22,7 @@
   font-weight: bold;
 }
 
-#nav .blurb {
+#nav .bird-blurb {
   position: absolute;
   left: 17px;
   top: -24px;
@@ -33,7 +33,7 @@
   animation: float 2s ease-in-out infinite, fadeIn 2s ease-out;
 }
 
-#nav .blurb::before {
+#nav .bird-blurb::before {
   content: "";
   position: absolute;
   bottom: -5px;
