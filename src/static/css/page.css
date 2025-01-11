@@ -45,8 +45,12 @@
   column-gap: 32px;
 }
 
-.page .posts li * {
+.page .posts li > * {
   min-width: 72px;
+}
+
+.page .posts li a {
+  display: inline-block;
 }
 
 @media screen and (max-width: 768px) {
