@@ -1,7 +1,7 @@
 html, body {
   font-family: "Inconsolata", monospace;
-  font-size: 13.5px;
-  line-height: 24px;
+  font-size: 14px;
+  line-height: 26px;
   color: var(--text);
   background: var(--primary);
   margin: 0;
@@ -15,7 +15,7 @@ html, body {
 
 h1, h2, h3, h4, h5, h6 {
   color: var(--emphasis);
-  font-size: 13.5px;
+  font-size: 14px;
   text-align: left;
   margin-top: 32px;
 }

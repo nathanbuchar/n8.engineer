@@ -15,8 +15,8 @@
   --color-btn-primary-hover-bg: var(--emphasis);
 
   font-family: "Inconsolata", monospace;
-  font-size: 13.5px !important;
-  line-height: 24px;
+  font-size: 14px !important;
+  line-height: 26px;
   color: var(--text);
   background: var(--primary);
 
@@ -55,7 +55,7 @@
   color: var(--emphasis);
   text-align: left;
   margin-top: 32px;
-  font-size: 13.5px;
+  font-size: 14px;
   line-height: 26px;
 }
 
@@ -86,7 +86,7 @@
   margin: 0;
   border-radius: 0;
   border: none;
-  font-size: 13.5px;
+  font-size: 14px;
   line-height: 26px;
 }
 
@@ -129,7 +129,7 @@
 .gsc-comment-box-buttons .btn {
   border-radius: 0 !important;
   border: none;
-  font-size: 13.5px;
+  font-size: 14px;
   padding: 4px 10px;
   text-decoration: underline;
   text-decoration-style: solid;
@@ -156,7 +156,7 @@
 .gsc-comment,
 .gsc-comment *:not(pre):not(code) {
   border: none;
-  font-size: 13.5px;
+  font-size: 14px;
   line-height: 26px;
 }
 
@@ -197,14 +197,14 @@
 @media screen and (max-width: 768px) {
   .gsc-comment,
   .gsc-comment *:not(pre):not(code) {
-    font-size: 13.5px;
+    font-size: 14px;
   }
 
   .gsc-comment pre,
   .gsc-comment pre > *,
   .gsc-comment code,
   .gsc-comment code > * {
-    font-size: 13.5px !important;
+    font-size: 14px !important;
   }
 }
 
