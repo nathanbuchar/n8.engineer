@@ -31,7 +31,12 @@ const config = {
     {
       template: 'debug.njk',
       dest: 'dist/debug/index.html',
-      include: '*',
+      include: '*'
+    },
+    {
+      template: 'rss.njk',
+      dest: 'dist/rss.xml',
+      include: ['pages']
     },
     {
       template: 'guestbook.njk',
@@ -62,7 +67,7 @@ const config = {
               dest: path.join('dist', `${page.fields.url}.md`),
               include: '*',
               extraContext: {
-                ...page.fields,
+                ...page.fields
               }
             }
           ] : [])
