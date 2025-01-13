@@ -12,6 +12,7 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  column-gap: 32px;
 }
 
 .page header h1 {
@@ -19,8 +20,20 @@
 }
 
 .page header h1 {
-  padding-right: 32px;
-  text-align: left;
+  display: inline-block;
+}
+
+.page .md {
+/*  font-size: smaller;*/
+}
+
+.page .md svg {
+  display: inline-block;
+  width: 18px;
+  height: auto;
+  vertical-align: middle;
+  margin-top: -1px;
+  color: inherit;
 }
 
 .page header time {
@@ -63,6 +76,7 @@
   font-weight: bold;
 }
 
-.page .rss {
+.page .rss,
+.page .md {
   font-weight: normal;
 }

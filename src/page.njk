@@ -4,7 +4,11 @@
   <div class="page">
     {% if title %}
       <header>
-        <h1>{{ title }}</h1>
+        <div class="title">
+          <h1>
+            {{ title }}{% if blogPost -%}<sup class="md"><a title="Markdown version" href="{{ url }}.md">[.md]</a></sup>{%- endif %}
+          </h1>
+        </div>
         {% if date %}
           <time datetime="{{ date }}">
             {{ date }}
@@ -16,45 +20,6 @@
       <img src="{{ hero.fields.file.url }}" />
     {% endif %}
     {{ content | markdown | safe }}
-    {# {% if blogPost %}
-      <div class="more">
-        <hr>
-        <h2>More Posts</h2>
-        <div class="posts">
-          <ol>
-            {% if nextPost %}
-              <li>
-                <time datetime="{{ nextPost.fields.date | dateToUTC }}">
-                  {{ nextPost.fields.date }}
-                </time>
-                <span>
-                  [next] <a href="{{ nextPost.fields.url }}">
-                    {{ nextPost.fields.title }}
-                  </a>
-                </span>
-              </li>
-            {% endif %}
-            {% if prevPost %}
-              <li>
-                <time datetime="{{ prevPost.fields.date | dateToUTC }}">
-                  {{ prevPost.fields.date }}
-                </time>
-                <span>
-                  [prev] <a href="{{ prevPost.fields.url }}">
-                    {{ prevPost.fields.title }}
-                  </a>
-                </span>
-              </li>
-            {% endif %}
-          </ol>
-        </div>
-        <p>
-          <a href="/posts">
-            More…
-          </a>
-        </p>
-      </div>
-    {% endif %} #}
     {% if allowComments %}
       <div class="comments">
         <hr>
@@ -65,7 +30,7 @@
     {% if showBlogList %}
       <hr>
       <h2>
-        Recent Posts<sup class="rss"><a href="/rss.xml">[rss]</a></sup>
+        Recent Posts<sup class="rss"><a title="RSS" href="/rss.xml">[rss]</a></sup>
       </h2>
       {% set posts = pages | selectByField("blogPost") | sort(true, false, "fields.date") | sort(true, false, "fields.pinned") | batch(5) | first %}
       {% set showMore = true %}

@@ -1,16 +1,16 @@
-import handler from 'serve-handler';
-import http from 'http';
+import express from 'express';
 
-const server = http.createServer((req, res) => {
+const app = express();
 
-  // Allows CORS requests from Giscus.
+app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', 'https://giscus.app');
-
-  return handler(req, res, {
-    public: 'dist',
-  });
+  next();
 });
 
-server.listen(3000, () => {
+app.use(express.static('dist', {
+  dotfiles: 'allow',
+}));
+
+app.listen(3000, () => {
   console.log('Listening on port 3000...');
 });
