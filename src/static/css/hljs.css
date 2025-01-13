@@ -2,3 +2,7 @@
 	color: #37763b;
 	background-color: rgba(65, 141, 70, 0.25);
 }
+
+.hljs-deletion {
+	background-color: rgba(179, 29, 40, 0.25);
+}
