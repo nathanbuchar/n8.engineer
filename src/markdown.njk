@@ -1,13 +1,15 @@
 {% filter unescape -%}
 # {{ title }}
 
+{% if date -%}
 {{ date }}
+
+{% endif -%}
 
 {% if hero -%}
 ![]({{ hero.fields.file.url }})
 
+{% endif -%}
+
 {{ content }}
-{%- else -%}
-{{ content }}
-{%- endif %}
 {%- endfilter %}	
