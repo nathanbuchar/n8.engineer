@@ -16,7 +16,7 @@
 
   font-family: "Inconsolata", monospace;
   font-size: 14px !important;
-  line-height: 26px;
+  line-height: 24px;
   color: var(--text);
   background: var(--primary);
 
@@ -56,7 +56,7 @@
   text-align: left;
   margin-top: 32px;
   font-size: 14px;
-  line-height: 26px;
+  line-height: 24px;
 }
 
 .gsc-comments-count-separator,
@@ -87,7 +87,7 @@
   border-radius: 0;
   border: none;
   font-size: 14px;
-  line-height: 26px;
+  line-height: 24px;
 }
 
 .gsc-comment-box-textarea {
@@ -157,7 +157,7 @@
 .gsc-comment *:not(pre):not(code) {
   border: none;
   font-size: 14px;
-  line-height: 26px;
+  line-height: 24px;
 }
 
 .gsc-comment pre {
