@@ -1,13 +1,9 @@
 {% filter decodeHTMLEntities -%}
 # {{ title }}
 
-{% if date -%}
-	{{ date }}
-{%- endif %}
-
-{% if hero -%}
-	![image]({{ hero.fields.file.url }})
-{%- endif %}
-
+{% if date %}{{ date }}
+{% endif %}{% if hero %}
+![]({{ hero.fields.file.url }})
+{% endif %}
 {{ content }}
-{%- endfilter %}
+{%- endfilter %}	
