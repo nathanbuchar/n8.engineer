@@ -53,7 +53,7 @@ const config = {
         return [
           {
             template: 'page.njk',
-            dest: path.join('dist', page.fields.url, 'index.html'),
+            dest: path.normalize(`dist/${page.fields.url}/index.html`),
             include: '*',
             extraContext: {
               ...page.fields
@@ -64,7 +64,7 @@ const config = {
           ...(page.fields.blogPost ? [
             {
               template: 'markdown.njk',
-              dest: path.join('dist', `${page.fields.url}.md`),
+              dest: path.normalize(`dist/${page.fields.url}.md`),
               include: '*',
               extraContext: {
                 ...page.fields
