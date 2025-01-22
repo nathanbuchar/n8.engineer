@@ -1,4 +1,8 @@
-#pigeon {
+.pigeon-button {
+  position: relative;
+}
+
+.pigeon-button .pigeon {
   display: block;
   width: 56px;
   height: 56px;
@@ -9,7 +13,8 @@
   animation-timing-function: ease-in-out;
 }
 
-#pigeon:hover {
+.pigeon-button .pigeon:hover,
+.pigeon-button .pigeon:active {
   display: block;
   width: 56px;
   height: 56px;
@@ -18,9 +23,8 @@
   animation-delay: 0s;
 }
 
-#pigeon img {
-  margin: 0;
-  margin-left: -12px;
+.pigeon-button .pigeon img {
+  margin: -12px;
 
   /* Nice big 'ol hit box */
   padding: 12px;
@@ -60,5 +64,56 @@
   }
   16% {
     transform: translateY(0);
+  }
+}
+
+.pigeon-button .bird-blurb {
+  position: absolute;
+  left: 16px;
+  top: -24px;
+  background: #FFF;
+  padding: 2px 8px;
+  line-height: 22px;
+  text-wrap: nowrap;
+  animation: float 2s ease-in-out infinite, fadeIn 2s ease-out;
+  font-size: smaller;
+  font-style: italic;
+}
+
+.pigeon-button .bird-blurb::before {
+  content: "";
+  position: absolute;
+  left: 4px;
+  bottom: -5px;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 6px solid white;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  66% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1
+  }
+}
+
+@keyframes float {
+  0% {
+      transform: translateY(0);
+  }
+
+  50% {
+      transform: translateY(-5px);
+  }
+
+  100% {
+      transform: translateY(0);
   }
 }

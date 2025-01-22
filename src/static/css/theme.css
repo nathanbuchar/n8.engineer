@@ -53,7 +53,7 @@ table {
 table th,
 table td {
   padding: 4px 6px;
-  border: 1px solid var(--subheading);
+  border: 1px dotted var(--subheading);
 }
 
 blockquote {

@@ -29,36 +29,48 @@
   </head>
   <body id="top">
     <div id="wrapper">
-      <header>
-        <nav id="nav">
-          <ul>
-            <li class="nav-home">
-              <a href="/" id="pigeon" title="Go home">
-                <img src="/img/pigeon-1024.gif" />
-              </a>
-              <span class="bird-blurb">
-                {% if blurbs %}
-                  {{ blurbs[0].fields.content | markdownInline | safe }}
-                {% else %}
-                  <a href="/guestbook">Say hi</a>
-                {% endif %}
-              </span>
-            </li>
-          </ul>
-        </nav>
-      </header>
       <main id="main">
+        <div class="pigeon-button">
+          <a href="/" class="pigeon" title="Go home">
+            <img src="/img/pigeon-1024.gif" />
+          </a>
+          <span class="bird-blurb">
+            {% if blurbs %}
+              {{ blurbs[0].fields.content | markdownInline | safe }}
+            {% else %}
+              <a href="/guestbook">Say hi</a>
+            {% endif %}
+          </span>
+        </div>
         {% block content %}
           {# Page content goes here. #}
         {% endblock %}
       </main>
       <footer>
-        <ul>
-          <li><a href="/">[home]</a></li>
-          <li><a href="/posts">[posts]</a></li>
-          <li><a href="/guestbook">[guestbook]</a></li>
-          <li><a href="mailto:hello@n8.engineer">[email]</a></li>
-        </ul>
+        <nav class="nav">
+          <ol class="nav__list">
+            <li>
+              <a href="/" class="{{ 'active' if url == '/' }}">
+                [home]
+              </a>
+            </li>
+            <li>
+              <a href="/posts" class="{{ 'active' if url == '/posts' or blogPost }}">
+                [posts]
+              </a>
+            </li>
+            <li>
+              <a href="/guestbook" class="{{ 'active' if url == '/guestbook' }}">
+                [guestbook]
+              </a>
+            </li>
+            <li>
+              <a href="/email" class="{{ 'active' if url == '/email' }}">
+                [email]
+              </a>
+            </li>
+          </ol>
+        </nav>
         <div class="top">
           <a href="#top">[top]</a>
         </div>

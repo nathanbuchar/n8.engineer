@@ -3,233 +3,216 @@ import path from 'path';
 
 /**
  * @typedef {Object} Config
- * @prop {Client} client
  * @prop {Engine} engine
- * @prop {Source[]} [sources]
+ * @prop {Plugin[]} [plugins]
  * @prop {(Target | TargetFn)[]} [targets]
  */
 
 /**
- * @typedef {Object} Source
- * @prop {string} name
- * @prop {string} contentType
+ * @typedef {Object} Engine
+ * @prop {RenderFn} render
+ */
+
+/**
+ * @function RenderFn
+ * @param {string} template
+ * @param {Context} ctx
+ * @returns Promise<string>
+ */
+
+/**
+ * @typedef {Object.<string, any>} Context
+ */
+
+/**
+ * @function Plugin
+ * @param {Config} config
+ * @param {Context} ctx
+ * @returns {Promise<void>}
  */
 
 /**
  * @typedef {Object} Target
+ * @prop {string} template
  * @prop {string} dest
- * @prop {string} [src]
- * @prop {string} [template]
- * @prop {Source['name'] | Source['name'][] | '*'} [include]
  * @prop {Object} [extraContext]
  */
 
 /**
  * @function TargetFn
- * @param {Data} data
+ * @param {Context} ctx
  * @returns {(Target | TargetFn)[]}
  */
 
-/**
- * Removes the dist directory.
- *
- * @async
- * @returns {Promise<void>}
- */
-async function clean() {
-  await new Promise((resolve, reject) => {
-    fs.rm('dist', { recursive: true }, (err) => {
-      if (err && err.code !== 'ENOENT') {
-        reject(err);
-      } else {
-        resolve();
-      }
-    });
-  });
-}
+class Builder {
 
-/**
- * Copies files from src to dest recursively.
- *
- * @async
- * @param {Target.src} src
- * @param {Target.dest} dest
- * @returns {Promise<void>}
- */
-async function copyFiles(src, dest) {
-  await new Promise((resolve, reject) => {
-    fs.cp(src, dest, { recursive: true }, (err) => {
-      if (err && err.code !== 'ENOENT') {
-        reject(err);
-      } else {
-        console.log(`Copied "${src}" to "${dest}"`);
-        resolve();
-      }
-    });
-  });
-}
+  /** @type {Context} */
+  static #ctx = {};
 
-/**
- * Writes a file.
- *
- * @async
- * @param {string} pathToFile
- * @param {string} data
- * @returns {Promise<void>}
- */
-async function writeFile(pathToFile, data) {
-  await new Promise((resolve, reject) => {
-    const dirname = path.dirname(pathToFile);
+  /** @type {Config} */
+  static #config = {};
 
-    fs.mkdir(dirname, { recursive: true }, (err) => {
-      if (err) {
-        reject(err);
-      } else {
-        fs.writeFile(pathToFile, data, (err) => {
-          if (err) {
-            reject(err);
-          } else {
-            console.log(`Wrote file "${pathToFile}"`);
-            resolve();
-          }
-        });
-      }
-    });
-  });
-}
+  /**
+   * Writes a file.
+   *
+   * @async
+   * @param {string} filePath
+   * @param {string} data
+   * @returns {Promise<void>}
+   */
+  static async writeFile(filePath, data) {
+    await new Promise((resolve, reject) => {
+      const normalizedFilePath = path.normalize(filePath);
+      const dirname = path.dirname(normalizedFilePath);
 
-/**
- * Gets data from the CMS client.
- * 
- * @async
- * @param {Config} config
- * @returns {Promise<Data>} data
- */
-async function getData(config) {
-  const data = await config.client.getData(config.sources);
-
-  return data;
-}
-
-/**
- * Renders a target.
- *
- * @async
- * @param {Config} config
- * @param {Target} target
- * @param {Object} ctx
- * @returns {Promise<void>}
- */
-async function renderTarget(config, target, ctx) {
-  const template = path.normalize(target.template);
-  const dest = path.normalize(target.dest);
-  
-  const res = await config.engine.render(template, ctx);
-
-  await writeFile(dest, res);
-}
-
-/**
- * Builds a target.
- *
- * @async
- * @param {Config} config
- * @param {Data} data
- * @param {Target} target
- * @returns {Promise<void>}
- */
-async function buildTarget(config, data, target) {
-  if (target.src) {
-    await copyFiles(target.src, target.dest);
-  } else {
-    const ctx = {};
-
-    // Apply included data.
-    if (target.include) {
-      if (typeof target.include === 'string') {
-        if (target.include === '*') {
-          // Handle wildcard case.
-          Object.assign(ctx, data);
-        } else if (data.hasOwnProperty(target.include)) {
-          ctx[key] = data[key]
+      fs.mkdir(dirname, { recursive: true }, (err) => {
+        if (err) {
+          reject(err);
+        } else {
+          fs.writeFile(normalizedFilePath, data, (err) => {
+            if (err) {
+              reject(err);
+            } else {
+              console.log(`Wrote file "${normalizedFilePath}"`);
+              resolve();
+            }
+          });
         }
-      } else if (Array.isArray(target.include)) {
-        target.include.forEach((key) => {
-          ctx[key] = data[key];
-        });
+      });
+    });
+  }
+
+  /**
+   * Renders a target.
+   *
+   * @async
+   * @param {Target} target
+   * @param {Context} ownCtx
+   * @returns {Promise<void>}
+   */
+  static async renderTarget(target, ownCtx) {
+    const config = Builder.#config;
+    
+    const normalizedTemplatePath = path.normalize(target.template);
+    const res = await config.engine.render(normalizedTemplatePath, ownCtx);
+
+    await Builder.writeFile(target.dest, res);
+  }
+
+  /**
+   * Builds a target.
+   *
+   * @async
+   * @param {Target | TargetFn} target
+   * @returns {Promise<void>}
+   */
+  static async buildTarget(target) {
+    const ctx = Builder.#ctx;
+    const ownCtx = {};
+
+    // Derive target if target is a function.
+    if (typeof target === 'function') {
+      target = await target(ctx);
+
+      if (Array.isArray(target)) {
+        await Builder.buildTargets(target);
+        return;
+      }
+    }
+
+    // Apply included context.
+    if (target.include) {
+      if (target.include === '*') {
+        // Handle wildcard case.
+        Object.assign(ownCtx, ctx);
+      } else {
+        for (const key of target.include) {
+          if (ctx.hasOwnProperty(key)) {
+            ownCtx[key] = ctx[key];
+          }
+        }
       }
     }
 
     // Apply extra context.
     if (target.extraContext) {
-      Object.assign(ctx, target.extraContext);
+      Object.assign(ownCtx, target.extraContext);
     }
 
-    await renderTarget(config, target, ctx);
+    await Builder.renderTarget(target, ownCtx);
   }
-}
 
-/**
- * Builds all targets recursively.
- *
- * @async
- * @param {Config} config
- * @param {Data} data
- * @param {(Target | TargetFn)[]} targets
- * @returns {Promise<void>}
- */
-async function buildTargets(config, data, targets) {
-  for (const target of targets) {
-    if (typeof target === 'function') {
-      const newTarget = await target(data);
-      const newTargetArr = Array.isArray(newTarget) ? newTarget : [newTarget];
+  /**
+   * Builds all targets recursively.
+   *
+   * @async
+   * @param {(Target | TargetFn)[]} targets
+   * @returns {Promise<void>}
+   */
+  static async buildTargets(targets) {
+    const config = Builder.#config;
 
-      await buildTargets(config, data, newTargetArr);
-    } else if (Array.isArray(target)) {
-      await buildTargets(config, data, target);
-    } else {
-      await buildTarget(config, data, target);
+    for (const target of targets ?? config.targets) {
+      if (Array.isArray(target)) {
+        await Builder.buildTargets(target);
+      } else {
+        await Builder.buildTarget(target);
+      }
     }
   }
-}
 
-/**
- * Reads the config file from the directory in which npm
- * was invoked.
- * 
- * @async
- * @returns {Promise<Config>}
- */
-async function getConfig() {
-  const npmDir = process.cwd();
-  const pathToConfig = path.resolve(npmDir, 'config.js');
+  /**
+   * Runs all plugins synchronously.
+   * 
+   * @returns {Promise<void>}
+   */
+  static async runPlugins() {
+    const ctx = Builder.#ctx;
+    const config = Builder.#config;
 
-  try {
-    const mod = await import(pathToConfig);
+    for (const plugin of config.plugins) {
+      await plugin(config, ctx);
+    }
 
-    return {
-      sources: [],
-      targets: [],
-      ...mod.default
-    };
-  } catch (err) {
-    throw new Error('Config file is missing');
+    // Beyond this point, context may not be changed.
+    Object.freeze(ctx);
+  }
+
+  /**
+   * Reads the config file from the directory in which npm
+   * was invoked.
+   * 
+   * @async
+   * @returns {Promise<void>}
+   */
+  static async getConfig() {
+    const npmDir = process.cwd();
+    const pathToConfig = path.resolve(npmDir, 'config.js');
+
+    try {
+      const mod = await import(pathToConfig);
+
+      Builder.#config = Object.freeze({
+        plugins: [],
+        targets: [],
+        ...mod.default,
+      });
+    } catch (err) {
+      throw new Error(`Config file could not be loaded: ${err}`);
+    }
+  }
+
+  /**
+   * Builds the static site.
+   *
+   * @async
+   * @returns {Promise<void>}
+   */
+  static async init() {
+    await Builder.getConfig();
+    await Builder.runPlugins();
+    await Builder.buildTargets();
   }
 }
 
-/**
- * Builds the static site.
- *
- * @async
- * @returns {Promise<void>}
- */
-async function build() {
-  await clean();
-
-  const config = await getConfig();
-  const data = await getData(config);
-
-  await buildTargets(config, data, config.targets);
-}
-
-build();
+Builder.init();
