@@ -5,7 +5,11 @@
 
 {% block content %}
   <div class="page">
+    <h2>
+      Posts<sup class="rss"><a title="RSS" href="/rss.xml">[rss]</a></sup>
+    </h2>
     {% set posts = pages | selectByField("blogPost") | sort(true, false, "fields.date") | sort(true, false, "fields.pinned") %}
+    {% set showHeader = true %}
     {% include "parts/posts.njk" %}
   </div>
 {% endblock %}
