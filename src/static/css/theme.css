@@ -54,6 +54,8 @@ table th,
 table td {
   padding: 4px 6px;
   border: 1px dotted var(--subheading);
+  text-align: initial;
+  hyphens: none;
 }
 
 blockquote {
