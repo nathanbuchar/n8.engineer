@@ -25,7 +25,7 @@ const config = {
       ],
     }),
     copy({
-      from: 'src/static',
+      from: 'public',
       to: 'dist',
     }),
   ],
