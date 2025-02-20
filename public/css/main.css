@@ -21,6 +21,10 @@ footer {
   font-size: smaller;
 }
 
+.tombstone {
+  margin-top: 48px;
+}
+
 @media screen and (max-width: 768px) {
   #wrapper {
     padding: 48px 16px 16px;

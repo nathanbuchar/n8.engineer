@@ -38,7 +38,7 @@
             {% if blurbs.length > 0 %}
               {{ blurbs[0].fields.content | markdownInline | safe }}
             {% else %}
-              <a href="/guestbook">Say hi</a>
+              <a href="/guestbook">Say hi</a>⁓
             {% endif %}
           </span>
         </div>
@@ -73,6 +73,9 @@
         </nav>
         <div class="top">
           <a href="#top">[top]</a>
+        </div>
+        <div class="tombstone">
+          ⁓
         </div>
       </div>
     </div>
