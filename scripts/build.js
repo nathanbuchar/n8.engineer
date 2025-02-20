@@ -53,50 +53,75 @@ class Builder {
   static #config = {};
 
   /**
-   * Writes a file.
+   * Builds the static site.
    *
    * @async
-   * @param {string} filePath
-   * @param {string} data
    * @returns {Promise<void>}
    */
-  static async writeFile(filePath, data) {
-    await new Promise((resolve, reject) => {
-      const normalizedFilePath = path.normalize(filePath);
-      const dirname = path.dirname(normalizedFilePath);
-
-      fs.mkdir(dirname, { recursive: true }, (err) => {
-        if (err) {
-          reject(err);
-        } else {
-          fs.writeFile(normalizedFilePath, data, (err) => {
-            if (err) {
-              reject(err);
-            } else {
-              console.log(`Wrote file "${normalizedFilePath}"`);
-              resolve();
-            }
-          });
-        }
-      });
-    });
+  static async init() {
+    await Builder.getConfig();
+    await Builder.runPlugins();
+    await Builder.buildTargets();
   }
 
   /**
-   * Renders a target.
-   *
+   * Reads the config file from the directory in which npm
+   * was invoked.
+   * 
    * @async
-   * @param {Target} target
-   * @param {Context} ownCtx
    * @returns {Promise<void>}
    */
-  static async renderTarget(target, ownCtx) {
-    const config = Builder.#config;
-    
-    const normalizedTemplatePath = path.normalize(target.template);
-    const res = await config.engine.render(normalizedTemplatePath, ownCtx);
+  static async getConfig() {
+    const npmDir = process.cwd();
+    const pathToConfig = path.resolve(npmDir, 'config.js');
 
-    await Builder.writeFile(target.dest, res);
+    try {
+      const mod = await import(pathToConfig);
+
+      Builder.#config = Object.freeze({
+        plugins: [],
+        targets: [],
+        ...mod.default,
+      });
+    } catch (err) {
+      throw new Error(`Config file could not be loaded: ${err}`);
+    }
+  }
+
+  /**
+   * Runs all plugins synchronously.
+   * 
+   * @returns {Promise<void>}
+   */
+  static async runPlugins() {
+    const ctx = Builder.#ctx;
+    const config = Builder.#config;
+
+    for (const plugin of config.plugins) {
+      await plugin(config, ctx);
+    }
+
+    // Beyond this point, context may not be changed.
+    Object.freeze(ctx);
+  }
+
+  /**
+   * Builds all targets recursively.
+   *
+   * @async
+   * @param {(Target | TargetFn)[]} [targets]
+   * @returns {Promise<void>}
+   */
+  static async buildTargets(targets) {
+    const config = Builder.#config;
+
+    for (const target of targets ?? config.targets) {
+      if (Array.isArray(target)) {
+        await Builder.buildTargets(target);
+      } else {
+        await Builder.buildTarget(target);
+      }
+    }
   }
 
   /**
@@ -143,75 +168,50 @@ class Builder {
   }
 
   /**
-   * Builds all targets recursively.
+   * Renders a target.
    *
    * @async
-   * @param {(Target | TargetFn)[]} targets
+   * @param {Target} target
+   * @param {Context} ownCtx
    * @returns {Promise<void>}
    */
-  static async buildTargets(targets) {
+  static async renderTarget(target, ownCtx) {
     const config = Builder.#config;
+    
+    const normalizedTemplatePath = path.normalize(target.template);
+    const res = await config.engine.render(normalizedTemplatePath, ownCtx);
 
-    for (const target of targets ?? config.targets) {
-      if (Array.isArray(target)) {
-        await Builder.buildTargets(target);
-      } else {
-        await Builder.buildTarget(target);
-      }
-    }
+    await Builder.writeFile(target.dest, res);
   }
 
   /**
-   * Runs all plugins synchronously.
-   * 
-   * @returns {Promise<void>}
-   */
-  static async runPlugins() {
-    const ctx = Builder.#ctx;
-    const config = Builder.#config;
-
-    for (const plugin of config.plugins) {
-      await plugin(config, ctx);
-    }
-
-    // Beyond this point, context may not be changed.
-    Object.freeze(ctx);
-  }
-
-  /**
-   * Reads the config file from the directory in which npm
-   * was invoked.
-   * 
+   * Writes a file.
+   *
    * @async
+   * @param {string} filePath
+   * @param {string} data
    * @returns {Promise<void>}
    */
-  static async getConfig() {
-    const npmDir = process.cwd();
-    const pathToConfig = path.resolve(npmDir, 'config.js');
+  static async writeFile(filePath, data) {
+    await new Promise((resolve, reject) => {
+      const normalizedFilePath = path.normalize(filePath);
+      const dirname = path.dirname(normalizedFilePath);
 
-    try {
-      const mod = await import(pathToConfig);
-
-      Builder.#config = Object.freeze({
-        plugins: [],
-        targets: [],
-        ...mod.default,
+      fs.mkdir(dirname, { recursive: true }, (err) => {
+        if (err) {
+          reject(err);
+        } else {
+          fs.writeFile(normalizedFilePath, data, (err) => {
+            if (err) {
+              reject(err);
+            } else {
+              console.log(`Wrote file "${normalizedFilePath}"`);
+              resolve();
+            }
+          });
+        }
       });
-    } catch (err) {
-      throw new Error(`Config file could not be loaded: ${err}`);
-    }
-  }
-
-  /**
-   * Builds the static site.
-   *
-   * @async
-   * @returns {Promise<void>}
-   */
-  static async init() {
-    await Builder.getConfig();
-    await Builder.runPlugins();
-    await Builder.buildTargets();
+    });
   }
 }
 
