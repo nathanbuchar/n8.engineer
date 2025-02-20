@@ -18,9 +18,3 @@
 .nav a.active {
   font-weight: bold;
 }
-
-@media screen and (max-width: 768px) {
-  .nav {
-    margin-bottom: 12vh;
-  }
-}

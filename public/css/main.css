@@ -27,7 +27,7 @@ footer {
 
 @media screen and (max-width: 768px) {
   #wrapper {
-    padding: 48px 16px 16px;
+    padding: 48px 16px 32px;
   }
 
   #main {
