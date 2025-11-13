@@ -75,7 +75,7 @@
   padding: 2px 8px;
   line-height: 22px;
   text-wrap: nowrap;
-  animation: float 2s ease-in-out infinite, fadeIn 2s ease-out;
+  animation: float 2s ease-in-out infinite, fadeIn 1s ease-out;
   font-size: smaller;
   font-style: italic;
 }
