@@ -51,8 +51,8 @@ const config = {
       include: ['blurbs'],
     },
     {
-      template: 'posts.njk',
-      dest: 'dist/posts/index.html',
+      template: 'journal.njk',
+      dest: 'dist/journal/index.html',
       include: ['pages', 'blurbs'],
     },
     (data) => {
