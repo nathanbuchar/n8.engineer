@@ -8,6 +8,7 @@
   hyphens: auto;
   padding: 10vh 32px 32px;
   margin: 0 auto;
+  text-wrap: pretty;
 }
 
 #main {
