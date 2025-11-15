@@ -1,7 +1,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
   <title>n8.engineer</title>
-  <description>Nate's personal blog.</description>
+  <description>Nate's journal.</description>
   <link>https://n8.engineer/rss.xml</link>
   <atom:link href="https://n8.engineer/rss.xml" rel="self" type="application/rss+xml" />
   {% for page in pages | selectByField('blogPost') | sort(true, false, 'fields.date') %}
