@@ -137,3 +137,14 @@ code {
 .footnote-backref {
   text-decoration: none !important;
 }
+
+@media (max-width: 768px) {
+  html, body {
+    font-size: 15px;
+    line-height: 25px;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-size: 15px;
+  }
+}
