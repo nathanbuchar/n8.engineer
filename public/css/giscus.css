@@ -195,16 +195,21 @@
 }
 
 @media screen and (max-width: 768px) {
+  .gsc-main {
+    font-size: 15px !important;
+    line-height: 25px;
+  }
+    
   .gsc-comment,
   .gsc-comment *:not(pre):not(code) {
-    font-size: 14px;
+    font-size: 15px;
   }
 
   .gsc-comment pre,
   .gsc-comment pre > *,
   .gsc-comment code,
   .gsc-comment code > * {
-    font-size: 14px !important;
+    font-size: 15px !important;
   }
 }
 
