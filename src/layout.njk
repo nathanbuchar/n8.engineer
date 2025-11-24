@@ -46,10 +46,15 @@
           {# Page content goes here. #}
         {% endblock %}
       </main>
-      <footer>
-        <div class="top">
+      <footer class="footer">
+        {% if url !== '/' %}
+          <span class="back">
+            <a href="/back">[← back]</a>
+          </span>
+        {% endif %}
+        <span>
           <a href="#top">[top]</a>
-        </div>
+        </span>
       </div>
     </div>
   </body>
