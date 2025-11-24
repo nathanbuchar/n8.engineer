@@ -46,16 +46,16 @@
           {# Page content goes here. #}
         {% endblock %}
       </main>
-      <footer class="footer">
-        {% if url !== '/' %}
+      {% if url !== '/' %}
+        <footer class="footer">
           <span>
             <a href="javascript:window.history.back()">[← back]</a>
           </span>
-        {% endif %}
-        <span>
-          <a href="#top">[top]</a>
-        </span>
-      </div>
+          <span>
+            <a href="#top">[top]</a>
+          </span>
+        </footer>
+      {% endif %}
     </div>
   </body>
 </html>
