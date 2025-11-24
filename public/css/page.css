@@ -55,7 +55,7 @@
   text-align: left;
   display: flex;
   flex-direction: row;
-  column-gap: 24px;
+  column-gap: 16px;
 }
 
 .page .posts li > * {
