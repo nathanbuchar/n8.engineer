@@ -10,7 +10,9 @@
 
 .page header {
   display: flex;
-  flex-direction: column-reverse;
+  justify-content: space-between;
+  align-items: flex-start;
+  column-gap: 32px;
 }
 
 .page header h1 {
