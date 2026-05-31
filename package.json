@@ -8,10 +8,14 @@
   },
   "scripts": {
     "build": "node scripts/build.js",
-    "server": "node scripts/server.js"
+    "server": "node scripts/serve.js"
+  },
+  "imports": {
+    "#*.js": "./*.js"
   },
   "dependencies": {
     "contentful": "^9.3.5",
+    "debug": "^4.4.3",
     "dotenv": "^16.0.3",
     "fs-extra": "^11.1.1",
     "highlight.js": "^11.7.0",
@@ -20,6 +24,7 @@
     "markdown-it-anchor": "^8.6.7",
     "markdown-it-footnote": "^3.0.3",
     "markdown-it-katex": "^2.0.3",
+    "markdown-it-sup": "^2.0.0",
     "markdown-it-table-of-contents": "^0.6.0",
     "nunjucks": "^3.2.4"
   },

@@ -1,5 +1,11 @@
 {% extends "layout.njk" %}
 
+{% block extraHead %}
+  {% if markdownUrl %}
+    <link rel="alternate" type="text/markdown" href="{{ markdownUrl }}" title="{{ title }}" />
+  {% endif %}
+{% endblock %}
+
 {% block content %}
   <div class="page">
     {% if title %}
